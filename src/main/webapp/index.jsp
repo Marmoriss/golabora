@@ -16,6 +16,7 @@
 	<!-- gyuwan start -->
 	<!-- gyuwan end -->
 	<!-- geonwoo start -->
+		<a href="<%=request.getContextPath()%>/aavicii">aavicii</a>
 	<!-- geonwoo end -->
 </body>
 </html>
