@@ -12,6 +12,7 @@
 		<a href="<%=request.getContextPath()%>/sooappeal">sooappeal</a>
 	<!-- sua end -->
 	<!-- eunmi start -->
+		<a href="<%=request.getContextPath()%>/EunmiSeo">EunmiSeo</a>
 	<!-- eunmi end -->
 	<!-- gyuwan start -->
 			<a href="<%=request.getContextPath()%>/chaa">chaa</a>
@@ -19,8 +20,7 @@
 	<!-- geonwoo start -->
 		<a href="<%=request.getContextPath()%>/aavicii">aavicii</a>
 	<!-- geonwoo end -->
-	<!-- eunmiseo start -->
-		<a href="<%=request.getContextPath()%>/EunmiSeo">EunmiSEo</a>
+	
 	
 </body>
 </html>
