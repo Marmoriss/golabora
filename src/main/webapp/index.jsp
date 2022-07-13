@@ -16,6 +16,7 @@
 	<!-- eunmi end -->
 	<!-- gyuwan start -->
 			<a href="<%=request.getContextPath()%>/chaa">chaa</a>
+			<a href="<%=request.getContextPath()%>/chaa2">chaa2</a>	
 	<!-- gyuwan end -->
 	<!-- geonwoo start -->
 		<a href="<%=request.getContextPath()%>/aavicii">aavicii</a>
