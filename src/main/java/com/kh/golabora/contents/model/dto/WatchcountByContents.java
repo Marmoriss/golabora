@@ -1,8 +1,10 @@
 package com.kh.golabora.contents.model.dto;
 
+import java.sql.Date;
+
 public class WatchcountByContents {
 	private String no;
-	private String viewDate;
+	private Date viewDate;
 	private String contentNo;
 	private int watchCount;
 	
@@ -11,7 +13,7 @@ public class WatchcountByContents {
 		// TODO Auto-generated constructor stub
 	}
 
-	public WatchcountByContents(String no, String viewDate, String contentNo, int watchCount) {
+	public WatchcountByContents(String no, Date viewDate, String contentNo, int watchCount) {
 		super();
 		this.no = no;
 		this.viewDate = viewDate;
@@ -27,11 +29,11 @@ public class WatchcountByContents {
 		this.no = no;
 	}
 
-	public String getViewDate() {
+	public Date getViewDate() {
 		return viewDate;
 	}
 
-	public void setViewDate(String viewDate) {
+	public void setViewDate(Date viewDate) {
 		this.viewDate = viewDate;
 	}
 

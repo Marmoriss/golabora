@@ -1,5 +1,6 @@
 package com.kh.golabora.review.model.dto;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Review {
@@ -8,7 +9,7 @@ public class Review {
 	private String contentNo;
 	private String reviewContent;
 	private String star;
-	private Timestamp regDate;
+	private Date regDate;
 	
 	public Review() {
 		super();
@@ -16,7 +17,7 @@ public class Review {
 	}
 
 	public Review(String reviewNo, String memberId, String contentNo, String reviewContent, String star,
-			Timestamp regDate) {
+			Date regDate) {
 		super();
 		this.reviewNo = reviewNo;
 		this.memberId = memberId;
@@ -66,11 +67,11 @@ public class Review {
 		this.star = star;
 	}
 
-	public Timestamp getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(Timestamp regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 
