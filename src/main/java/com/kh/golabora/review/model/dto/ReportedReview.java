@@ -1,12 +1,12 @@
 package com.kh.golabora.review.model.dto;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class ReportedReview {
 	private String reportedReviewNo;
 	private String reviewNo;
 	private String reporterId;
-	private Timestamp reportedDate;
+	private Date reportedDate;
 	private String reason;
 	
 	public ReportedReview() {
@@ -14,7 +14,7 @@ public class ReportedReview {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReportedReview(String reportedReviewNo, String reviewNo, String reporterId, Timestamp reportedDate,
+	public ReportedReview(String reportedReviewNo, String reviewNo, String reporterId, Date reportedDate,
 			String reason) {
 		super();
 		this.reportedReviewNo = reportedReviewNo;
@@ -48,11 +48,11 @@ public class ReportedReview {
 		this.reporterId = reporterId;
 	}
 
-	public Timestamp getReportedDate() {
+	public Date getReportedDate() {
 		return reportedDate;
 	}
 
-	public void setReportedDate(Timestamp reportedDate) {
+	public void setReportedDate(Date reportedDate) {
 		this.reportedDate = reportedDate;
 	}
 

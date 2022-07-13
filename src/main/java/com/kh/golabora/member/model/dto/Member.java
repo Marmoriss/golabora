@@ -1,5 +1,6 @@
 package com.kh.golabora.member.model.dto;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Member {
@@ -10,7 +11,7 @@ public class Member {
 	private Gender gender;
 	private String phone;
 	private MemberRole memberRole;
-	private Timestamp enrollDate;
+	private Date enrollDate;
 	
 	public Member() {
 		super();
@@ -18,7 +19,7 @@ public class Member {
 	}
 
 	public Member(String memberId, String genreCode, String password, String memberName, Gender gender, String phone,
-			MemberRole memberRole, Timestamp enrollDate) {
+			MemberRole memberRole, Date enrollDate) {
 		super();
 		this.memberId = memberId;
 		this.genreCode = genreCode;
@@ -86,11 +87,11 @@ public class Member {
 		this.memberRole = memberRole;
 	}
 
-	public Timestamp getEnrollDate() {
+	public Date getEnrollDate() {
 		return enrollDate;
 	}
 
-	public void setEnrollDate(Timestamp enrollDate) {
+	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
 
