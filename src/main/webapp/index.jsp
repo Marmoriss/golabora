@@ -19,5 +19,8 @@
 	<!-- geonwoo start -->
 		<a href="<%=request.getContextPath()%>/aavicii">aavicii</a>
 	<!-- geonwoo end -->
+	<!-- eunmiseo start -->
+		<a href="<%=request.getContextPath()%>/EunmiSeo">EunmiSEo</a>
+	
 </body>
 </html>
