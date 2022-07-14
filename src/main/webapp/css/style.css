@@ -1,0 +1,208 @@
+@CHARSET "UTF-8";
+div{padding:50px;}
+
+/********** 전체 **********/
+div#container	{background-color:#000000; width:1024px; margin:0 auto; padding:50px 0 0 0;}
+
+/********** header **********/
+header{height:130px; position:relative; padding:10px 0 0 0;}
+header h1{margin-left:40px; color: #ffffff; font-size: 50px;}
+
+/********** searchbar **********/
+i {
+	color: #ffffff;
+	}
+input{
+	width: 600px;
+	height: 30px;
+	border-radius: 4px;
+}
+div.searchbar{
+	position: relative;
+	top: -130px;
+	left: 300px;
+}
+
+/********** main-ranking **********/
+div#main-ranking{
+	position: relative;
+	display: block-inline; 
+	width: 600px; 
+	margin: 0;
+	top: -150px;
+}
+div#main-ranking h3 {color: #ffffff;}
+nav#ranking-nav{padding-bottom: 50px;}
+nav#ranking-nav img{width: 50px;}
+nav#ranking-nav li:last-child img{position: relative; width:33px; top: 8px;}
+nav#ranking-nav ul{color: #ffffff; list-style: none; display: block-inline;}
+nav#ranking-nav li {float: left; margin-right: 20px;}
+div#main-ranking-list{padding: 0;}
+div#main-ranking-list ul{color: #ffffff; list-style: none; padding: 0;}
+div#main-ranking-list li {
+	background-color:#6302aa; 
+	padding: 10px; 
+	margin: 20px; 
+	display: block-inline;
+	width: 500px;
+	border-radius: 4px;
+	}
+
+/**********	main-login **********/
+div#main-login{
+	width: 330px;
+	height: 280px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	left: 63%;
+	top:-460px;
+	}
+div#main-login header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#b080f9; height: 20px; padding:20px; text-align: center;}
+div#main-login button{
+	position: relative;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#cda0fe; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	left: 38px;
+	top: 50px;
+	padding: 15px;
+	}
+div#main-login p {
+	position: relative;
+	top: 80px;
+	left: 30px;
+	color: #959595;
+	font-weight: bold;
+}
+div#main-login span{
+	position: relative;
+	top: 80px;
+	left: 170px;
+}
+div#main-login span a{
+	text-decoration-line: none;
+	color: #cda0fe;
+	font-weight: bold;
+}
+
+/********** main-recommend **********/
+div#main-recommend{
+	position: relative;
+	top: -400px;
+}
+div#main-recommend h3{
+	color: #ffffff;
+	padding-bottom: 30px;
+}
+
+div#main-recommend ul{
+	display: flex;
+}
+div#main-recommend li{
+	padding: 0;
+	width: 200px;
+	height: 230px;
+	float: left; 
+	margin-right: 20px;
+	border-radius: 4px;
+}
+.main-recommend-img{
+	padding: 0;	
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	margin-right: 50%;
+	border-radius: 50%;
+}
+.main-recommend-img img{
+	width: 100%;
+  	height: auto;
+}
+.main-recommend-title{
+	padding: 30px;
+	text-align: center;
+}
+.main-recommend-title span{
+	color: #ffffff;
+}
+
+/********** main-playlist **********/
+div#main-playlist{
+	position: relative;
+	top: -400px;
+}
+div#main-playlist h3{color: #ffffff; padding-bottom:30px;}
+div#main-playlist ul{
+	display: flex;
+}
+div#main-playlist li {
+	padding: 0;
+	width: 200px;
+	height: 230px;
+	background-color: #ffffff; 
+	float: left; 
+	margin-right: 20px;
+	border-radius: 4px;
+	}
+.main-playlist-img{
+	padding: 0;	
+	width: 200px;
+	height: 150px;
+	overflow: hidden;
+	margin-right: 50%;
+}
+.main-playlist-img img{
+	width: 100%;
+  	height: auto;
+}
+.main-playlist-name{
+	padding: 30px;
+	text-align: center;
+}
+
+/********** main-playlist list **********/
+#main-playlist-list{
+
+	position: relative;
+	top: -400px;
+	left: 200px;
+	background-color: #616161;
+	width: 600px;
+	padding: 30px;
+	
+}
+#main-playlist-list ul{
+	color: #ffffff;
+	list-style: none; 
+	padding: 0;
+	}
+#main-playlist-list li{
+	background-color:#6302aa; 
+	padding: 10px; 
+	margin: 20px; 
+	display: block-inline;
+	width: 500px;
+	border-radius: 4px; 
+}
+
+/********** footer **********/
+footer{
+	color: #b080f9; 
+	text-align: center;
+	background-color: #400080;
+	clear:both;
+	width: 1024px;
+	padding: 20px 0;
+}
+
+
+
+
+	
+	
+	
