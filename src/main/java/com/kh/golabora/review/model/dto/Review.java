@@ -8,7 +8,7 @@ public class Review {
 	private String memberId;
 	private String contentNo;
 	private String reviewContent;
-	private String star;
+	private int star;
 	private Date regDate;
 	
 	public Review() {
@@ -16,7 +16,7 @@ public class Review {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Review(String reviewNo, String memberId, String contentNo, String reviewContent, String star,
+	public Review(String reviewNo, String memberId, String contentNo, String reviewContent, int star,
 			Date regDate) {
 		super();
 		this.reviewNo = reviewNo;
@@ -59,11 +59,11 @@ public class Review {
 		this.reviewContent = reviewContent;
 	}
 
-	public String getStar() {
+	public int getStar() {
 		return star;
 	}
 
-	public void setStar(String star) {
+	public void setStar(int star) {
 		this.star = star;
 	}
 
