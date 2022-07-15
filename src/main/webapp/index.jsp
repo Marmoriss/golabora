@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 		<div class="searchbar">
-			<i class="fa-solid fa-magnifying-glass"></i>
+            <a href="<%= request.getContextPath() %>/search/searchContents">
+                <i class="fa-solid fa-magnifying-glass"></i>
+			</a>
 			<input type="text" placeholder="  작품명, 배우, 감독, 장르를 검색해보세요"/>
 		</div>
 		<!-- ranking -->
