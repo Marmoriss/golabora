@@ -5,7 +5,7 @@ import java.sql.Date;
 public class WatchcountByContents {
 	private String no;
 	private Date viewDate;
-	private String contentNo;
+	private String contentsNo;
 	private int watchCount;
 	
 	public WatchcountByContents() {
@@ -13,11 +13,11 @@ public class WatchcountByContents {
 		// TODO Auto-generated constructor stub
 	}
 
-	public WatchcountByContents(String no, Date viewDate, String contentNo, int watchCount) {
+	public WatchcountByContents(String no, Date viewDate, String contentsNo, int watchCount) {
 		super();
 		this.no = no;
 		this.viewDate = viewDate;
-		this.contentNo = contentNo;
+		this.contentsNo = contentsNo;
 		this.watchCount = watchCount;
 	}
 
@@ -37,12 +37,12 @@ public class WatchcountByContents {
 		this.viewDate = viewDate;
 	}
 
-	public String getContentNo() {
-		return contentNo;
+	public String getContentsNo() {
+		return contentsNo;
 	}
 
-	public void setContentNo(String contentNo) {
-		this.contentNo = contentNo;
+	public void setContentsNo(String contentsNo) {
+		this.contentsNo = contentsNo;
 	}
 
 	public int getWatchCount() {
@@ -55,7 +55,7 @@ public class WatchcountByContents {
 
 	@Override
 	public String toString() {
-		return "WatchcountByContents [no=" + no + ", viewDate=" + viewDate + ", contentNo=" + contentNo
+		return "WatchcountByContents [no=" + no + ", viewDate=" + viewDate + ", contentsNo=" + contentsNo
 				+ ", watchCount=" + watchCount + "]";
 	}
 	

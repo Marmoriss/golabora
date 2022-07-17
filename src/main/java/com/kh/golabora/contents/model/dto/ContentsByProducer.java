@@ -2,7 +2,7 @@ package com.kh.golabora.contents.model.dto;
 
 public class ContentsByProducer {
 
-	private String contentNo;
+	private String contentsNo;
 	private String producerNo;
 	
 	public ContentsByProducer() {
@@ -10,18 +10,18 @@ public class ContentsByProducer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ContentsByProducer(String contentNo, String producerNo) {
+	public ContentsByProducer(String contentsNo, String producerNo) {
 		super();
-		this.contentNo = contentNo;
+		this.contentsNo = contentsNo;
 		this.producerNo = producerNo;
 	}
 
-	public String getContentNo() {
-		return contentNo;
+	public String getContentsNo() {
+		return contentsNo;
 	}
 
-	public void setContentNo(String contentNo) {
-		this.contentNo = contentNo;
+	public void setContentsNo(String contentsNo) {
+		this.contentsNo = contentsNo;
 	}
 
 	public String getProducerNo() {
@@ -34,7 +34,7 @@ public class ContentsByProducer {
 
 	@Override
 	public String toString() {
-		return "ContentsByProducer [contentNo=" + contentNo + ", producerNo=" + producerNo + "]";
+		return "ContentsByProducer [contentsNo=" + contentsNo + ", producerNo=" + producerNo + "]";
 	}
 	
 	

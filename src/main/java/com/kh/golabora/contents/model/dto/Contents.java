@@ -2,14 +2,14 @@ package com.kh.golabora.contents.model.dto;
 
 public class Contents {
 	
-	private String contentNo;
+	private String contentsNo;
 	private String genreCode;
 	private int watchableAge;
-	private String contentTitle;
+	private String contentsTitle;
 	private String releaseDate;
 	private String runningTime;
 	private int watchCount;
-	private String contentPlot;
+	private String contentsPlot;
 	private String originalFilename;
 	private String renamedFilename;
 	
@@ -18,27 +18,27 @@ public class Contents {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Contents(String contentNo, String genreCode, int watchableAge, String contentTitle, String releaseDate,
-			String runningTime, int watchCount, String contentPlot, String originalFilename, String renamedFilename) {
+	public Contents(String contentsNo, String genreCode, int watchableAge, String contentsTitle, String releaseDate,
+			String runningTime, int watchCount, String contentsPlot, String originalFilename, String renamedFilename) {
 		super();
-		this.contentNo = contentNo;
+		this.contentsNo = contentsNo;
 		this.genreCode = genreCode;
 		this.watchableAge = watchableAge;
-		this.contentTitle = contentTitle;
+		this.contentsTitle = contentsTitle;
 		this.releaseDate = releaseDate;
 		this.runningTime = runningTime;
 		this.watchCount = watchCount;
-		this.contentPlot = contentPlot;
+		this.contentsPlot = contentsPlot;
 		this.originalFilename = originalFilename;
 		this.renamedFilename = renamedFilename;
 	}
 
-	public String getContentNo() {
-		return contentNo;
+	public String getContentsNo() {
+		return contentsNo;
 	}
 
-	public void setContentNo(String contentNo) {
-		this.contentNo = contentNo;
+	public void setContentsNo(String contentsNo) {
+		this.contentsNo = contentsNo;
 	}
 
 	public String getGenreCode() {
@@ -57,12 +57,12 @@ public class Contents {
 		this.watchableAge = watchableAge;
 	}
 
-	public String getContentTitle() {
-		return contentTitle;
+	public String getContentsTitle() {
+		return contentsTitle;
 	}
 
-	public void setContentTitle(String contentTitle) {
-		this.contentTitle = contentTitle;
+	public void setContentsTitle(String contentsTitle) {
+		this.contentsTitle = contentsTitle;
 	}
 
 	public String getReleaseDate() {
@@ -89,12 +89,12 @@ public class Contents {
 		this.watchCount = watchCount;
 	}
 
-	public String getContentPlot() {
-		return contentPlot;
+	public String getContentsPlot() {
+		return contentsPlot;
 	}
 
-	public void setContentPlot(String contentPlot) {
-		this.contentPlot = contentPlot;
+	public void setContentsPlot(String contentsPlot) {
+		this.contentsPlot = contentsPlot;
 	}
 
 	public String getOriginalFilename() {
@@ -115,9 +115,9 @@ public class Contents {
 
 	@Override
 	public String toString() {
-		return "Contents [contentNo=" + contentNo + ", genreCode=" + genreCode + ", watchableAge=" + watchableAge
-				+ ", contentTitle=" + contentTitle + ", releaseDate=" + releaseDate + ", runningTime=" + runningTime
-				+ ", watchCount=" + watchCount + ", contentPlot=" + contentPlot + ", originalFilename="
+		return "Contents [contentsNo=" + contentsNo + ", genreCode=" + genreCode + ", watchableAge=" + watchableAge
+				+ ", contentsTitle=" + contentsTitle + ", releaseDate=" + releaseDate + ", runningTime=" + runningTime
+				+ ", watchCount=" + watchCount + ", contentsPlot=" + contentsPlot + ", originalFilename="
 				+ originalFilename + ", renamedFilename=" + renamedFilename + "]";
 	}
 	

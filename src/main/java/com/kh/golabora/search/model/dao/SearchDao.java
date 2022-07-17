@@ -1,6 +1,6 @@
 package com.kh.golabora.search.model.dao;
 
-import static com.kh.golabora.common.JdbcTemplate.*;
+import static com.kh.golabora.common.JdbcTemplate.close;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,9 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import com.kh.golabora.contents.model.dto.Contents;
+import com.kh.golabora.contents.model.dto.ContentsWithActor;
+import com.kh.golabora.contents.model.dto.Gender;
 import com.kh.golabora.search.model.exception.SearchException;
 
 public class SearchDao {
@@ -110,4 +113,54 @@ public class SearchDao {
 
 		return list;
 	}
+
+	public List<Contents> findContentsbyContentsTitle(Connection conn, Map<String, Object> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<Contents> list = new ArrayList<>();
+		String sql = prop.getProperty("findContentsbyContentsTitle");
+		String val = (String) param.get("searchKeyword");
+		
+		try {
+			rset = pstmt.executeQuery();
+			pstmt.setString(0, val);
+			
+			while (rset.next()) {
+				Contents contents = handleContentsResultSet(rset);
+				list.add(contents);
+			}
+		} catch (SQLException e) {
+			throw new SearchException("콘텐츠명으로 조회 오류!", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return list;
+	}
+
+	public List<ContentsWithActor> findContentsbyActorName(Connection conn, Map<String, Object> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<ContentsWithActor> list = new ArrayList<>();
+		String sql = prop.getProperty("findContentsbyActorName");
+		String val = (String) param.get("searchKeyword");
+		
+		try {
+			rset = pstmt.executeQuery();
+			pstmt.setString(0, val);
+			
+			while (rset.next()) {
+				
+			}
+		} catch (SQLException e) {
+			throw new SearchException("콘텐츠명으로 조회 오류!", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return list;
+	}
+
 }

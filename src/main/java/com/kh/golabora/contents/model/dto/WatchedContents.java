@@ -2,7 +2,7 @@ package com.kh.golabora.contents.model.dto;
 
 public class WatchedContents {
 
-	private String contentNo;
+	private String contentsNo;
 	private String memberId;
 	
 	public WatchedContents() {
@@ -10,18 +10,18 @@ public class WatchedContents {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public WatchedContents(String contentNo, String memberId) {
+	public WatchedContents(String contentsNo, String memberId) {
 		super();
-		this.contentNo = contentNo;
+		this.contentsNo = contentsNo;
 		this.memberId = memberId;
 	}
 	
-	public String getContentNo() {
-		return contentNo;
+	public String getContentsNo() {
+		return contentsNo;
 	}
 	
-	public void setContentNo(String contentNo) {
-		this.contentNo = contentNo;
+	public void setContentsNo(String contentsNo) {
+		this.contentsNo = contentsNo;
 	}
 	public String getMemberId() {
 		return memberId;
@@ -32,7 +32,7 @@ public class WatchedContents {
 	
 	@Override
 	public String toString() {
-		return "WatchedContents [contentNo=" + contentNo + ", memberId=" + memberId + "]";
+		return "WatchedContents [contentsNo=" + contentsNo + ", memberId=" + memberId + "]";
 	}
 	
 	

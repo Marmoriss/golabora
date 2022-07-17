@@ -8,14 +8,55 @@
 List<Contents> list = (List<Contents>) request.getAttribute("list");
 
 %>
+<script>
+window.addEventListener('load', (e) => {
+	document.querySelector('select#searchType').onchange = (e) => {
+		document.querySelectorAll('.search-type').forEach((div, index) => {
+			div.style.display = "none";
+		});
+		let id;
+		switch(e.target.value){
+		case "contents_title" : id = "contentsTitle"; break;
+		case "actor_name" : id = "actorName"; break;
+		case "producer_name" : id = "producerName"; break;
+		}
+		document.querySelector(`#search-\${id}`).style.display = 'inline-block';
+	}
+});
+</script>
 <div class="title">
     <h2>작품 검색</h2>
 </div>
 <div class="searchbar">
-    <form name="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchContents" method="GET">
-	    <i class="fa-solid fa-magnifying-glass"></i>
-	    <input type="text" placeholder="  작품명, 배우, 감독을 검색해보세요"/>
-    </form>
+	    <select id="searchType">
+	       <option value="contents_title">작품명</option>
+	       <option value="actor_name">배우명</option>
+	       <option value="producer_name">감독명</option>
+	    </select>
+	    <div id="search-contentsTitle" class="search-type">
+		    <form id="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchNames" method="GET">
+			    <input type="hidden" name="searchType" value="contents_title"/>
+			    <input type="text" name="searchKeyword" 
+                    placeholder="작품명을 검색해보세요" value=""/>
+			    <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+		    </form>
+	    </div>
+        <div id="search-actor_name" class="search-type">
+            <form id="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchNames" method="GET">
+                <input type="hidden" name="searchType" value="actor_name"/>
+                <input type="text" name="searchKeyword" 
+                    placeholder="배우명을 검색해보세요" value=""/>
+                <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+            </form>
+        </div>
+        <div id="search-producer_name" class="search-type">
+            <form id="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchNames" method="GET">
+                <input type="hidden" name="searchType" value="producer_name"/>
+                <input type="text" name="searchKeyword" 
+                    placeholder="감독명을 검색해보세요" value=""/>
+                <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+            </form>
+        </div>
 </div>
 <div id="search-filter">
     <div id="search-toggle">
@@ -62,14 +103,14 @@ List<Contents> list = (List<Contents>) request.getAttribute("list");
 	    for(Contents contents : list) {
 	%>
 	        <div class="movie-item-grid" >
-	            <a href="<%= request.getContextPath() %>/contents/<%= contents.getContentNo() %>"
-	                title="<%= contents.getContentTitle() %>" style="display: block;">
+	            <a href="<%= request.getContextPath() %>/contents/<%= contents.getContentsNo() %>"
+	                title="<%= contents.getContentsTitle() %>" style="display: block;">
 	                <div class="poster">
-	                    <img src="" alt="<%= contents.getContentTitle() %>" />
+	                    <img src="" alt="<%= contents.getContentsTitle() %>" />
 	                </div>
 	            </a>
 	            <div class="info">
-	                <div class="title"><%= contents.getContentTitle() %></div>
+	                <div class="title"><%= contents.getContentsTitle() %></div>
 	                <div class="rating">
 	                    <div class"light-wrap">평점</div>
 	                    <button class="button-action-wish">💜</button>
@@ -91,9 +132,10 @@ document.querySelector('#btn_toggle').addEventListener('click', () => {
 	}
 });
 
-const searchNamesFrm = () => {
-    const searchNamesFrm = document.querySelector('#searchNamesFrm');
+document.querySelector('#searchIcon').addEventListener('click', () => {
+	const searchNamesFrm = document.querySelector('#searchNamesFrm');
     searchNamesFrm.submit();
-};
+})
+
 </script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
