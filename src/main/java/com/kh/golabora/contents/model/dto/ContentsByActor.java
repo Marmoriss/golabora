@@ -2,7 +2,7 @@ package com.kh.golabora.contents.model.dto;
 
 public class ContentsByActor {
 
-	private String contentNo;
+	private String contentsNo;
 	private String actorNo;
 	
 	public ContentsByActor() {
@@ -10,18 +10,18 @@ public class ContentsByActor {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ContentsByActor(String contentNo, String actorNo) {
+	public ContentsByActor(String contentsNo, String actorNo) {
 		super();
-		this.contentNo = contentNo;
+		this.contentsNo = contentsNo;
 		this.actorNo = actorNo;
 	}
 
-	public String getContentNo() {
-		return contentNo;
+	public String getContentsNo() {
+		return contentsNo;
 	}
 
-	public void setContentNo(String contentNo) {
-		this.contentNo = contentNo;
+	public void setContentsNo(String contentsNo) {
+		this.contentsNo = contentsNo;
 	}
 
 	public String getActorNo() {
@@ -34,7 +34,7 @@ public class ContentsByActor {
 
 	@Override
 	public String toString() {
-		return "ContentsByActor [contentNo=" + contentNo + ", actorNo=" + actorNo + "]";
+		return "ContentsByActor [contentsNo=" + contentsNo + ", actorNo=" + actorNo + "]";
 	}
 	
 	

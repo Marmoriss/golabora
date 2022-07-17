@@ -36,8 +36,6 @@ public class ContentsByOtt {
 	public String toString() {
 		return "ContentsByOtt [ottCode=" + ottCode + ", contentNo=" + contentNo + "]";
 	}
-	
-	
-	
+
 	
 }

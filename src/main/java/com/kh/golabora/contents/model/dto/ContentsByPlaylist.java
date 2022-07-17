@@ -3,9 +3,9 @@ package com.kh.golabora.contents.model.dto;
 public class ContentsByPlaylist {
 
 	private String playlistNo;
-	private String contentNo;
-	private String contentTitle;
-	private String contentImg;
+	private String contentsNo;
+	private String contentsTitle;
+	private String contentsImg;
 	private String runningTime;
 	private int watchableAge;
 	
@@ -13,71 +13,58 @@ public class ContentsByPlaylist {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public ContentsByPlaylist(String playlistNo, String contentNo, String contentTitle, String contentImg,
+	public ContentsByPlaylist(String playlistNo, String contentsNo, String contentsTitle, String contentsImg,
 			String runningTime, int watchableAge) {
 		super();
 		this.playlistNo = playlistNo;
-		this.contentNo = contentNo;
-		this.contentTitle = contentTitle;
-		this.contentImg = contentImg;
+		this.contentsNo = contentsNo;
+		this.contentsTitle = contentsTitle;
+		this.contentsImg = contentsImg;
 		this.runningTime = runningTime;
 		this.watchableAge = watchableAge;
 	}
-
 	public String getPlaylistNo() {
 		return playlistNo;
 	}
-
 	public void setPlaylistNo(String playlistNo) {
 		this.playlistNo = playlistNo;
 	}
-
-	public String getContentNo() {
-		return contentNo;
+	public String getContentsNo() {
+		return contentsNo;
 	}
-
-	public void setContentNo(String contentNo) {
-		this.contentNo = contentNo;
+	public void setContentsNo(String contentsNo) {
+		this.contentsNo = contentsNo;
 	}
-
-	public String getContentTitle() {
-		return contentTitle;
+	public String getContentsTitle() {
+		return contentsTitle;
 	}
-
-	public void setContentTitle(String contentTitle) {
-		this.contentTitle = contentTitle;
+	public void setContentsTitle(String contentsTitle) {
+		this.contentsTitle = contentsTitle;
 	}
-
-	public String getContentImg() {
-		return contentImg;
+	public String getContentsImg() {
+		return contentsImg;
 	}
-
-	public void setContentImg(String contentImg) {
-		this.contentImg = contentImg;
+	public void setContentsImg(String contentsImg) {
+		this.contentsImg = contentsImg;
 	}
-
 	public String getRunningTime() {
 		return runningTime;
 	}
-
 	public void setRunningTime(String runningTime) {
 		this.runningTime = runningTime;
 	}
-
 	public int getWatchableAge() {
 		return watchableAge;
 	}
-
 	public void setWatchableAge(int watchableAge) {
 		this.watchableAge = watchableAge;
 	}
-
 	@Override
 	public String toString() {
-		return "contentsByPlaylist [playlistNo=" + playlistNo + ", contentNo=" + contentNo + ", contentTitle="
-				+ contentTitle + ", contentImg=" + contentImg + ", runningTime=" + runningTime + ", watchableAge="
+		return "ContentsByPlaylist [playlistNo=" + playlistNo + ", contentsNo=" + contentsNo + ", contentsTitle="
+				+ contentsTitle + ", contentsImg=" + contentsImg + ", runningTime=" + runningTime + ", watchableAge="
 				+ watchableAge + "]";
 	}
+	
 	
 }
