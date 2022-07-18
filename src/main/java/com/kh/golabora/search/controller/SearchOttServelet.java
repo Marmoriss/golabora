@@ -16,7 +16,7 @@ import com.kh.golabora.search.model.service.SearchService;
  * Servlet implementation class searchOttServelet
  */
 @WebServlet("/search/searchOtt")
-public class searchOttServelet extends HttpServlet {
+public class SearchOttServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	SearchService searchService = new SearchService();
 

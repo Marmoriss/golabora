@@ -34,15 +34,17 @@ window.addEventListener('load', (e) => {
 	       <option value="producer_name">감독명</option>
 	    </select>
 	    <div id="search-contentsTitle" class="search-type">
-		    <form id="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchNames" method="GET">
+	    <!-- 주희 수정 /search/searchNames -> /search/searchContentsTitle -->
+		    <form id="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchContentsTitle" method="GET">
 			    <input type="hidden" name="searchType" value="contents_title"/>
 			    <input type="text" name="searchKeyword" 
                     placeholder="작품명을 검색해보세요" value=""/>
 			    <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
-		    </form>
+		    </form>f
 	    </div>
         <div id="search-actor_name" class="search-type">
-            <form id="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchNames" method="GET">
+        <!-- 주희 수정 /search/searchNames -> /search/searchActorName -->
+            <form id="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchActorName" method="GET">
                 <input type="hidden" name="searchType" value="actor_name"/>
                 <input type="text" name="searchKeyword" 
                     placeholder="배우명을 검색해보세요" value=""/>
@@ -50,7 +52,8 @@ window.addEventListener('load', (e) => {
             </form>
         </div>
         <div id="search-producer_name" class="search-type">
-            <form id="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchNames" method="GET">
+        <!-- 주희 수정 /search/searchNames -> /search/searchProducerName -->
+            <form id="searchNamesFrm" action="<%= request.getContextPath() %>/search/searchProducerName" method="GET">
                 <input type="hidden" name="searchType" value="producer_name"/>
                 <input type="text" name="searchKeyword" 
                     placeholder="감독명을 검색해보세요" value=""/>
