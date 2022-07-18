@@ -65,6 +65,7 @@ window.addEventListener('load', (e) => {
     </div>
     <div id="search-toggle-down">
 	    <div id="search-OttNo">
+	    	<h3>OTT</h3>
 	        <form action="<%= request.getContextPath()%>/search/searchOtt" method="GET">
 	            <input type="hidden" name="ottNo" value="O1"/>        
 	            <button type="submit">넷플릭스</button>
@@ -78,16 +79,43 @@ window.addEventListener('load', (e) => {
 	            <button type="submit">왓챠</button>
 	        </form>
 	    </div>
+	    
 	    <div id="search-GenreNo">
 	        <form action="<%= request.getContextPath()%>/search/searchGenre" method="GET">
-	            <div><input type="checkbox" name="genreCode" value="G1"/><p>액션</p></div>
-	            <div><input type="checkbox" name="genreCode" value="G2"/><p>드라마</p></div>
-	            <div><input type="checkbox" name="genreCode" value="G3"/><p>로맨스</p></div>
-	            <div><input type="checkbox" name="genreCode" value="G4"/><p>코미디</p></div>
-	            <div><input type="checkbox" name="genreCode" value="G5"/><p>스릴러</p></div>
-	            <div><input type="checkbox" name="genreCode" value="G6"/><p>호러</p></div>
-	            <div><input type="checkbox" name="genreCode" value="G7"/><p>판타지</p></div>
-	            <div><input type="checkbox" name="genreCode" value="G8"/><p>다큐</p></div>
+	            <h3>Genre</h3>
+	            <div>
+		            <input type="checkbox" name="genreCode" value="G1" id="check1"/>
+		            <label for="check1">액션</label>
+	            </div>
+	            <div>
+		            <input type="checkbox" name="genreCode" value="G2" id="check2"/>
+		            <label for="check2">드라마</label>
+	            </div>
+	            <div>
+		            <input type="checkbox" name="genreCode" value="G3" id="check3"/>
+		            <label for="check3">로맨스</label>
+	           	</div>
+	            <div>
+		            <input type="checkbox" name="genreCode" value="G4" id="check4"/>
+		            <label for="check4">코미디</label>
+	            </div>
+	            <div>
+		            <input type="checkbox" name="genreCode" value="G5" id="check5"/>
+		            <label for="check5">스릴러</label>
+	            </div>
+	            <div>
+		            <input type="checkbox" name="genreCode" value="G6" id="check6"/>
+		            <label for="check6">호러</label>
+	            </div>
+	            <div>
+		            <input type="checkbox" name="genreCode" value="G7" id="check7"/>
+	            	<label for="check7">판타지</label>
+	            </div>
+	            <div>
+		            <input type="checkbox" name="genreCode" value="G8" id="check8"/>
+		            <label for="check8">다큐</label>
+	            </div>
+	            <br />
 	            <button type="submit">검색</button>
 	        </form>
         </div>
