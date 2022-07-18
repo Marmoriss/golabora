@@ -15,6 +15,7 @@ import java.util.Properties;
 
 import com.kh.golabora.contents.model.dto.Contents;
 import com.kh.golabora.contents.model.dto.ContentsWithActor;
+import com.kh.golabora.contents.model.dto.ContentsWithProducer;
 import com.kh.golabora.contents.model.dto.Gender;
 import com.kh.golabora.search.model.exception.SearchException;
 
@@ -59,14 +60,14 @@ public class SearchDao {
 	}
 
 	private Contents handleContentsResultSet(ResultSet rset) throws SQLException {
-		String contentsNo = rset.getString("content_no");
+		String contentsNo = rset.getString("contents_no");
 		String genreCode = rset.getString("genre_code");
 		int watchableAge = rset.getInt("watchable_age");
-		String contentTitle = rset.getString("content_title");
+		String contentTitle = rset.getString("contents_title");
 		String releaseDate = rset.getString("release_date");
 		String runningTime = rset.getString("running_time");
 		int watchCount = rset.getInt("watch_count");
-		String contentPlot = rset.getString("content_plot");
+		String contentPlot = rset.getString("contents_plot");
 		String originalFilename = rset.getString("original_filename");
 		String renamedFilename = rset.getString("renamed_filename");
 
@@ -117,50 +118,122 @@ public class SearchDao {
 	public List<Contents> findContentsbyContentsTitle(Connection conn, Map<String, Object> param) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		List<Contents> list = new ArrayList<>();
 		String sql = prop.getProperty("findContentsbyContentsTitle");
+		List<Contents> list = new ArrayList<>();
+		String col = (String) param.get("searchType");
 		String val = (String) param.get("searchKeyword");
+		sql = sql.replace("#", col);
 		
 		try {
-			rset = pstmt.executeQuery();
-			pstmt.setString(0, val);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + val + "%");
 			
-			while (rset.next()) {
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
 				Contents contents = handleContentsResultSet(rset);
 				list.add(contents);
 			}
 		} catch (SQLException e) {
-			throw new SearchException("콘텐츠명으로 조회 오류!", e);
+			throw new SearchException("영화명 조회 오류!", e);
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
+		
+		return list;
+	}
 
+	public List<ContentsWithProducer> findContentsbyProducerName(Connection conn, Map<String, Object> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("findContentsbyProducerName");
+		List<ContentsWithProducer> list = new ArrayList<>();
+		String col = (String) param.get("searchType");
+		String val = (String) param.get("searchKeyword");
+		sql = sql.replace("#", col);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + val + "%");
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				String contentsNo = rset.getString("contents_no");
+				String genreCode = rset.getString("genre_code");
+				int watchableAge = rset.getInt("watchable_age");
+				String contentTitle = rset.getString("contents_title");
+				String releaseDate = rset.getString("release_date");
+				String runningTime = rset.getString("running_time");
+				int watchCount = rset.getInt("watch_count");
+				String contentPlot = rset.getString("contents_plot");
+				String originalFilename = rset.getString("original_filename");
+				String renamedFilename = rset.getString("renamed_filename");
+				
+				ContentsWithProducer contents = new ContentsWithProducer(contentsNo, genreCode, 
+						watchableAge, contentsNo, releaseDate, runningTime, watchCount, 
+						contentsNo, originalFilename, renamedFilename);
+				
+				contents.setProducerNo(rset.getString("producer_no"));
+				contents.setProducerName(rset.getString("producer_name"));
+				contents.setGender(Gender.valueOf(rset.getString("gender")));
+				
+				list.add(contents);
+			}
+			
+		} catch (SQLException e) {
+			throw new SearchException("감독명으로 조회 오류!", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
 		return list;
 	}
 
 	public List<ContentsWithActor> findContentsbyActorName(Connection conn, Map<String, Object> param) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		List<ContentsWithActor> list = new ArrayList<>();
 		String sql = prop.getProperty("findContentsbyActorName");
+		List<ContentsWithActor> list = new ArrayList<>();
+		String col = (String) param.get("searchType");
 		String val = (String) param.get("searchKeyword");
+		sql = sql.replace("#", col);
 		
 		try {
-			rset = pstmt.executeQuery();
-			pstmt.setString(0, val);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + val + "%");
 			
-			while (rset.next()) {
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				String contentsNo = rset.getString("contents_no");
+				String genreCode = rset.getString("genre_code");
+				int watchableAge = rset.getInt("watchable_age");
+				String contentTitle = rset.getString("contents_title");
+				String releaseDate = rset.getString("release_date");
+				String runningTime = rset.getString("running_time");
+				int watchCount = rset.getInt("watch_count");
+				String contentPlot = rset.getString("contents_plot");
+				String originalFilename = rset.getString("original_filename");
+				String renamedFilename = rset.getString("renamed_filename");
 				
+				ContentsWithActor contents = new ContentsWithActor(contentsNo, genreCode, watchableAge, 
+						contentsNo, releaseDate, runningTime, watchCount, contentsNo, 
+						originalFilename, renamedFilename);
+				
+				contents.setActorNo(rset.getString("actor_no"));
+				contents.setActorName(rset.getString("actor_name"));
+				contents.setGender(Gender.valueOf(rset.getString("gender")));
+				
+				list.add(contents);
 			}
+			
 		} catch (SQLException e) {
-			throw new SearchException("콘텐츠명으로 조회 오류!", e);
+			throw new SearchException("배우명으로 조회 오류!", e);
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
-
 		return list;
 	}
+
 
 }

@@ -12,13 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.golabora.contents.model.dto.Contents;
+import com.kh.golabora.contents.model.dto.ContentsWithActor;
 import com.kh.golabora.search.model.service.SearchService;
 
 /**
  * Servlet implementation class searchNamesServlet
  */
-@WebServlet("/search/searchNames")
-public class searchNamesServlet extends HttpServlet {
+@WebServlet("/search/searchContentsTitle")
+public class SearchContentsTitle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private SearchService searchService = new SearchService();
 	
@@ -39,10 +40,11 @@ public class searchNamesServlet extends HttpServlet {
 			System.out.println("param = " + param);
 			
 			// 2. 업무 로직
-			List<Contents> list = searchService.findContentsbyNames(param);
-			System.out.println(list);
+			List<Contents> contentsTitleList = searchService.findContentsbyContentsTitle(param);
+			System.out.println(contentsTitleList);
 			
 			// 3. view단 처리
+			request.setAttribute("contentsTitleList", contentsTitleList);
 			request.getRequestDispatcher("/WEB-INF/views/search/searchContents.jsp")
 			.forward(request, response);
 			
