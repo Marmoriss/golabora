@@ -156,7 +156,7 @@ window.addEventListener('load', (e) => {
 		    for(Contents contents : list) {
 		%>
 		        <div class="movieItem grid" >
-		            <a href="<%= request.getContextPath() %>/contents/<%= contents.getContentsNo() %>"
+		            <a href="<%= request.getContextPath() %>/contents/detailView?no=<%= contents.getContentsNo() %>"
 		                title="<%= contents.getContentsTitle() %>" style="display: block;">
 		                <div class="poster">
 		                    <img src="" alt="<%= contents.getContentsTitle() %>" />
