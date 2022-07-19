@@ -1,6 +1,14 @@
+<%@page import="com.kh.golabora.member.model.dto.MemberRole"%>
+<%@ page import="com.kh.golabora.member.model.dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+<%
+	String msg = (String) session.getAttribute("msg");
+	System.out.println("msg@jsp = " + msg);
+	if(msg != null) session.removeAttribute("msg"); 
+	Member loginMember = (Member) session.getAttribute("loginMember"); 
+%>
 		<div class="searchbar">
             <a href="<%= request.getContextPath() %>/search/searchContents">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -27,16 +35,56 @@
 				</ul>
 			</div>
 		</div>
-		
+		<!-- 건우 start -->
 		<!-- login -->
 		<div id="main-login">
+			<%if(loginMember == null){ %>
 			<header>GOLABORA</header>
 			<!-- 일단 button 으로 만들어놨어요 -->
 			<button>로그인 하러가기</button>	
 			<p>아직 GOLABORA 회원이 아니시라면?</p>
 			<span><a href="#">지금 회원가입 하기</a></span>
 		</div>
-		
+		<% } else if(loginMember != null && loginMember.getMemberRole() == MemberRole.U) { %>
+		<header>GOLABORA</header>
+		<table id="login">
+					<tr>
+						<td>
+							<%= loginMember.getMemberName() %>님 환영합니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" value="마이페이지" 
+								onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
+							<input type="button" value="나의 찜목록 보러가기" 
+								onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
+							<input type="button" value="로그아웃" 
+								onclick="location.href='<%= request.getContextPath() %>/member/logout';"/>
+						</td>
+					</tr>
+		</table>
+		<% } else{ %>
+		<header>GOLABORA</header>
+		<table id="login2">
+					<tr>
+						<td>
+							<%= loginMember.getMemberName() %>님 환영합니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="button" value="서비스 관리" 
+								onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
+							<input type="button" value="콘텐츠 관리" 
+								onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
+							<input type="button" value="로그아웃" 
+								onclick="location.href='<%= request.getContextPath() %>/member/logout';"/>
+						</td>
+					</tr>
+		</table>
+		<% } %>
+		<!-- 건우 end -->
 		<!-- recommend -->
 		<div id="main-recommend">
 			<h3>나를 위한 콘텐츠 추천</h3>
