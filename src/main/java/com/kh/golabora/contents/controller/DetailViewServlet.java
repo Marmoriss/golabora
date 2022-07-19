@@ -41,6 +41,4 @@ public class DetailViewServlet extends HttpServlet {
 			throw e;
 		}
 	}
-
-
 }
