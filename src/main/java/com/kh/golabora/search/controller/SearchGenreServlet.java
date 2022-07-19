@@ -24,18 +24,24 @@ public class SearchGenreServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1. 사용자 입력값
-		String[] genreCode = request.getParameterValues("genreCode");
+		try {
+			// 1. 사용자 입력값
+			String[] genreCode = request.getParameterValues("genreCode");
 //		System.out.println("genreCode[0] = " + genreCode[0]);
-		
-		// 2. 업무 로직
-		List<Contents> list = searchService.findContentsByGenreCode(genreCode);
+			
+			// 2. 업무 로직
+			List<Contents> list = searchService.findContentsByGenreCode(genreCode);
 //		System.out.println("list = " + list);
-		
-		// 3. view단 처리
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/WEB-INF/views/search/searchContents.jsp")
+			
+			// 3. view단 처리
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("/WEB-INF/views/search/searchContents.jsp")
 			.forward(request, response);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
 	}
 
 }

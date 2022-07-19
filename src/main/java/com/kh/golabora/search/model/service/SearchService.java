@@ -15,7 +15,7 @@ import com.kh.golabora.search.model.dao.SearchDao;
 public class SearchService {
 	private SearchDao searchDao = new SearchDao();
 
-	public List<Contents> findContentsByOttNo(String ottNo) {
+	public List<Contents> findContentsByOttNo(String[] ottNo) {
 		Connection conn = getConnection();
 		List<Contents> list = searchDao.findContentsByOttNo(conn, ottNo);
 		close(conn);

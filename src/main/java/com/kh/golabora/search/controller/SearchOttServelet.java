@@ -26,11 +26,12 @@ public class SearchOttServelet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			// 1. 사용자 입력값
-			String ottNo = request.getParameter("ottNo");
+			String[] ottNo = request.getParameterValues("ottNo");
+//			System.out.println("ottNo = " + ottNo[0]);
 			
 			// 2. 업무 로직
 			List<Contents> list = searchService.findContentsByOttNo(ottNo);
-			System.out.println("list = " + list);
+//			System.out.println("list = " + list);
 			
 			// 3. view단 처리
 			request.setAttribute("list", list);
