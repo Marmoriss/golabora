@@ -41,9 +41,10 @@
 			<%if(loginMember == null){ %>
 			<header>GOLABORA</header>
 			<!-- 일단 button 으로 만들어놨어요 -->
-			<button>로그인 하러가기</button>	
+			<input type="button" value="로그인 하러가기" 
+								onclick="location.href='<%= request.getContextPath() %>/member/login';"/>	
 			<p>아직 GOLABORA 회원이 아니시라면?</p>
-			<span><a href="#">지금 회원가입 하기</a></span>
+			<span><a href="http://localhost:9090/golabora/member/memberEnroll">지금 회원가입 하기</a></span>
 		</div>
 		<% } else if(loginMember != null && loginMember.getMemberRole() == MemberRole.U) { %>
 		<header>GOLABORA</header>

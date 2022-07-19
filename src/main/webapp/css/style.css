@@ -59,7 +59,7 @@ div#main-login{
 	top:-460px;
 	}
 div#main-login header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#b080f9; height: 20px; padding:20px; text-align: center;}
-div#main-login button{
+div#main-login input{
 	position: relative;
 	appearance: none; 
 	border: none; 
