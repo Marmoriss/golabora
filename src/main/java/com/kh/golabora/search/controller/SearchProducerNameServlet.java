@@ -39,11 +39,11 @@ public class SearchProducerNameServlet extends HttpServlet {
 			System.out.println("param = " + param);
 			
 			// 2. 업무 로직
-			List<ContentsWithProducer> contentsWithProducerList = searchService.findContentsbyProducerName(param);
-			System.out.println(contentsWithProducerList);
+			List<ContentsWithProducer> list = searchService.findContentsbyProducerName(param);
+			System.out.println(list);
 			
 			// 3. view단 처리
-			request.setAttribute("contentsWithProducerList", contentsWithProducerList);
+			request.setAttribute("list", list);
 			request.getRequestDispatcher("/WEB-INF/views/search/searchContents.jsp")
 			.forward(request, response);
 			

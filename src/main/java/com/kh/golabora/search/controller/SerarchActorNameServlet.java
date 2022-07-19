@@ -39,11 +39,11 @@ public class SerarchActorNameServlet extends HttpServlet {
 			System.out.println("param = " + param);
 			
 			// 2. 업무 로직
-			List<ContentsWithActor> contentsWithActorList = searchService.findContentsbyActorName(param);
-			System.out.println(contentsWithActorList);
+			List<ContentsWithActor> list = searchService.findContentsbyActorName(param);
+			System.out.println(list);
 			
 			// 3. view단 처리
-			request.setAttribute("contentsWithActorList", contentsWithActorList);
+			request.setAttribute("list", list);
 			request.getRequestDispatcher("/WEB-INF/views/search/searchContents.jsp")
 			.forward(request, response);
 			

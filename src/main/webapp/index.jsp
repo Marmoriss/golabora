@@ -3,12 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<%
-	String msg = (String) session.getAttribute("msg");
-	System.out.println("msg@jsp = " + msg);
-	if(msg != null) session.removeAttribute("msg"); 
-	Member loginMember = (Member) session.getAttribute("loginMember"); 
-%>
 		<div class="searchbar">
             <a href="<%= request.getContextPath() %>/search/searchContents">
                 <i class="fa-solid fa-magnifying-glass"></i>

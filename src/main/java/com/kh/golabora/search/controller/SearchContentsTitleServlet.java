@@ -19,7 +19,7 @@ import com.kh.golabora.search.model.service.SearchService;
  * Servlet implementation class searchNamesServlet
  */
 @WebServlet("/search/searchContentsTitle")
-public class SearchContentsTitle extends HttpServlet {
+public class SearchContentsTitleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private SearchService searchService = new SearchService();
 	
@@ -40,11 +40,11 @@ public class SearchContentsTitle extends HttpServlet {
 			System.out.println("param = " + param);
 			
 			// 2. 업무 로직
-			List<Contents> contentsTitleList = searchService.findContentsbyContentsTitle(param);
-			System.out.println(contentsTitleList);
+			List<Contents> list = searchService.findContentsbyContentsTitle(param);
+			System.out.println(list);
 			
 			// 3. view단 처리
-			request.setAttribute("contentsTitleList", contentsTitleList);
+			request.setAttribute("list", list);
 			request.getRequestDispatcher("/WEB-INF/views/search/searchContents.jsp")
 			.forward(request, response);
 			

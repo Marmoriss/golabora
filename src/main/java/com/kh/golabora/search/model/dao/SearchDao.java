@@ -33,18 +33,32 @@ public class SearchDao {
 		}
 	}
 
-	public List<Contents> findContentsByOttNo(Connection conn, String ottNo) {
+	public List<Contents> findContentsByOttNo(Connection conn, String[] ottNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<Contents> list = new ArrayList<>();
-		String sql = prop.getProperty("findContentsByOttNo");
-//		System.out.println(sql);
 
 		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, ottNo);
+			// ott를 여러개 선택했을 때
+			if (ottNo.length > 1) {
+				String sql = prop.getProperty("findContentsByOttNo");
+				String lastCode = ottNo[ottNo.length - 1];
 
+				pstmt = conn.prepareStatement(sql);
+
+				pstmt.setString(1, ottNo[0]);
+				pstmt.setString(2, lastCode);
+				
+				// ott 1개만 선택했을 때
+			} else {
+				String sql = prop.getProperty("findContentsByOneOttNo");
+
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, ottNo[0]);
+			}
+			
 			rset = pstmt.executeQuery();
+			
 			while (rset.next()) {
 				Contents contents = handleContentsResultSet(rset);
 				list.add(contents);
