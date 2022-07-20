@@ -9,6 +9,7 @@ import static com.kh.golabora.common.JdbcTemplate.close;
 import com.kh.golabora.contents.model.dto.Contents;
 import com.kh.golabora.contents.model.exception.ContentsException;
 
+
 public class ContentsDao {
 
 	private Properties prop = new Properties();
@@ -33,8 +34,7 @@ public class ContentsDao {
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
-			// throw new ContentsException 물어보기
+			throw new ContentsException("영화등록 오류", e);
 			
 		} finally {
 			close(pstmt);
