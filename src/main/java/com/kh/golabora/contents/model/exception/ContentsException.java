@@ -1,7 +1,8 @@
 package com.kh.golabora.contents.model.exception;
 
 public class ContentsException extends RuntimeException{
-
+	// contentsException 만들기(insert)
+	
 	public ContentsException() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -26,7 +27,5 @@ public class ContentsException extends RuntimeException{
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
-	
-	// contentsException 만들기(insert)
-	
+
 }

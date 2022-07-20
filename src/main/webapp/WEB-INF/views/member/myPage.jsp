@@ -31,7 +31,7 @@
 		
 		<ul class="admin-nav">
 			<li class="admin-statistics"><a href="#">통계 관리</a></li>
-			<li class="admin-contents"><a href="#">콘텐츠 관리</a></li>
+			<li class="admin-contents"><a href="<%= request.getContextPath() %>/contents/contentsInsert">콘텐츠 관리</a></li>
 			<li class="admin-member"><a href="#">회원 관리</a></li>
 			<li class="admin-reported"><a href="#">신고 관리</a></li>
 		</ul>
