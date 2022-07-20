@@ -1,0 +1,232 @@
+@charset "UTF-8";
+/********** 전체 적용 **********/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    cursor: pointer;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+}
+
+img{
+    border-style: none;
+}
+
+div{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+input{
+	width: 0px;
+	height: 0px;
+	border-radius: 0;
+}
+/********** btn-back **********/
+div#btn-back{
+	position: relative;
+	top: -40px;
+	left: 50px;
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	text-align: center;
+	font-size: 32px;
+	padding: 5px;
+	margin: 5px;
+}
+
+/********** contents-info-wrap **********/
+/********** contents-img **********/
+div#contents-img{
+	width: 200px;
+	height: 280px;
+	background-color: #172036;
+	position: relative;
+	left: 100px;
+	display: inline-block;
+	padding: 5px;
+	margin: 10px;
+}
+
+div#contents-img img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border: 1px solid #101322;
+}
+
+/********** contents-info **********/
+div#contents-info{
+	width:600px;
+	height: 190px;
+	background-color: #172036;
+	display: inline-block;
+	position: relative;
+	top: -95px;
+	left: 120px;
+	padding: 5px;
+	margin: 10px;
+	border-radius: 30px;
+}
+
+
+div#contents-title{
+	display: inline-block;
+	padding: 10px;
+	margin: 10px 20px 20px 20px;
+}
+
+div#contents-title h3{
+	color: #ffff;
+}
+
+div#contents-ott{
+	display: inline-block;
+	background-color: #ffff;
+	padding: 10px;
+    margin: 10px 20px 20px 20px;
+}
+
+div#titleAndOtt{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div#contents-star{
+	display:inline-block;
+    position: relative;
+    top: -40px;
+    left: 20px;
+    padding: 5px;
+    margin: 5px;
+}
+
+div#contents-star i {
+    display:inline-block;
+    padding: 5px;
+    margin: 5px 0px 5px 5px;
+    font-size: 18px;
+}
+
+div#contents-star p {
+    display:inline-block;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #ffff;
+    padding: 5px;
+    margin: 5px 5px 5px 0px;
+}
+
+div#contents-plot{
+    width:550px;
+    display:inline-block;
+    position: relative;
+    top: -40px;
+    left: 20px;    
+    color: #ffff;
+    padding: 5px;
+    margin: 5px;
+}
+
+/********** buttons **********/
+
+div#buttons{
+    width: 600px;
+    height: 50px;
+    display:inline-block;
+    position: relative;
+    top: -85px;
+    left: 355px;
+    color: #ffff;    
+    padding: 5px;
+    margin: 10px;
+}
+
+div#buttons div{
+    display:inline-block;
+    padding: 5px;
+    margin: 5px 65px;
+}
+
+div#buttons input[type="checkbox"]{
+    display: none;
+}
+
+div#buttons input[type="checkbox"] + label {
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    background-color: #c0c0c0;
+    border-radius: 75px;
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+}
+
+div#buttons input[type="checkbox"]:checked +label{
+    background-color: #6302aa; 
+    color: #ffffff;
+}
+
+/********** picked-wrap **********/
+div#picked-wrap{
+	width: 850px;
+	height: 200px;
+	display: inline-block;
+	position: relative;
+	top: -60px;
+	left: 100px;
+	background-color: #172036;
+	padding: 5px;
+	margin: 10px;
+	color: #ffff;
+}
+
+div#picked-wrap h3{
+    padding: 5px;
+    margin: 10px 25px;
+}
+/********** producerAndActor **********/
+
+div#contents-producer{
+    display:inline-block;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    margin: 0px 25px;
+}
+
+div#contents-actor{
+    display:inline-block;
+    height: 100%;
+    line-height: 50px;
+    margin: 0px 10px;
+}
+			
+div#producer-info i, div#contents-actor i{
+	font-size: 100px;
+	color: #ffff;
+	margin: 3px 0px;
+}
+
+div.actor-info{
+    display: inline-block;
+    text-align: center;
+    margin: 0px 15px;
+}
+
+div#producer-info h4, div#actor-info h4{
+    font-weight: bolder;
+}
+
+
+

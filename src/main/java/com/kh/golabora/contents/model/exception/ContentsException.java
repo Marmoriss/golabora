@@ -1,6 +1,7 @@
 package com.kh.golabora.contents.model.exception;
 
 public class ContentsException extends RuntimeException{
+	// contentsException 만들기(insert)
 	
 	public ContentsException() {
 		super();
