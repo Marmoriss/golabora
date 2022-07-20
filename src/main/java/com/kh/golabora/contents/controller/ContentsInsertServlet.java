@@ -13,17 +13,17 @@ import com.kh.golabora.contents.model.service.ContentsService;
 /**
  * Servlet implementation class ContentsEnroll
  */
-@WebServlet("/contents/contentsEnroll")
-public class ContentsEnrollServlet extends HttpServlet {
+@WebServlet("/contents/contentsInsert")
+public class ContentsInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ContentsService contentsService = new ContentsService();
 
 	
 	/**
-	 * Enroll Contents
+	 * Insert Contents
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/contents/contentsEnroll.jsp")
+		request.getRequestDispatcher("/WEB-INF/views/contents/contentsInsert.jsp")
 		.forward(request, response);
 	}
 
