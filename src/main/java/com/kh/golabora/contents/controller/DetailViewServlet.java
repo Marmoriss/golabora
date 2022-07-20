@@ -33,6 +33,7 @@ public class DetailViewServlet extends HttpServlet {
 			
 			// 3. view단 처리
 			request.setAttribute("detailPage", detailPage);
+			request.setAttribute("contentsNo", contentsNo);
 			request.getRequestDispatcher("/WEB-INF/views/contents/contentsDetailView.jsp")
 				.forward(request, response);
 			
