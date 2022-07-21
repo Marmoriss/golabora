@@ -3,12 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-		<div class="searchbar">
-            <a href="<%= request.getContextPath() %>/search/searchContents">
-                <i class="fa-solid fa-magnifying-glass"></i>
-			</a>
-			<input type="text" placeholder="  작품명, 배우, 감독, 장르를 검색해보세요"/>
-		</div>
+            
 		<!-- ranking -->
 		<div id="main-ranking">
 			<h3>오늘의 순위</h3>
@@ -29,6 +24,8 @@
 				</ul>
 			</div>
 		</div>
+        <button id="btn-search" 
+            onclick="location.href='<%= request.getContextPath() %>/search/searchContents';">검색 하러가기</button>
 		<!-- 건우 start -->
 		<!-- login -->
 		<div id="main-login">

@@ -8,19 +8,28 @@ div#container	{background-color:#000000; width:1024px; margin:0 auto; padding:50
 header{height:130px; position:relative; padding:10px 0 0 0;}
 header h1{margin-left:40px; color: #ffffff; font-size: 50px;}
 
-/********** searchbar **********/
+/********** btn-search **********/
+
 i {
-	color: #ffffff;
-	}
+    color: #ffffff;
+    }
+    
 input{
-	width: 600px;
-	height: 30px;
-	border-radius: 4px;
+    width: 600px;
+    height: 30px;
+    border-radius: 4px;
 }
-div.searchbar{
+
+#btn-search{
 	position: relative;
-	top: -130px;
-	left: 300px;
+	top: -100px;
+	left: 645px;
+	border-radius: 4px; 
+	background-color:#cda0fe; 
+    color:#ffffff;
+    font-size: 15px;
+	width: 330px;
+	padding: 15px;
 }
 
 /********** main-ranking **********/
@@ -29,7 +38,8 @@ div#main-ranking{
 	display: block-inline; 
 	width: 600px; 
 	margin: 0;
-	top: -150px;
+	top: -70px;
+	
 }
 div#main-ranking h3 {color: #ffffff;}
 nav#ranking-nav{padding-bottom: 50px;}
@@ -68,6 +78,7 @@ div#main-login input{
 	color:#ffffff;
 	font-size: 15px;
 	width: 260px;
+	height: 55px;
 	left: 38px;
 	top: 50px;
 	padding: 15px;

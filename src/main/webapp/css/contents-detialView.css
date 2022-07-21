@@ -214,8 +214,8 @@ div#contents-actor{
 			
 div#producer-info i, div#contents-actor i{
 	font-size: 100px;
-	color: #ffff;
 	margin: 3px 0px;
+	color: rgb(250, 250, 250);
 }
 
 div.actor-info{
@@ -227,6 +227,4 @@ div.actor-info{
 div#producer-info h4, div#actor-info h4{
     font-weight: bolder;
 }
-
-
 
