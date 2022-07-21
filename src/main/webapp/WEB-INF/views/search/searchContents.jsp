@@ -150,7 +150,9 @@ window.addEventListener('load', (e) => {
 	    <% 
 	    if(list == null || list.isEmpty()) { 
 	    %>
-	        <p>검색 결과가 없습니다.</p>
+            <div id="no-result">
+                <h3>검색 결과가 없습니다.</h3>
+            </div>
 		<%
 	    } else {
 		    for(Contents contents : list) {

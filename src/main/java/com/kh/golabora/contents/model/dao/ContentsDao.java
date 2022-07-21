@@ -78,7 +78,7 @@ public class ContentsDao {
 			pstmt.setString(1, contentsNo);
 			
 			rset = pstmt.executeQuery();
-			if(rset.next()) {
+			while(rset.next()) {
 				ContentsInfo contents = handleContentsInfoRset(rset);
 				detailPage.add(contents);
 			}
