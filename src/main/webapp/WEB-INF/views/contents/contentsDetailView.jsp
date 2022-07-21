@@ -9,6 +9,7 @@
 <%
 List<ContentsInfo> list = (List<ContentsInfo>) request.getAttribute("detailPage");
 String contentsNo = (String) request.getAttribute("contentsNo");
+List<String> ottNames = (List<String>) request.getAttribute("ottNames");
 %>
 <%
 // 한 영화에 여러 배우가 들어있기때문에 배우만 리스트로 분리해서 사용, 이외의 정보는 모두 동일함(0번지 정보 사용)
@@ -27,7 +28,7 @@ for(ContentsInfo contents : list){
 </div>
 <div id="contents-info-wrap">
     <div id="contents-img">
-        <img src="" alt="" />
+        <img src="<%= request.getContextPath() %>/images/<%= contentsInfo.getOriginalFilename() %>" alt="<%= contentsInfo.getContentsTitle() %>" />
     </div>
     <div id="contents-info">
 	    <div id="titleAndOtt">
@@ -35,9 +36,9 @@ for(ContentsInfo contents : list){
 	            <h3><%= contentsInfo.getContentsTitle() %> (<%= contentsInfo.getReleaseDate() %>)</h3>
 	        </div>
 	        <div id="contents-ott">
-                <img src="" alt="" />
-                넷플릭스
-                <!-- ott별 아이콘 넣을 수 있게 반복처리, 조건문 추가 -->
+	        <% for(String ottName : ottNames) {%>
+                <img src="<%= request.getContextPath() %>/images/<%= ottName %>.png" alt="<%= ottName %>" />
+            <% } %>
             </div>
 	    </div>
 	    <div id="contents-star">
