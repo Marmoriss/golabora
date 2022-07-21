@@ -38,6 +38,13 @@ public class ContentsService {
 		close(conn);
 		return detailPage;
 	}
+
+public List<String> findOttNameByContentsTitle(String contentsTitle) {
+	Connection conn = getConnection();
+	List<String> ottnames = contentsDao.findOttNameByContentsTitle(conn, contentsTitle);
+	close(conn);
+	return ottnames;
+}
 	
 /**
  * 주희 코드 끝

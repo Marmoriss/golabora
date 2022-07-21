@@ -114,6 +114,31 @@ public class ContentsDao {
 		
 		return contents;
 	}
+
+	public List<String> findOttNameByContentsTitle(Connection conn, String contentsTitle) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("findOttNameByContentsTitle");
+		List<String> ottNames = new ArrayList<>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, contentsTitle);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				String ottName = rset.getString(1);
+				
+				ottNames.add(ottName);
+			}
+		} catch (SQLException e) {
+			throw new ContentsException("Ottname 조회 오류!", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return ottNames;
+	}
 	
 	/**
 	 * 주희 코드 끝
