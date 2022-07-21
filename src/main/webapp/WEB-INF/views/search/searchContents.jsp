@@ -157,18 +157,18 @@ window.addEventListener('load', (e) => {
 	    } else {
 		    for(Contents contents : list) {
 		%>
-		        <div class="movieItem grid" >
+		        <div class="movieItem" >
 		            <a href="<%= request.getContextPath() %>/contents/detailView?no=<%= contents.getContentsNo() %>"
 		                title="<%= contents.getContentsTitle() %>" style="display: block;">
 		                <div class="poster">
-		                    <img src="" alt="<%= contents.getContentsTitle() %>" />
+		                    <img src="<%= request.getContextPath() %>/images/<%= contents.getOriginalFilename() %>" alt="<%= contents.getContentsTitle() %>" />
 		                </div>
 		            </a>
 		            <div class="info">
 		                <div class="title"><%= contents.getContentsTitle() %></div>
 		                <div class="rating">
 		                    <div class="light-wrap">평점</div>
-		                    <button class="button-action-wish">💜</button>
+		                    <i id="button-action-wish" class="fa-solid fa-heart"></i>
 		                </div>
 		            </div>
 		        </div>
@@ -179,6 +179,7 @@ window.addEventListener('load', (e) => {
 	    </div>
     </div>
 <script>
+// 토글
 document.querySelector('#btn_toggle').addEventListener('click', () => {
     const toggle = document.querySelector('#search-toggle-down');
 	if(toggle.style.display == 'none'){
@@ -188,9 +189,20 @@ document.querySelector('#btn_toggle').addEventListener('click', () => {
 	}
 });
 
+// 돋보기 아이콘 -> 검색실행
 document.querySelector('#searchIcon').addEventListener('click', () => {
 	const searchNamesFrm = document.querySelector('#searchNamesFrm');
     searchNamesFrm.submit();
+});
+
+document.querySelector('#button-action-wish').addEventListener('click', (e) => {
+    if(e.target.style.color == ''){
+        e.target.style.color = '#cda0fe';
+        alert('찜 목록에 추가되었습니다.');
+    } else {
+        e.target.style.color = '';
+        alert('찜 목록에서 제거되었습니다.');
+    }
 })
 </script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
