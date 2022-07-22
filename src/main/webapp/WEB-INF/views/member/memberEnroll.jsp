@@ -2,71 +2,73 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
-<section id=enroll-container>
-	<h2>회원 가입</h2>
-	<form name="memberEnrollFrm" action="" method="POST">
-		<table>
-			<tr>
-				<th>아이디<sup>*</sup></th>
-				<td>
+<div id=enroll-container class="enroll-container">
+	<header>회원 가입</header>
+	<form name="memberEnrollFrm" class="memberEnrollFrm"action="" method="POST">
+		
+				<div>
+					 <h3 class="join_title">
+                        <label for="_memberId">아이디</label>
+                    </h3>
 					<input type="text" placeholder="4글자이상" name="memberId" id="_memberId" value="" required>
+					<div>
 					<input type="button" value="중복검사" onclick="checkIdDuplicate();" />
 					<input type="hidden" id="idValid" value="0" />
 					<p id="idMsg"></p>
+					</div>
 					<%-- 중복검사전 0, 중복검사후(유효한 아이디) 1 --%>
-				</td>
-			</tr>
-			<tr>
-				<th>패스워드<sup>*</sup></th>
-				<td>
-					<input type="password" name="password" id="_password"  required><br>
-				</td>
-			</tr>
-			<tr>
-				<th>패스워드확인<sup>*</sup></th>
-				<td>	
-					<input type="password" id="passwordCheck"  required><br>
-				</td>
-			</tr>  
-			<tr>
-				<th>이름<sup>*</sup></th>
-				<td>	
-				<input type="text"  name="memberName" id="memberName"  required><br>
-				</td>
-			</tr>
-			
-			<tr>
-				<th>휴대폰<sup>*</sup></th>
-				<td>	
+				</div>
+				<div>
+					 <h3 class="join_title">
+                        <label for="_password">비밀번호</label>
+                    </h3>
+					<input type="password" name="password" id="_password"  required>
+				</div>
+				<div>
+					 <h3 class="join_title">
+                        <label for="passwordCheck">비밀번호확인</label>
+                    </h3>
+					<input type="password" id="passwordCheck"  required>
+				</div>
+				<div>
+					<h3 class="join_title">
+                        <label for="memberName">이름</label>
+                    </h3>
+					<input type="text"  name="memberName" id="memberName"  required><br>
+				</div>
+				<div>
+					<h3 class="join_title">
+                        <label for="phone">전화번호</label>
+                    </h3>
 					<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11"  required><br>
-				</td>
-			</tr>
-			<tr>
-				<th>성별 </th>
-				<td>
+				</div>
+				<div>
+					<h3 class="join_title">
+                        <label for="gender0">성별</label>
+                    </h3>
 					<input type="radio" name="gender" id="gender0" value="M">
-					<label for="gender0">남</label>
+					<label id="gen0"for="gender0">남</label>
 					<input type="radio" name="gender" id="gender1" value="F">
 					<label for="gender1">여</label>
-				</td>
-			</tr>
-			<tr>
-				<th>장르</th>
-				<td>
-					<input type="radio" name="genre" id="genre0" value="G3" checked/><label for="genre0">로맨틱</label>
+				</div>
+			
+				<div>
+					<h3 class="join_title">
+                        <label for="genre0">장르</label>
+                    </h3>
+					<input type="radio" name="genre" id="genre0" value="G3" checked/><label for="genre0">로맨스</label>
 					<input type="radio" name="genre" id="genre1" value="G4" /><label for="genre1">코미디</label>
 					<input type="radio" name="genre" id="genre2" value="G1" /><label for="genre2">액션</label><br />
 					<input type="radio" name="genre" id="genre3" value="G6" /><label for="genre3">호러</label>
 					<input type="radio" name="genre" id="genre4" value="G2" /><label for="genre4">드라마</label><br />
 					<input type="radio" name="genre" id="genre5" value="G8" /><label for="genre5">다큐</label><br />
 					<input type="radio" name="genre" id="genre6" value="G7" /><label for="genre6">판타지</label><br />
-				</td>
-			</tr>
-		</table>
-		<input type="submit" value="가입" >
+				</div>
+		
+		<input type="submit" value="회원 가입하기" >
 	
 	</form>
-</section>
+</div>
 <form 
 	action="<%= request.getContextPath() %>/member/checkIdDuplicate"
 	name="checkIdDuplicateFrm">

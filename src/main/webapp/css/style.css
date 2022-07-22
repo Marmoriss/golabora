@@ -2,7 +2,7 @@
 div{padding:50px;}
 
 /********** 전체 **********/
-div#container	{background-color:#000000; width:1024px; margin:0 auto; padding:50px 0 0 0;}
+div#container   {background-color:#000000; width:1024px; margin:0 auto; padding:50px 0 0 0;}
 
 /********** header **********/
 header{height:130px; position:relative; padding:10px 0 0 0;}
@@ -21,25 +21,35 @@ input{
 }
 
 #btn-search{
-	position: relative;
-	top: -100px;
-	left: 645px;
-	border-radius: 4px; 
-	background-color:#cda0fe; 
+    position: relative;
+    top: -100px;
+    left: 645px;
+    border-radius: 4px; 
+    background-color:#cda0fe; 
     color:#ffffff;
     font-size: 15px;
-	width: 330px;
-	padding: 15px;
+    width: 330px;
+    padding: 15px;
+}
+a{
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+}
+a{
+	background-color: transparent;
+    color: inherit;
+    text-decoration: none;
 }
 
 /********** main-ranking **********/
 div#main-ranking{
-	position: relative;
-	display: block-inline; 
-	width: 600px; 
-	margin: 0;
-	top: -70px;
-	
+    position: relative;
+    display: block-inline; 
+    width: 600px; 
+    margin: 0;
+    top: -70px;
+    
 }
 div#main-ranking h3 {color: #ffffff;}
 nav#ranking-nav{padding-bottom: 50px;}
@@ -50,177 +60,316 @@ nav#ranking-nav li {float: left; margin-right: 20px;}
 div#main-ranking-list{padding: 0;}
 div#main-ranking-list ul{color: #ffffff; list-style: none; padding: 0;}
 div#main-ranking-list li {
-	background-color:#6302aa; 
-	padding: 10px; 
-	margin: 20px; 
-	display: block-inline;
-	width: 500px;
-	border-radius: 4px;
-	}
+    background-color:#6302aa; 
+    padding: 10px; 
+    margin: 20px; 
+    display: block-inline;
+    width: 500px;
+    border-radius: 4px;
+    }
 
-/**********	main-login **********/
+/********** main-login **********/
 div#main-login{
-	width: 330px;
-	height: 280px;
-	background-color: white;
-	position: relative;
-	padding:0; 
-	left: 63%;
-	top:-460px;
-	}
+    width: 330px;
+    height: 280px;
+    background-color: white;
+    position: relative;
+    padding:0; 
+    left: 63%;
+    top:-460px;
+    }
 div#main-login header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#b080f9; height: 20px; padding:20px; text-align: center;}
 div#main-login input{
-	position: relative;
-	appearance: none; 
-	border: none; 
-	border-radius: 4px; 
-	background-color:#cda0fe; 
-	color:#ffffff;
-	font-size: 15px;
-	width: 260px;
-	height: 55px;
-	left: 38px;
-	top: 50px;
-	padding: 15px;
-	}
+    position: relative;
+    appearance: none; 
+    border: none; 
+    border-radius: 4px; 
+    background-color:#cda0fe; 
+    color:#ffffff;
+    font-size: 15px;
+    width: 260px;
+    height: 55px;
+    left: 38px;
+    top: 50px;
+    padding: 15px;
+    }
 div#main-login p {
-	position: relative;
-	top: 80px;
-	left: 30px;
-	color: #959595;
-	font-weight: bold;
+    position: relative;
+    top: 80px;
+    left: 30px;
+    color: #959595;
+    font-weight: bold;
 }
 div#main-login span{
-	position: relative;
-	top: 80px;
-	left: 170px;
+    position: relative;
+    top: 80px;
+    left: 170px;
 }
 div#main-login span a{
-	text-decoration-line: none;
-	color: #cda0fe;
-	font-weight: bold;
+    text-decoration-line: none;
+    color: #cda0fe;
+    font-weight: bold;
 }
 
 /********** main-recommend **********/
 div#main-recommend{
-	position: relative;
-	top: -400px;
+    position: relative;
+    top: -400px;
 }
 div#main-recommend h3{
-	color: #ffffff;
-	padding-bottom: 30px;
+    color: #ffffff;
+    padding-bottom: 30px;
 }
 
 div#main-recommend ul{
-	display: flex;
+    display: flex;
 }
 div#main-recommend li{
-	padding: 0;
-	width: 200px;
-	height: 230px;
-	float: left; 
-	margin-right: 20px;
-	border-radius: 4px;
+    padding: 0;
+    width: 200px;
+    height: 230px;
+    float: left; 
+    margin-right: 20px;
+    border-radius: 4px;
 }
 .main-recommend-img{
-	padding: 0;	
-	width: 150px;
-	height: 150px;
-	overflow: hidden;
-	margin-right: 50%;
-	border-radius: 50%;
+    padding: 0; 
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin-right: 50%;
+    border-radius: 50%;
 }
 .main-recommend-img img{
-	width: 100%;
-  	height: auto;
+    width: 100%;
+    height: auto;
 }
 .main-recommend-title{
-	padding: 30px;
-	text-align: center;
+    padding: 30px;
+    text-align: center;
 }
 .main-recommend-title span{
-	color: #ffffff;
+    color: #ffffff;
 }
 
 /********** main-playlist **********/
 div#main-playlist{
-	position: relative;
-	top: -400px;
+    position: relative;
+    top: -400px;
 }
 div#main-playlist h3{color: #ffffff; padding-bottom:30px;}
 div#main-playlist ul{
-	display: flex;
+    display: flex;
 }
 div#main-playlist li {
-	padding: 0;
-	width: 200px;
-	height: 230px;
-	background-color: #ffffff; 
-	float: left; 
-	margin-right: 20px;
-	border-radius: 4px;
-	}
+    padding: 0;
+    width: 200px;
+    height: 230px;
+    background-color: #ffffff; 
+    float: left; 
+    margin-right: 20px;
+    border-radius: 4px;
+    }
 .main-playlist-img{
-	padding: 0;	
-	width: 200px;
-	height: 150px;
-	overflow: hidden;
-	margin-right: 50%;
+    padding: 0; 
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    margin-right: 50%;
 }
 .main-playlist-img img{
-	width: 100%;
-  	height: auto;
+    width: 100%;
+    height: auto;
 }
 .main-playlist-name{
-	padding: 30px;
-	text-align: center;
+    padding: 30px;
+    text-align: center;
 }
 
 /********** main-playlist list **********/
 #main-playlist-list{
 
-	position: relative;
-	top: -400px;
-	left: 200px;
-	background-color: #616161;
-	width: 600px;
-	padding: 30px;
-	
+    position: relative;
+    top: -400px;
+    left: 200px;
+    background-color: #616161;
+    width: 600px;
+    padding: 30px;
+    
 }
 #main-playlist-list ul{
-	color: #ffffff;
-	list-style: none; 
-	padding: 0;
-	}
+    color: #ffffff;
+    list-style: none; 
+    padding: 0;
+    }
 #main-playlist-list li{
-	background-color:#6302aa; 
-	padding: 10px; 
-	margin: 20px; 
-	display: block-inline;
-	width: 500px;
-	border-radius: 4px; 
+    background-color:#6302aa; 
+    padding: 10px; 
+    margin: 20px; 
+    display: block-inline;
+    width: 500px;
+    border-radius: 4px; 
 }
 
 /********** footer **********/
 footer{
-	color: #b080f9; 
-	text-align: center;
-	background-color: #400080;
-	clear:both;
-	width: 1024px;
-	padding: 20px 0;
+    color: #b080f9; 
+    text-align: center;
+    background-color: #400080;
+    clear:both;
+    width: 1024px;
+    padding: 20px 0;
 }
+/********** 건우 start **********/
+/********** memberLogin **********/
+div#login-container{
+	
+	width: 600px;
+	height: 500px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	
+	}
+.login-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}
+.login-container tr{position: relative; position: relative; left : 130px; top:100px;}
+.login-container .tb .logbtn1{ width: 350px;height: 50px; }
+.login-container .tb .logbtn2{ width: 350px;height: 50px;}
+.login-container .tb .logbtn3{ 
+   display: inline-block; 
+   position: relative; 
+   top: 10px;
+   left: 220px;
+   width: 30px;
+   height: 30px;
+}
+
+td#saveId-wrap label{
+   position: relative; 
+    top: 0px;
+    left: 230px;
+}
+
+.login-container .tb .logbtn4{
+	position: relative;
+	top: 20px;
+	left : 40px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
 /********** memberEnroll **********/
-section#enroll-container h2{color: #636e72;}
-section#enroll-container {text-align:center;}
-section#enroll-container input{ width: 100%;border:none;outline:none; color: #636e72; font-size:16px; height:25px; background: none; border-bottom: 2px solid #adadad;}
-section#enroll-container table{background-color: #ffffff; height: 400px;width:600px;border: none; outline: none; margin-top : 50px;margin-left:auto;margin-right:auto;}
-section#enroll-container table th {border:none; outline:none; margin-bottom: 10px;}
-section#enroll-container table td {border:none; outline:none; margin-bottom: 10px;}
-section#enroll-container sup{color: red;}
+div#enroll-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}
+div#enroll-container {
+	width: 750px;
+	height: 1000px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	}
 
+div#enroll-container input{ width:450px;height :25px; border : solid 1px; }
+div#enroll-container h3{  margin: 19px 0 8px;
+    font-size: 16px;
+    font-weight: 700;}
+div#enroll-container div{
+	position : relative;
+	left : 150px;
+	top : 15px;
+	padding : 2px;
+}
+div#enroll-container sup{color: red;}
+div#enroll-container input[type=button]{
+	position : relative;
+	right : 20px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 200px;
+	height: 30px;
+	font-weight:bold;
+}
+div#enroll-container label#gen0 {
+	right : 30px;
+	position: relative;
+	bottom : 10px;
+}
+div#enroll-container label[for="gender1"] {
+	
+	right: 30px;
+	position: relative;
+	bottom : 10px;
+}
+div#enroll-container input#gender0{
+	position: relative;
+	bottom : 3px;
+	right: -20px;
+	width : 20px;
+}
 
+div#enroll-container input#gender1{
+	position: relative;
+	bottom : 3px;
+	right: -20px;
+	width : 20px;
+}
+div#enroll-container input[type=submit]{position: relative;
+	top: 20px;
+	left : 250px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
+/********** memberDelete **********/
+div#delete-container {
+	
+	width: 600px;
+	height: 500px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	}
+div#delete-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}	
+div#delete-container p{
+	padding : 20px;
+	text-align: center;
+}
 
-	
-	
-	
+div#delete-container input[type=submit]{position: relative;
+	top: 40px;
+	left : 170px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
+/********** 건우 end **********/

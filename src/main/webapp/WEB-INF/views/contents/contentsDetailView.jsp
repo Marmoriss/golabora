@@ -1,3 +1,6 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.kh.golabora.member.model.dto.MemberRole"%>
+<%@page import="com.kh.golabora.review.model.dto.Review"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.kh.golabora.contents.model.dto.ContentsInfo"%>
 <%@page import="java.util.List"%>
@@ -5,10 +8,13 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/contents-detialView.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/review-style.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
 <%
 List<ContentsInfo> list = (List<ContentsInfo>) request.getAttribute("detailPage");
 String contentsNo = (String) request.getAttribute("contentsNo");
+List<String> ottNames = (List<String>) request.getAttribute("ottNames");
+List<Review> reviewList = (List<Review>) request.getAttribute("reviewList");
 %>
 <%
 // 한 영화에 여러 배우가 들어있기때문에 배우만 리스트로 분리해서 사용, 이외의 정보는 모두 동일함(0번지 정보 사용)
@@ -27,7 +33,7 @@ for(ContentsInfo contents : list){
 </div>
 <div id="contents-info-wrap">
     <div id="contents-img">
-        <img src="" alt="" />
+        <img src="<%= request.getContextPath() %>/images/<%= contentsInfo.getOriginalFilename() %>" alt="<%= contentsInfo.getContentsTitle() %>" />
     </div>
     <div id="contents-info">
 	    <div id="titleAndOtt">
@@ -35,9 +41,9 @@ for(ContentsInfo contents : list){
 	            <h3><%= contentsInfo.getContentsTitle() %> (<%= contentsInfo.getReleaseDate() %>)</h3>
 	        </div>
 	        <div id="contents-ott">
-                <img src="" alt="" />
-                넷플릭스
-                <!-- ott별 아이콘 넣을 수 있게 반복처리, 조건문 추가 -->
+	        <% for(String ottName : ottNames) {%>
+                <img src="<%= request.getContextPath() %>/images/<%= ottName %>.png" alt="<%= ottName %>" />
+            <% } %>
             </div>
 	    </div>
 	    <div id="contents-star">
@@ -91,6 +97,108 @@ for(ContentsInfo contents : list){
 
 <hr />
 <!-- 수아님 여기 밑으로 붙여주시면 됩니당~!~! -->
+<section id="review-container">
+	
+	<h1>내 리뷰 작성하기</h1>
+	<!-- 리뷰 작성하기  -->
+	<div id="my-review">
+		<!-- 리뷰정보 전송 폼 -->
+		<form name="reviewEnrollInfoFrm" 
+			action="<%=request.getContextPath()%>/review/reviewEnroll" 
+			method="GET">
+			<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>"/>      
+			<button type="submit">지금 리뷰 작성하러 가기</button>
+		</form>
+		
+	</div>	
+		
+	<h1>모든 리뷰</h1>
+		
+		
+	<div id="review-list">
+		
+		<%
+		if(reviewList != null && ! reviewList.isEmpty()){ 
+				for(Review _review : reviewList){
+		%>
+		<table class="tbl-review-list">
+			<tr>
+				<td><%=_review.getMemberId()%></td>
+				<td rowspan="4" class="review-content">
+				<%
+					if(_review.getReviewContent() != null){
+				%>
+					<%=_review.getReviewContent()%>
+				<%} else{%>
+
+				<% }%>
+				</td>
+				<td><%=new SimpleDateFormat("yy/MM/dd").format(_review.getRegDate())%></td>
+			</tr>
+			<tr>
+				<td>⭐<%=_review.getStar()%></td>
+				<td rowspan="2">
+		<%
+		boolean canEdit = loginMember != null
+				&& (loginMember.getMemberId().equals(_review.getMemberId()) || loginMember.getMemberRole() == MemberRole.A);
+
+			if (canEdit) {
+			%>
+				<!-- review del form -->
+				<form 
+					action="<%= request.getContextPath()%>/review/reviewDelete"
+					method="POST"
+					name="reviewDelFrm">
+					<input type="hidden" name="reviewNo" value="<%= _review.getReviewNo() %>"/>
+					<button class="btn-review-del" onclick="deleteReview()">삭제</button>
+				</form>
+				<br />
+				<!-- review update form -->
+				<form action="<%= request.getContextPath()%>/review/reviewUpdate"
+					  method="GET"
+					  name="reviewUpdateFrm">
+					<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>" />
+					<input type="hidden" name="reviewNo" value="<%=_review.getReviewNo() %>" />
+					<button class="btn-review-edit" onclick="updateReview()">수정</button>
+				</form>
+				
+			<%
+			}
+			%>
+				</td>
+			</tr>
+			<tr>
+				<td rowspan="2"></td>
+			</tr>
+			<tr>
+				<td><a href="<%= request.getContextPath()%>/review/reviewDelete">신고하기</a>🚨</td>
+			</tr>
+			<%
+				}
+			} else {
+			%>
+			<table class="tbl-review-list">
+			<tr>
+				<td colspan="6">아직 리뷰가 없습니다.</td>
+			</tr>
+			</table>
+			
+			<%
+			}
+			%>
+			
+			</table>
+			
+
+	</div>	
+</section>
+<div id='pagebar'>
+		<%= request.getAttribute("pagebar") %>
+</div>
+
+
+
+
 <script>
 // 뒤로가기 버튼
 document.querySelector('#btn-back').addEventListener('click', () => {
@@ -124,6 +232,35 @@ $(".actor-info i").click((e) => {
     }
 });
 
+//리뷰 수정 confirm
+const updateReview = () => {
+	if(confirm("리뷰를 수정하시겠습니까?"))
+		document.reviewUpdateFrm.submit();
+};
 
+//리뷰 삭제 confirm
+const deleteReview = () => {
+	if(confirm("리뷰를 삭제하시겠습니까?"))
+		document.reviewDelFrm.submit();
+};
+
+//로그인 안 한 사용자 폼 제출 막기
+document.addEventListener('submit', (e) => {
+	
+	if(e.target.matches("form[name=reviewEnrollInfoFrm]")){
+		if(<%= loginMember == null %>){
+			loginAlert();
+			e.preventDefault();
+			return; 
+		}
+		
+	}
+	
+});
+
+//로그인 alert
+const loginAlert = () => {
+	alert("로그인 후 이용할 수 있습니다.");
+};
 </script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
