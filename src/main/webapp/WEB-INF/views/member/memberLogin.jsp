@@ -55,7 +55,7 @@ window.onload = () => {
 				<td></td>
 			</tr>
 			<tr>
-				<td>
+				<td id="saveId-wrap">
 					<input class="logbtn3" type="checkbox" name="saveId" id="saveId" 
 						<%= saveId != null ? "checked" : "" %> />
 					<label for="saveId">아이디저장</label>			

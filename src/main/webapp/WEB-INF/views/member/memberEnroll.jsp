@@ -5,7 +5,7 @@
 <div id=enroll-container class="enroll-container">
 	<header>회원 가입</header>
 	<form name="memberEnrollFrm" class="memberEnrollFrm"action="" method="POST">
-		<table>
+		<table id=memberEnrollTable>
 			<tr>
 				<th>아이디<br /><sup>*</sup></th>
 				<td>
