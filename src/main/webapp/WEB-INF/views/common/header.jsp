@@ -30,5 +30,5 @@
 <body>
 	<div id="container">
 		<header>
-			<a href="<%= request.getContextPath() %>/index.jsp"><h1>GOLABORA</h1></a>
+			<h1>GOLABORA</h1>
 		</header>
