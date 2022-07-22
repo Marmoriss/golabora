@@ -9,12 +9,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import com.kh.golabora.contents.model.dto.Contents;
 import com.kh.golabora.contents.model.dto.ContentsInfo;
 import com.kh.golabora.contents.model.exception.ContentsException;
+import com.kh.golabora.review.model.dto.Review;
+import com.kh.golabora.review.model.exception.ReviewException;
 
 
 public class ContentsDao {
@@ -143,5 +147,79 @@ public class ContentsDao {
 	/**
 	 * 주희 코드 끝
 	 */
+	
+	/**
+	 * 수아 코드 시작
+	 */
+	
+	//리뷰 resultSet
+		private Review handleReviewResultSet(ResultSet rset) throws SQLException {
+			String reviewNo = rset.getString("review_no");
+			String memberId = rset.getString("member_id");
+			String contentsNo = rset.getString("contents_no");
+			String reviewContent = rset.getString("review_content");
+			int star = rset.getInt("star");
+			Date regDate = rset.getDate("reg_date");
+			
+			return new Review(reviewNo, memberId, contentsNo, reviewContent, star, regDate);
+		}
+		
+	//콘텐츠 별 전체리뷰목록 조회
+		public List<Review> findReviewByContentsNo(Connection conn, Map<String, Object> param) {
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			List<Review> reviewList = new ArrayList<>();
+			String sql = prop.getProperty("findReviewByContentsNo");
+			//select * from(select row_number () over (order by reg_date desc) rnum,  r.*  from  review r  where contents_no =?)r where rnum between ? and ?
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, (String)param.get("contentsNo"));
+				pstmt.setInt(2, (int)param.get("start"));
+				pstmt.setInt(3, (int)param.get("end"));
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					Review review = handleReviewResultSet(rset);
+					reviewList.add(review);
+				}
+			} catch (SQLException e) {
+				throw new ReviewException("콘텐츠별 리뷰 조회 오류!", e);
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+		
+			return reviewList;
+		}
 
+		//콘텐츠 별 리뷰 갯수 조회
+		public int getTotalReviewByContentsNo(Connection conn, String contentsNo) {
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			int totalReviewByContentsNo = 0;
+			String sql = prop.getProperty("getTotalReviewByContentsNo");
+			//select count(*) from review where contents_no = ?
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, contentsNo);
+				rset = pstmt.executeQuery();
+				while(rset.next())
+					totalReviewByContentsNo = rset.getInt(1);
+			} catch (SQLException e) {
+				throw new ReviewException("콘텐츠 별 전체 리뷰 수 조회 오류!", e);
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return totalReviewByContentsNo;
+		}
+	
+	
+	/**
+	 * 수아 코드 끝
+	 */
 }

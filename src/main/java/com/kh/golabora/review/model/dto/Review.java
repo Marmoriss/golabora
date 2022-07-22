@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 public class Review {
 	private String reviewNo;
 	private String memberId;
-	private String contentNo;
+	private String contentsNo;
 	private String reviewContent;
 	private int star;
 	private Date regDate;
@@ -16,12 +16,12 @@ public class Review {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Review(String reviewNo, String memberId, String contentNo, String reviewContent, int star,
+	public Review(String reviewNo, String memberId, String contentsNo, String reviewContent, int star,
 			Date regDate) {
 		super();
 		this.reviewNo = reviewNo;
 		this.memberId = memberId;
-		this.contentNo = contentNo;
+		this.contentsNo = contentsNo;
 		this.reviewContent = reviewContent;
 		this.star = star;
 		this.regDate = regDate;
@@ -43,12 +43,12 @@ public class Review {
 		this.memberId = memberId;
 	}
 
-	public String getContentNo() {
-		return contentNo;
+	public String getContentsNo() {
+		return contentsNo;
 	}
 
-	public void setContentNo(String contentNo) {
-		this.contentNo = contentNo;
+	public void setContentsNo(String contentsNo) {
+		this.contentsNo = contentsNo;
 	}
 
 	public String getReviewContent() {
@@ -77,7 +77,7 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [reviewNo=" + reviewNo + ", memberId=" + memberId + ", contentNo=" + contentNo
+		return "Review [reviewNo=" + reviewNo + ", memberId=" + memberId + ", contentsNo=" + contentsNo
 				+ ", reviewContent=" + reviewContent + ", star=" + star + ", regDate=" + regDate + "]";
 	}
 	

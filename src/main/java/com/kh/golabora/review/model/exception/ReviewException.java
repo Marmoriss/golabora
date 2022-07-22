@@ -26,6 +26,5 @@ public class ReviewException extends RuntimeException {
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
-
 	
 }
