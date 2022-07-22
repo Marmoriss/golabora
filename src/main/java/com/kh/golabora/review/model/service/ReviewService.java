@@ -126,5 +126,20 @@ public class ReviewService {
 		return contentsInfo;
 	}
 
+	// 신고된 리뷰 전체 조회
+	public List<ReportedReview> findAllReportedReview(Map<String, Object> param) {
+		Connection conn = getConnection();
+		List<ReportedReview> list = reviewDao.findAllReportedReview(conn, param);
+		close(conn);
+		return list;
+	}
+	
+	// 신고된 리뷰 테이블 총 신고리뷰 수 조회
+	public int getTotalReportedReview() {
+		Connection conn = getConnection();
+		int totalContent = reviewDao.getTotalReportedReview(conn); 
+		close(conn);
+		return totalContent;
+	}
 	
 }

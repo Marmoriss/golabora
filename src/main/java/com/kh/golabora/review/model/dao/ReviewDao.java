@@ -277,9 +277,69 @@ public class ReviewDao {
 		return contentsInfo;
 	}
 	
+	// 신고된 리뷰 전체 조회
+	public List<ReportedReview> findAllReportedReview(Connection conn, Map<String, Object> param) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<ReportedReview> list = new ArrayList<>();
+		String sql = prop.getProperty("findAllReportedReview");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (int) param.get("start"));
+			pstmt.setInt(2, (int) param.get("end"));
+
+			rset = pstmt.executeQuery();
+
+			while(rset.next()) {
+				ReportedReview reportedReview = handleReportedReviewResultSet(rset);
+				list.add(reportedReview);
+			}
+		} catch (SQLException e) {
+			throw new ReviewException("신고 리뷰 목록 조회 오류!", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return list;
+	}
+
+
+	private ReportedReview handleReportedReviewResultSet(ResultSet rset) throws SQLException{
+		String reportedReviewNo = rset.getString("reported_review_no");
+		String reviewNo = rset.getString("reviewNo");
+		String reporterId = rset.getString("reporter_id");
+		Date reportedDate = rset.getDate("reported_date");
+		String reason = rset.getString("reason");
+
+		ReportedReview reportedReview = 
+				new ReportedReview(reportedReviewNo, reviewNo, reporterId, reportedDate, reason);
+
+		return reportedReview;
+	}
 	
+	// 신고된 리뷰 테이블 총 신고 리뷰 수 조회
+	public int getTotalReportedReview(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int totalContent = 0;
+		String sql = prop.getProperty("getTotalReportedReview");
 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
 
+			if(rset.next())
+				totalContent = rset.getInt(1);
 
+		} catch (SQLException e) {
+			throw new ReviewException("총 신고 리뷰수 조회 오류!", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
 
+		return totalContent;
+	}
 }
