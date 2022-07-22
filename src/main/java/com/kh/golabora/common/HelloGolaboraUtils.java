@@ -22,7 +22,7 @@ public class HelloGolaboraUtils {
 		} 
 		//pageNo가 1이 아닐때 이전태그 생성
 		else {
-			pagebar.append("<a href='"+url + (pageNo -1) + "'>prev</a>\n"); //10
+			pagebar.append("<a href='"+url + (pageNo -1) + "'>prev</a>\n"); 
 		}
 		
 		//pageNo영역
@@ -48,5 +48,16 @@ public class HelloGolaboraUtils {
 		}
 
 		return pagebar.toString();
+	}
+	
+	public static String convertLineFeedToBr(String str) {
+		return str.replaceAll("\\n", "<br/>");
+	}
+
+	public static String escapeXml(String str) {
+		//escaping 처리해주기
+		return str.replaceAll("&", "&amp;")
+				  .replaceAll("<", "&lt;")
+				  .replaceAll(">", "&gt;");
 	}
 }
