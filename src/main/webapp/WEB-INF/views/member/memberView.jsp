@@ -7,7 +7,7 @@
 	String memberName = loginMember.getMemberName();
 	String phone = loginMember.getPhone();
 	String gender = loginMember.getGender() != null ? loginMember.getGender().name() : "";
-	String genreCode = loginMember.getGenreCode();
+	String genre = loginMember.getGenreCode();
 
 	
 	
@@ -50,16 +50,7 @@
 			<tr>
 				<th>최애장르 </th>
 				<td>
-					<select id="genreCode" name="genreCode"  >
-						<option value="G1" <%= "G1".equals(genreCode) ? "selected" : "" %>>액션</option>
-						<option value="G2" <%= "G2".equals(genreCode) ? "selected" : "" %>>드라마</option>
-						<option value="G3" <%= "G3".equals(genreCode) ? "selected" : "" %>>로맨스</option>
-						<option value="G4" <%= "G4".equals(genreCode) ? "selected" : "" %>>코미디</option>
-						<option value="G5" <%= "G5".equals(genreCode) ? "selected" : "" %>>스릴러</option>
-						<option value="G6" <%= "G6".equals(genreCode) ? "selected" : "" %>>호러</option>
-						<option value="G7" <%= "G7".equals(genreCode) ? "selected" : "" %>>판타지</option>						
-						<option value="G8" <%= "G8".equals(genreCode) ? "selected" : "" %>>다큐</option>						
-					</select>	
+				
 				</td>
 			</tr>
 		</table>
@@ -84,7 +75,8 @@ const updatePassword = () => {
  * memberDelFrm 제출
  */
 const deleteMember = () => {
-	location.href = "<%= request.getContextPath() %>/member/memberRemove";
+	if(confirm("정말로 탈퇴하시겠습니까?"))
+		document.memberDelFrm.submit();
 };
 
 /**
@@ -108,5 +100,11 @@ document.memberUpdateFrm.onsubmit = (e) => {
 	
 }
 </script>
+<%!
+/**
+* compile시 메소드로 선언처리됨.
+* 선언위치는 어디든 상관없다.
+*/ 
 
+%>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

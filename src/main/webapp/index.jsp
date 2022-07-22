@@ -47,11 +47,11 @@
 					</tr>
 					<tr>
 						<td>
-							<input type="button"  value="마이페이지" 
+							<input type="button" value="마이페이지" 
 								onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
-							<input type="button"  value="나의 찜목록 보러가기" 
+							<input type="button" value="나의 찜목록 보러가기" 
 								onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
-							<input type="button" "value="로그아웃" 
+							<input type="button" value="로그아웃" 
 								onclick="location.href='<%= request.getContextPath() %>/member/logout';"/>
 						</td>
 					</tr>
