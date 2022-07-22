@@ -39,6 +39,8 @@ div#btn-back{
 	font-size: 32px;
 	padding: 5px;
 	margin: 5px;
+	cursor: pointer;
+	
 }
 
 /********** contents-info-wrap **********/
