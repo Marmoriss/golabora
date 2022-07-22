@@ -35,16 +35,19 @@ public class ContentsDao {
 	/**
 	 * 주희 코드 끝
 	 */
+	
+	/**
+	 * 은미 코드 시작
+	 */
 	public int insertContents(Connection conn, Contents contents) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String sql = prop.getProperty("insertContents");
-		// insert into contents values (?, ?, default, ?, ?, ?, default, ?, ?, ?)
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, contents.getContentsNo());
-			pstmt.setString(2, contents.getGenreCode());
+			pstmt.setString(1, contents.getGenreCode());
+			pstmt.setInt(2, contents.getWatchableAge());
 			pstmt.setString(3, contents.getContentsTitle());
 			pstmt.setString(4, contents.getReleaseDate());
 			pstmt.setString(5, contents.getRunningTime());
@@ -63,6 +66,9 @@ public class ContentsDao {
 		
 		return result;
 	}
+	/**
+	 * 은미 코드 끝
+	 */
 
 	/**
 	 * 주희 코드 시작
