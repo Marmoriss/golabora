@@ -1,0 +1,180 @@
+@CHARSET "UTF-8";
+section#review-container{
+	color: #ffffff;
+	margin: 20px;
+}
+section#review-container h1{
+	position: relative;
+	left: 10px;
+}
+/***********my-review***************/
+div#my-review{
+	position: relative;
+	border: 2px solid #ffffff;
+	width: 800px;
+	height: 100px;
+	border-radius:30px;
+	text-align: center;
+	left: 100px;
+	margin:50px 0;
+}
+div#my-review button{
+	position: relative;
+	top: 30px;
+	border: 0;
+	outline: 0;
+	background-color: #439249;
+	width: 300px;
+	height: 40px;
+	font-size: 15px;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+
+
+.btn-review-del{
+	width: 50px;
+	
+}
+
+div#review-list{
+	position: relative;
+	left: 50px;
+	margin:50px 0;
+
+}
+.tbl-review-list{
+	position: relative;
+	border:1px solid #ffffff; 
+	width:900px; 
+	height:150px;
+	border-style: hidden;
+    box-shadow: 0 0 0 3px #ffffff;	
+	border-collapse: collapse; 
+	color: #ffffff; 
+	border-radius: 10px;
+	background-color: #717171;
+	text-align: center;
+	margin: 30px 0;
+	
+}
+.tbl-review-list tr, td{
+	padding: 10px;
+}
+.btn-review-del{
+	border: 0;
+	outline: 0;
+	background-color: #439249;
+	width:50px;
+	border-radius: 25px;
+	border:1px solid #ffffff; 
+	font-weight: bold;
+	color: #ffffff;
+	cursor: pointer;
+}
+.btn-review-edit{
+	border: 0;
+	outline: 0;
+	background-color: #439249;
+	width:50px;
+	border-radius: 25px;
+	border:1px solid #ffffff;
+	font-weight: bold; 
+	cursor: pointer;
+	color: #ffffff;
+}
+.review-content{
+	width: 600px;
+}
+div#pagebar{margin-top:10px; text-align:center; background-color:#717171; }
+div#pagebar span.cPage{color: #ffffff; margin-right: 5px;}
+div#pagebar a{margin-right: 5px;}
+
+/***********review-enroll**************/
+#review-enroll-container{
+	height: 1000px;
+}
+/*****콘텐츠 정보********/
+.contents-info{
+	color: #ffffff;
+	position: relative;
+	width: 400px;
+	padding: 0;
+	
+	text-align: center;
+}
+.contents-info img{
+	width: 250px;
+}
+/*********리뷰 폼**************/
+.review-enroll, .review-update{
+	position: relative;
+	left: 350px;
+	top: -500px;
+}
+.review-enroll h1, .review-update h1{
+	color: #ffffff;
+	padding-bottom: 30px;
+}
+.enroll-content, .update-content{
+	position: relative;
+	padding: 50px 0; 
+}
+.review-enroll button, .review-update button{
+	border: 0;
+	outline: 0;
+	background-color: #9e5abc;
+	width: 300px;
+	font-size: 1.2rem;
+	padding: 20px;
+	border-radius: 10px;
+	color: #ffffff;
+	position: relative;
+	top: 70px;
+	right: 90px;
+	cursor: pointer;
+	font-weight: bold;
+}
+#update-cancel-btn{
+	border: 0;
+	outline: 0;
+	background-color: #9e5abc;
+	width: 200px;
+}
+.fa-solid fa-xmark-large{
+	color: #ffffff;
+}
+/***********star************/
+.star-rating {
+  border:solid 3px #ccc;
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:4em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:400px;
+  height: 100px;
+  position: relative;
+  border-radius: 40px;
+  background-color: #404040;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
+}
