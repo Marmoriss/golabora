@@ -44,14 +44,13 @@ public class MemberEnrollServlet extends HttpServlet {
 			
 			// 2. 사용자입력값처리
 			String memberId = request.getParameter("memberId");
-			String[] genreCodes = request.getParameterValues("genre");
+			String genreCode = request.getParameter("genre");
 			String password = HelloMvcUtils.getEncryptedPassword(request.getParameter("password"), memberId);
 			String _gender = request.getParameter("gender");
 			String memberName = request.getParameter("memberName");
 			String phone = request.getParameter("phone");
 			
 			Gender gender = _gender != null ? Gender.valueOf(_gender) : null;
-			String genreCode = genreCodes != null ? String.join(",", genreCodes) : null;
 			
 			Member member = 
 					new Member(memberId, genreCode, password, memberName, gender, 
