@@ -17,7 +17,7 @@ import com.kh.golabora.mainPage.model.service.RecommendService;
 /**
  * Servlet implementation class MainPageServlet
  */
-@WebServlet("/MainNet")
+@WebServlet("/mainNet")
 public class MainNetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
@@ -35,7 +35,7 @@ public class MainNetServlet extends HttpServlet {
 			request.setAttribute("rank", rank);
 			request.setAttribute("recommend", recommend);
 			
-			request.getRequestDispatcher("/WEB-INF/views/mainpage/MainNet")
+			request.getRequestDispatcher("/WEB-INF/views/mainpage/mainNet.jsp")
 				.forward(request, response);
 		}
 		catch(Exception e) {
