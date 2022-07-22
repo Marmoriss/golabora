@@ -4,7 +4,7 @@
 
 <%@page import="java.util.List"%>
       
-	<% 
+<% 
 	List<Contents> rank = (List<Contents>) request.getAttribute("rank");
 	List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
 	%>
