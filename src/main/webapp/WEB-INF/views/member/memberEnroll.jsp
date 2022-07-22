@@ -2,12 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
-<section id=enroll-container>
-	<h2>회원 가입</h2>
-	<form name="memberEnrollFrm" action="" method="POST">
+<div id=enroll-container class="enroll-container">
+	<header>회원 가입</header>
+	<form name="memberEnrollFrm" class="memberEnrollFrm"action="" method="POST">
 		<table>
 			<tr>
-				<th>아이디<sup>*</sup></th>
+				<th>아이디<br /><sup>*</sup></th>
 				<td>
 					<input type="text" placeholder="4글자이상" name="memberId" id="_memberId" value="" required>
 					<input type="button" value="중복검사" onclick="checkIdDuplicate();" />
@@ -53,7 +53,7 @@
 			<tr>
 				<th>장르</th>
 				<td>
-					<input type="radio" name="genre" id="genre0" value="G3" checked/><label for="genre0">로맨틱</label>
+					<input type="radio" name="genre" id="genre0" value="G3" checked/><label for="genre0">로맨스</label>
 					<input type="radio" name="genre" id="genre1" value="G4" /><label for="genre1">코미디</label>
 					<input type="radio" name="genre" id="genre2" value="G1" /><label for="genre2">액션</label><br />
 					<input type="radio" name="genre" id="genre3" value="G6" /><label for="genre3">호러</label>
@@ -63,10 +63,10 @@
 				</td>
 			</tr>
 		</table>
-		<input type="submit" value="가입" >
+		<input type="submit" value="회원 가입하기" >
 	
 	</form>
-</section>
+</div>
 <form 
 	action="<%= request.getContextPath() %>/member/checkIdDuplicate"
 	name="checkIdDuplicateFrm">

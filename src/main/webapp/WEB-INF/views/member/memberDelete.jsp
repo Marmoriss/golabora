@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
-	<section id=enroll-container>
-	<h2>회원정보</h2>
+	<div id=delete-container>
+	<header>회원정보</header>
 	<p>GolaBora 웹사이트에서 회원님의 계정이 삭제됩니다.<br/>
 	   탈퇴시 개인정보 및 이용정보가 삭제되며 복구할 수 없습니다.<br/>
 	   본인의 비밀번호를 입력한 후 유의사항 동의에 체크하세요.
@@ -25,12 +25,12 @@
 				</td>
 			</tr>
 			<tr>
-					<td colspan="2" style="text-align: center;">
+					<td>
 						<input type="submit"  value="회원 탈퇴" />
 					</td>
 				</tr>
 			
 		</table>
 	</form>
-	</section>
+	</div>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>	

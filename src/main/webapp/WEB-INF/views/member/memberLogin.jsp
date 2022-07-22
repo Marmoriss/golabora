@@ -40,29 +40,31 @@ window.onload = () => {
 
 
 <div id="login-container" class="login-container">
-<h1>로그인</h1>
+<header>로그인</header>
 <% if(loginMember == null){ %>
 	<!-- 로그인폼 시작 -->
-	<form id="loginFrm" name="loginFrm" action="<%= request.getContextPath() %>/member/login" method="POST">
-		<table>
+	<form class="loginFrm" id="loginFrm" name="loginFrm" action="<%= request.getContextPath() %>/member/login" method="POST">
+		<table class = "tb">
+		
 			<tr>
-				<td><input type="text" name="memberId" id="memberId" placeholder="아이디" tabindex="1" 
+				<td><input type="text" class="logbtn1" name="memberId" id="memberId" placeholder="아이디" tabindex="1" 
 						value="<%= saveId != null ? saveId : "" %>"></td>
 			</tr>
 			<tr>
-				<td><input type="password" name="password" id="password" placeholder="비밀번호" tabindex="2"></td>
+				<td><input class="logbtn2"type="password" name="password" id="password" placeholder="비밀번호" tabindex="2"></td>
 				<td></td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<input type="checkbox" name="saveId" id="saveId" 
+				<td>
+					<input class="logbtn3" type="checkbox" name="saveId" id="saveId" 
 						<%= saveId != null ? "checked" : "" %> />
 					<label for="saveId">아이디저장</label>			
 				</td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="지금시작하기" tabindex="3"></td>			
+				<td><input class="logbtn4" type="submit" value="지금시작하기" tabindex="3"></td>			
 			</tr>
+		
 		</table>
 	</form>
 <% } else { %>		

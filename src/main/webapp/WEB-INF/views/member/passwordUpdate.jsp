@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
-	<section id=enroll-container>
+	<div id=pwupdate-container>
 		<h2>비밀번호 변경</h2>
 		<form 
 			name="passwordUpdateFrm" 
@@ -33,7 +33,7 @@
 			</table>
 			<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
 		</form>
-	</section>
+	</div>
 	<script>
 	/**
 	 * 비밀번호 일치여부 검사
