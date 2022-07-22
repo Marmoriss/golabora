@@ -10,11 +10,53 @@
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 </head>
 <body>
-	<h1 style="color: #ffff">안녕하세요</h1>
+	<h2 style="color: #ffff">영화 컨텐츠 등록</h2>
 	
+	<form action="" method="POST" class="contentsInsert">
+	
+		<label for="genreCode">장르 코드 : </label>
+		<input type="text" name="genreCode" id="genreCode" placeholder="장르를 입력하세요" />
+		<br>
+	
+		<label for="watchableAge">연령 제한 : </label>
+		<input type="text" name="watchableAge" id="watchableAge" placeholder="연령 제한을 입력하세요" />
+		<br>
+	
+		<label for="contentsTitle">영화 제목 : </label>
+		<input type="text" name="contentsTitle" id="contentsTitle" placeholder="영화 제목을 입력하세요" />
+		<br>
+	
+		<label for="releaseDate">개봉 날짜 : </label>
+		<input type="text" name="releaseDate" id="releaseDate" placeholder="개봉 날짜를 입력하세요" />
+		<br>
+		
+		<label for="runningTime">상영 시간 : </label>
+		<input type="text" name="runningTime" id="runningTime" placeholder="상영 시간을 입력하세요" />
+		<br>
+	
+		<label for="contentsPlot">줄거리 : </label>
+		<input type="text" name="contentsPlot" id="contentsPlot" placeholder="줄거리를 입력하세요" />
+		<br>
+	
+		<label for="originalFilename">변경 전 파일 이름 : </label>
+		<input type="originalFilename" name="originalFilename" id="originalFilename" placeholder="변경 전 파일 이름을 입력하세요" />
+		<br>
+	
+		<label for="renamedFilename">변경 후 파일 이름 : </label>
+		<input type="renamedFilename" name="renamedFilename" id="renamedFilename" placeholder="변경 후 파일 이름을 입력하세요" />
+		
+	</form>
+	
+<style>
+	.contentsInsert {
+		color : white;
+	}
+</style>
 
 </body>
 </html>
+
+
 
 
 
