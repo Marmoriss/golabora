@@ -31,6 +31,11 @@ input{
 	width: 330px;
 	padding: 15px;
 }
+a{
+	background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+}
 
 /********** main-ranking **********/
 div#main-ranking{
@@ -210,17 +215,156 @@ footer{
 	width: 1024px;
 	padding: 20px 0;
 }
+/********** 건우 start **********/
+/********** memberLogin **********/
+div#login-container{
+	
+	width: 600px;
+	height: 500px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	
+	}
+.login-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}
+.login-container tr{position: relative; position: relative; left : 130px; top:100px;}
+.login-container .tb .logbtn1{ width: 350px;height: 50px; }
+.login-container .tb .logbtn2{ width: 350px;height: 50px;}
+.login-container .tb .logbtn3{ 
+   display: inline-block; 
+   position: relative; 
+   top: 10px;
+   left: 220px;
+   width: 30px;
+   height: 30px;
+}
+
+td#saveId-wrap label{
+   position: relative; 
+    top: 0px;
+    left: 230px;
+}
+
+.login-container .tb .logbtn4{
+	position: relative;
+	top: 20px;
+	left : 40px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
 /********** memberEnroll **********/
-section#enroll-container h2{color: #636e72;}
-section#enroll-container {text-align:center;}
-section#enroll-container input{ width: 100%;border:none;outline:none; color: #636e72; font-size:16px; height:25px; background: none; border-bottom: 2px solid #adadad;}
-section#enroll-container table{background-color: #ffffff; height: 400px;width:600px;border: none; outline: none; margin-top : 50px;margin-left:auto;margin-right:auto;}
-section#enroll-container table th {border:none; outline:none; margin-bottom: 10px;}
-section#enroll-container table td {border:none; outline:none; margin-bottom: 10px;}
-section#enroll-container sup{color: red;}
+div#enroll-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}
+div#enroll-container {
+	width: 750px;
+	height: 1000px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	}
 
+div#enroll-container input{ width:450px;height :25px; border : solid 1px; }
+div#enroll-container h3{  margin: 19px 0 8px;
+    font-size: 16px;
+    font-weight: 700;}
+div#enroll-container div{
+	position : relative;
+	left : 150px;
+	top : 15px;
+	padding : 2px;
+}
+div#enroll-container sup{color: red;}
+div#enroll-container input[type=button]{
+	position : relative;
+	right : 20px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 200px;
+	height: 30px;
+	font-weight:bold;
+}
+div#enroll-container label#gen0 {
+	right : 30px;
+	position: relative;
+	bottom : 10px;
+}
+div#enroll-container label[for="gender1"] {
+	
+	right: 30px;
+	position: relative;
+	bottom : 10px;
+}
+div#enroll-container input#gender0{
+	position: relative;
+	bottom : 3px;
+	right: -20px;
+	width : 20px;
+}
 
+div#enroll-container input#gender1{
+	position: relative;
+	bottom : 3px;
+	right: -20px;
+	width : 20px;
+}
+div#enroll-container input[type=submit]{position: relative;
+	top: 20px;
+	left : 250px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
+/********** memberDelete **********/
+div#delete-container {
+	
+	width: 600px;
+	height: 500px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	}
+div#delete-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}	
+div#delete-container p{
+	padding : 20px;
+	text-align: center;
+}
 
-	
-	
-	
+div#delete-container input[type=submit]{position: relative;
+	top: 40px;
+	left : 170px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
+/********** 건우 end **********/
