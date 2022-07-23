@@ -231,3 +231,66 @@ div.report-reason label{
 	background-color: red;
 }
 
+/******admin-review-list****/
+section#review-list-container{
+	position: relative;
+	top: -450px;
+	left: 400px;
+	width: 700px;
+}
+div#reviewChk{
+	color: #000;
+	text-align: center;
+	text-decoration: underline;  
+	text-underline-position: under;
+	font-size: 15px;
+}
+div#reviewChk:hover{
+	color: #ffffff;
+}
+div#admin-review-list h1{
+	color: #ffffff;
+}
+.tbl-admin-review-list{
+	position: relative;
+	border:1px solid #ffffff; 
+	width:500px; 
+	height:150px;
+	border-style: hidden;
+    box-shadow: 0 0 0 3px #ffffff;	
+	border-collapse: collapse; 
+	color: #ffffff; 
+	border-radius: 10px;
+	background-color: #717171;
+	text-align: center;
+	margin: 30px 0;
+}
+div#adminPagebar{
+	margin:10px 0; 
+	text-align:center; 
+	background-color: transparent; 
+	position: relative;
+	top: -450px;
+	left: 130px;
+	}
+div#adminPagebar span.cPage{
+	color: #ffffff; 
+	margin-right: 5px;
+	}
+div#adminPagebar a{margin-right: 5px;}
+
+.tbl-admin-review-list input[type="submit"]{
+	background-color: #c0c0c0;
+	width:80px;
+	height: 30px;
+	border-radius: 15px;
+	border:1px solid #ffffff; 
+	font-weight: bold;
+	color: #363636;
+	cursor: pointer;
+}
+.tbl-admin-review-list input[type="submit"]:hover{
+	background-color: #9e5abc;
+	color: #ffffff;
+}
+

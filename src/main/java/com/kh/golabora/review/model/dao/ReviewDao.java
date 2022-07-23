@@ -388,11 +388,11 @@ public class ReviewDao {
 	}
 
 
-	public List<DeletedReview> findDeleteReveiw(Connection conn) {
+	public List<DeletedReview> findDeleteReview(Connection conn) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<DeletedReview> deletedList = new ArrayList<>();
-		String sql = prop.getProperty("findDeleteReveiw");
+		String sql = prop.getProperty("findDeleteReview");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -441,4 +441,35 @@ public class ReviewDao {
 		
 		return todayReportCount;
 	}
+	
+	//리뷰 전체 조회
+		public List<Review> findAllReview(Connection conn, Map<String, Object> param) {
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			List<Review> list = new ArrayList<>();
+			String sql = prop.getProperty("findAllReview");
+			//select *from (select row_number() over(order by reg_date desc) rnum, r.* from review r) r where rnum between ? and ?
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, (int) param.get("start"));
+				pstmt.setInt(2, (int) param.get("end"));
+
+				rset = pstmt.executeQuery();
+
+				while(rset.next()) {
+					Review review = handleReviewResultSet(rset);
+					list.add(review);
+				}
+			} catch (SQLException e) {
+				throw new ReviewException("전체 리뷰 목록 조회 오류!", e);
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+
+			return list;
+		}
+
+
+	
 }
