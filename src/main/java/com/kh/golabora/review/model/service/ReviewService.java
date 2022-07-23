@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
+import com.kh.golabora.contents.model.dto.Contents;
 import com.kh.golabora.contents.model.dto.ContentsInfo;
 import com.kh.golabora.review.model.dao.ReviewDao;
 import com.kh.golabora.review.model.dto.DeletedReview;
@@ -173,9 +174,9 @@ public class ReviewService {
 		return result;
 	}
 
-	public List<DeletedReview> findDeleteReveiw() {
+	public List<DeletedReview> findDeleteReview() {
 		Connection conn = getConnection();
-		List<DeletedReview> deletedList = reviewDao.findDeleteReveiw(conn); 
+		List<DeletedReview> deletedList = reviewDao.findDeleteReview(conn); 
 		close(conn);
 		return deletedList;
 	}
@@ -187,4 +188,15 @@ public class ReviewService {
 		return todayReportCount;
 	}
 	
+	//리뷰 전체 조회
+		public List<Review> findAllReview(Map<String, Object> param) {
+			Connection conn = getConnection();
+			List<Review> list = reviewDao.findAllReview(conn, param);
+			close(conn);
+			return list;
+		}
+
+		
+
+
 }

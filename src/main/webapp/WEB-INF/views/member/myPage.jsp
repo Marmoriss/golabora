@@ -38,6 +38,7 @@
 		<li class="admin-statistics"><a href="<%= request.getContextPath() %>/admin/statisticsList">통계 관리</a></li>
 		<li class="admin-contents"><a href="<%= request.getContextPath() %>/contents/contentsInsert">콘텐츠 관리</a></li>
 		<li class="admin-member"><a href="<%= request.getContextPath() %>/admin/memberList">회원 관리</a></li>
+		<li class="admin-review"><a href="<%= request.getContextPath() %>/admin/review">리뷰 관리</a></li>
 		<li class="admin-reported"><a href="<%= request.getContextPath() %>/admin/reportedReviewList">신고 관리</a></li>
 	</ul>
 	<%} %>
