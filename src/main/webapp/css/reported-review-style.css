@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/********** 전체 적용 ***********/
+div{
+    padding: 0px;
+    margin: 0px;
+}
+
+a{
+    cursor: pointer;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+}
+
+/********** reportedReview-container ***********/
+#reportedReview-container{
+    position: relative;
+    top: -450px;
+    left: 375px;
+    width: 530px;
+}
+
+div#reportedReview-Info{
+    width: 100%;
+    height: 50px;
+    background-color: #6302aa;
+    color: #ffff;
+    text-align: center;
+    line-height: 50px;
+}
+
+/********** reportedReview-container ***********/
+#repo-review-count{
+    color: #ffff;
+    width: 530px;
+    height: 150px;
+    text-align: center;
+    line-height: 70px;
+}
+
+#repo-review-count h3{
+    margin: 0;	
+}
+
+#delete-btn{
+	position: relative;
+    top: 250px;
+    left: 470px;
+    width: 50px;
+    height: 30px;
+    background-color: #6302aa;
+    color: #ffff;
+}
+/********** table ***********/
+/********** repo-review-board ***********/
+#table-wrap{
+	position: relative;
+    top: 270px;
+    left: -280px;
+    width: 800px;
+}
+table#repo-review-board{
+	border-collapse:collapse; 
+	clear:both;
+	display: inline-block;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	margin: 10px;
+}
+
+table#repo-review-board th, table#repo-review-board td{
+    
+    padding: 10px; 
+    text-align:center;
+    color: #ffff;
+}
+
+table#repo-review-board th{
+	background-color: #6302aa;
+}
+
+table#repo-review-board td{
+    background-color: #ffff;
+    color: black;
+    border: 2px solid #6302aa; 
+}
+
+
+table#repo-review-board input[type=checkbox]{
+	width: 20px;
+	height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

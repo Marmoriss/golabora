@@ -12,13 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.golabora.common.HelloGolaboraUtils;
+import com.kh.golabora.review.model.dto.DeletedReview;
 import com.kh.golabora.review.model.dto.ReportedReview;
 import com.kh.golabora.review.model.service.ReviewService;
 
 /**
  * Servlet implementation class ManageReportedReviewsServlet
  */
-@WebServlet("/admin/reviewList")
+@WebServlet("/admin/reportedReviewList")
 public class ReportedReviewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private ReviewService reviewService = new ReviewService();
@@ -45,8 +46,15 @@ public class ReportedReviewListServlet extends HttpServlet {
 
 			// 2. 업무로직
 			// a. content 영역
+			// 신고리뷰 테이블 조회
 			List<ReportedReview> list = reviewService.findAllReportedReview(param);
 
+			// 삭제 리뷰 테이블 조회
+			List<DeletedReview> deletedList = reviewService.findDeleteReveiw();
+			
+			// 금일 신고 리뷰 수
+			int todayReportCount = reviewService.getTodayReportedReview();
+			
 			// b. pagebar 영역
 			int totalContent = reviewService.getTotalReportedReview();
 			String url = request.getRequestURI(); // /golabora/admin/reviewList
@@ -54,8 +62,10 @@ public class ReportedReviewListServlet extends HttpServlet {
 
 			// 3. view단 처리
 			request.setAttribute("list", list);
+			request.setAttribute("deletedList", deletedList);
+			request.setAttribute("todayReportCount", todayReportCount);
 			request.setAttribute("pagebar", pagebar);
-			request.getRequestDispatcher("/WEB-INF/views/")
+			request.getRequestDispatcher("/WEB-INF/views//admin/reportedReviewList.jsp")
 				.forward(request, response);
 		} catch (Exception e) {
 			throw e;

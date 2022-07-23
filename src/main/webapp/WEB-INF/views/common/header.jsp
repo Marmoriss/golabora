@@ -30,5 +30,5 @@
 <body>
 	<div id="container">
 		<header>
-			<h1>GOLABORA</h1>
+			<a href="<%= request.getContextPath() %>"><h1>GOLABORA</h1></a>
 		</header>
