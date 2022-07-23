@@ -12,7 +12,11 @@ List<ContentsInfo> list = (List<ContentsInfo>) request.getAttribute("contentsInf
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/review-style.css" />
 <section id="review-enroll-container">
-
+	<div class="back-btn">
+      		<a href="javascript:history.back();">
+      			<i class="fa-solid fa-angle-left"></i>
+      		</a>
+      	</div>
 	<div class="review-editor">
       	<div class="contents-info">
       	<%
@@ -47,14 +51,13 @@ List<ContentsInfo> list = (List<ContentsInfo>) request.getAttribute("contentsInf
 					  <label for="2-stars" class="star">&#9733;</label>
 					  <input type="radio" id="1-star" name="star" value="1" />
 					  <label for="1-star" class="star">&#9733;</label>
+					  <input type="radio" id="0-star" name="star" value= "0" />
 					</div> 
 				<!-- 작성내용 -->
 					<div class="update-content">
 		           		<textarea name="reviewContent" cols="60" rows="10" placeholder="작품에 대한 감상을 짧게 남겨주세요 (150자 이내)"></textarea>
 		            </div>
 		            <button type="submit" id="btn-review-update">리뷰 수정</button>
-		            <!-- 엑스로 만들기 -->
-		            <input type="button" value="취소" id="update-cancel-btn" onclick="history.go(-1);"/>
 		            
 		     </form>
      	</div>
@@ -67,9 +70,10 @@ List<ContentsInfo> list = (List<ContentsInfo>) request.getAttribute("contentsInf
 document.reviewUpdateFrm.onsubmit = (e) => {
 	const frm = e.target;
 	//별점만 필수
-	if(!/^.+$/.test(frm.star.value)){
+	if(frm.star.value=="0"){
 		alert("별점을 등록해주세요");
 		frm.star.focus();
+		e.preventDefault();
 		return false;
 	}
 
