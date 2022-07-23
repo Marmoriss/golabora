@@ -242,19 +242,18 @@ public class ContentsDao {
 		int result = 0;
 		String sql = prop.getProperty("updateContents");
 //		update contents set genre_code = ?, watchable_age = ?, content_title = ?, release_date = ?,
-//				  running_time = ?, content_plot = ?, original_filename = ?, renamed_filename = ? where content_no = ?
+//				  running_time = ?, content_plot = ?, original_filename = ?, renamed_filename = ? where content_title = ?
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, contents.getGenreCode());
 			pstmt.setInt(2, contents.getWatchableAge());
-			pstmt.setString(3, contents.getContentsTitle());
-			pstmt.setString(4, contents.getReleaseDate());
-			pstmt.setString(5, contents.getRunningTime());
-			pstmt.setString(6, contents.getContentsPlot());
-			pstmt.setString(7, contents.getOriginalFilename());
-			pstmt.setString(8, contents.getRenamedFilename());
-			pstmt.setString(9, contents.getContentsNo());
+			pstmt.setString(3, contents.getReleaseDate());
+			pstmt.setString(4, contents.getRunningTime());
+			pstmt.setString(5, contents.getContentsPlot());
+			pstmt.setString(6, contents.getOriginalFilename());
+			pstmt.setString(7, contents.getRenamedFilename());
+			pstmt.setString(8, contents.getContentsTitle());
 			
 			result = pstmt.executeUpdate();
 			
@@ -267,14 +266,14 @@ public class ContentsDao {
 		return result;
 	}
 
-	public int deleteContents(Connection conn, String contentsNo) {
+	public int deleteContents(Connection conn, String contentsTitle) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("deleteContents");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, contentsNo);
+			pstmt.setString(1, contentsTitle);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			throw new ContentsException("영화 컨텐츠 삭제 오류가 발생하였습니다.", e);
@@ -283,5 +282,30 @@ public class ContentsDao {
 		}
 		
 		return result;
+	}
+
+	public ContentsInfo findByContentsTitle(Connection conn, String contentsTitle) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ContentsInfo contentsInfo = null;
+		String sql = prop.getProperty("findByContentsTitle");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, contentsTitle);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				contentsInfo = handleContentsInfoRset(rset);
+			}
+		} catch (SQLException e) {
+			throw new ContentsException("영화 제목 조회 오류!", e);
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return contentsInfo;
 	}	
 }

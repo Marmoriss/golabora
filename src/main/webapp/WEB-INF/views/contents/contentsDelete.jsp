@@ -1,31 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
-
-</head>
-<body>
-
-<h2 style="color: #ffff">영화 컨텐츠 삭제</h2>
-	
+<%@ include file="/WEB-INF/views/contents/contentsMainView.jsp" %>
+<section id="admin-contents-delete">
+	<h1>✂ 영화 컨텐츠 삭제</h1>
+	<div class="contents-container">
 	<form action="<%=request.getContextPath()%>/contents/contentsDelete" 
 	method="POST" 
-	class="contentsDelete">
-	
-		<label for="contentsNo">삭제할 영화의 번호 : </label>
-		<input type="text" name="contentsNo" id="contentsNo" placeholder="삭제할 영화의 번호를 입력하세요" />
-		<br>
+	class="contentsDelete"
+	onsubmit="return confirm('이 영화를 삭제하시겠습니까?');">
+		<h3>영화제목</h3>
+		<input type="text" name="contentsTitle" placeholder="제목을 정확히 입력해주세요"/>
+		<br /><br /><br />
 		
 		<input type="submit" value="영화 삭제" />
-
-
-
-<style>
-	.contentsDelete {
-		color : white;
-	}
-</style>
-
-</body>
-</html>
+	</div>
+</section>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

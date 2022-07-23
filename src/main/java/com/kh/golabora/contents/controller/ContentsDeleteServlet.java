@@ -37,10 +37,10 @@ public class ContentsDeleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			//1. 사용자 입력값 처리
-			String contentsNo = request.getParameter("contentsNo");
+			String contentsTitle = request.getParameter("contentsTitle");
 			
 			//2. 서비스로직호출
-			int result = contentsService.deleteContents(contentsNo);
+			int result = contentsService.deleteContents(contentsTitle);
 			
 			//3. 응답 리다이렉트
 			HttpSession session = request.getSession();
@@ -52,7 +52,7 @@ public class ContentsDeleteServlet extends HttpServlet {
 
 			//3. 리다이렉트 처리
 			session.setAttribute("msg", "영화 콘텐츠를 삭제하였습니다.");
-			response.sendRedirect(request.getContextPath() + "/contents/contentsMainView");
+			response.sendRedirect(request.getContextPath() + "/contents/contentsDelete");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
