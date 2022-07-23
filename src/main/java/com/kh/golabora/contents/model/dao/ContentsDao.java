@@ -229,4 +229,41 @@ public class ContentsDao {
 	/**
 	 * 수아 코드 끝
 	 */
+		
+		
+		
+	/**
+	 * 은미 코드 시작
+	 */
+	
+	public int updateContents(Connection conn, Contents contents) {
+	
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("updateContents");
+//		update contents set genre_code = ?, watchable_age = ?, content_title = ?, release_date = ?,
+//				  running_time = ?, content_plot = ?, original_filename = ?, renamed_filename = ? where content_no = ?
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, contents.getGenreCode());
+			pstmt.setInt(2, contents.getWatchableAge());
+			pstmt.setString(3, contents.getContentsTitle());
+			pstmt.setString(4, contents.getReleaseDate());
+			pstmt.setString(5, contents.getRunningTime());
+			pstmt.setString(6, contents.getContentsPlot());
+			pstmt.setString(7, contents.getOriginalFilename());
+			pstmt.setString(8, contents.getRenamedFilename());
+			pstmt.setString(9, contents.getContentsNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new ContentsException("영화 컨텐츠 수정 오류", e);
+			
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}	
 }

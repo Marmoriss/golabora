@@ -18,7 +18,7 @@
 		onclick="location.href='<%= request.getContextPath() %>/contents/contentsUpdate';" />
 	<br /><br />
 	<input type="button" value="영화 삭제하기"
-		onclick="location.href='<%= request.getContextPath() %>/contents/contentsInsert';" />
+		onclick="location.href='<%= request.getContextPath() %>/contents/contentsDelete';" />
 	<br /><br />
 
 </body>
