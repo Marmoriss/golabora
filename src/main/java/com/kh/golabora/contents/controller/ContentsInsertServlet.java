@@ -66,7 +66,7 @@ public class ContentsInsertServlet extends HttpServlet {
 			// 4. 응답처리 redirect
 			HttpSession session = request.getSession();
 			session.setAttribute("msg", "영화 콘텐츠 등록이 완료되었습니다.");
-			response.sendRedirect(request.getContextPath() + "/contents/contentsInsert");
+			response.sendRedirect(request.getContextPath() + "/contents/contentsMainView");
 			
 		
 			
