@@ -47,6 +47,7 @@ public class ContentsDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String sql = prop.getProperty("insertContents");
+//		insert into contents values (seq_contents_no.nextval, ?, ?, ?, ?, ?, default, ?, ?, ?)
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

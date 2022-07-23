@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>콘텐츠 관리</title>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css" />
+
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 </head>
 <body>
@@ -45,6 +45,7 @@
 		<label for="renamedFilename">변경 후 파일 이름 : </label>
 		<input type="renamedFilename" name="renamedFilename" id="renamedFilename" placeholder="변경 후 파일 이름을 입력하세요" />
 		
+		<input type="submit" value="영화등록" />
 	</form>
 	
 <style>

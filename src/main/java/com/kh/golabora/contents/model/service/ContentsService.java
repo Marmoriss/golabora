@@ -3,6 +3,7 @@ package com.kh.golabora.contents.model.service;
 import static com.kh.golabora.common.JdbcTemplate.close;
 import static com.kh.golabora.common.JdbcTemplate.commit;
 import static com.kh.golabora.common.JdbcTemplate.getConnection;
+import static com.kh.golabora.common.JdbcTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
@@ -24,7 +25,10 @@ public class ContentsService {
 		try {
 			result = contentsDao.insertContents(conn, contents);
 			commit(conn);
+			
 		} catch(Exception e) {
+			rollback(conn);
+			throw e;
 			
 		} finally {
 			close(conn);
