@@ -79,4 +79,28 @@ public List<String> findOttNameByContentsTitle(String contentsTitle) {
 	/**
 	 * 수아 코드 끝
 	 */
+		
+	/**
+	 * 은미 코드 시작
+	 */
+
+		public int updateContents(Contents contents) {
+			Connection conn = getConnection();
+			int result = 0;
+			try {
+				result = contentsDao.updateContents(conn, contents);
+				commit(conn);
+			} catch (Exception e) {
+				rollback(conn);
+				throw e;
+			} finally {
+				close(conn);
+			}
+			
+			return result;
+		}
+		
+	/**
+	 * 은미 코드 끝
+	 */
 }
