@@ -66,18 +66,19 @@ public class MemberLoginServlet extends HttpServlet {
 				}
 					
 				response.addCookie(cookie); 
-			}
-			
-			else {
-				session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
+				response.sendRedirect(request.getContextPath() + "/");
 			}
 			
 			
 			// 4. 응답 처리 : 로그인후 url변경을 위해 리다이렉트처리
-//			String location = request.getHeader("Referer");
-//			response.sendRedirect(location);
 //			
-			response.sendRedirect(request.getContextPath() + "/");
+			else {
+				session.setAttribute("msg", "아이디 또는 비밀번호가 일치한지 확인바랍니다.");
+				String location = request.getHeader("Referer");
+				response.sendRedirect(location);
+			
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e; 

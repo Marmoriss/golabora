@@ -59,7 +59,7 @@ public class MemberDeleteServlet extends HttpServlet {
 			response.addCookie(c);	
 			
 			//3. 리다이렉트 처리
-			session.setAttribute("msg", "회원을 성공적으로 삭제했습니다.");
+			session.setAttribute("msg", "골라보라를 이용해 주셔서 감사합니다.");
 			response.sendRedirect(request.getContextPath() + "/");
 			}
 			else {

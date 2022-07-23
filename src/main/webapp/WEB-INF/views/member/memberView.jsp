@@ -14,7 +14,7 @@
     
     
 %>
-<section id=enroll-container>
+<div id=enroll-container>
     <div id="userInfo">
         <h2>회원 정보</h2>
     </div>
