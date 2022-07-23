@@ -157,7 +157,7 @@ document.memberEnrollFrm.onsubmit = (e) => {
 	
 	const password = document.querySelector("#_password");
 	if(!/^[a-zA-Z0-9!@#$%^&*()]{4,}$/.test(password.value)){
-		alert("비밀번호는 영문자/숫자/!@#$%^&*()로 최소 4글자이상이어야 합니다.");
+		alert("비밀번호는 영문자/숫자/특수기호로 최소 4글자이상이어야 합니다.");
 		password.select();
 		return false;
 	}
