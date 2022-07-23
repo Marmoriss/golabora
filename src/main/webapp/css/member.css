@@ -1,0 +1,396 @@
+﻿/********** 건우 start **********/
+/********** memberLogin **********/
+div#login-container{
+	
+	width: 600px;
+	height: 500px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	
+	}
+.login-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}
+.login-container tr{position: relative; position: relative; left : 130px; top:100px;}
+.login-container .tb .logbtn1{ width: 350px;height: 50px; }
+.login-container .tb .logbtn2{ width: 350px;height: 50px;}
+.login-container .tb .logbtn3{ 
+   display: inline-block; 
+   position: relative; 
+   top: 10px;
+   left: 220px;
+   width: 30px;
+   height: 30px;
+}
+
+td#saveId-wrap label{
+   position: relative; 
+    top: 0px;
+    left: 230px;
+}
+
+.login-container .tb .logbtn4{
+	position: relative;
+	top: 20px;
+	left : 40px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
+div#login input[type=button]{
+	 position: relative;
+    appearance: none; 
+    border: none; 
+    border-radius: 4px; 
+    background-color:#cda0fe; 
+    color:#ffffff;
+    font-size: 15px;
+    width: 260px;
+    height: 55px;
+    left: 70px;
+    top: -60px;
+    padding: 15px;
+    font-size : 18px;
+    margin : 5px;
+}
+
+div#login h3{
+	
+	
+	font-size : 20px;
+	text-align : center;
+}
+/********** memberEnroll **********/
+div#enroll-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}
+div#enroll-container {
+	width: 750px;
+	height: 1100px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	}
+
+div#enroll-container input{ width:450px;height :25px; border : solid 1px; }
+div#enroll-container h3{  margin: 19px 0 8px;
+    font-size: 16px;
+    font-weight: 700;}
+div#enroll-container div{
+	position : relative;
+	left : 150px;
+	top : 15px;
+	padding : 2px;
+}
+div#enroll-container sup{color: red;}
+div#enroll-container input[type=button]{
+	position : relative;
+	right : 20px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 200px;
+	height: 30px;
+	font-weight:bold;
+}
+div#enroll-container label#gen0 {
+	right : 30px;
+	position: relative;
+	bottom : 10px;
+}
+div#enroll-container label[for="gender1"] {
+	
+	right: 30px;
+	position: relative;
+	bottom : 10px;
+}
+div#enroll-container input#gender0{
+	position: relative;
+	bottom : 3px;
+	right: -20px;
+	width : 20px;
+}
+
+div#enroll-container input#gender1{
+	position: relative;
+	bottom : 3px;
+	right: -20px;
+	width : 20px;
+}
+div#enroll-container input[type=submit]{position: relative;
+	top: 20px;
+	left : 250px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
+	
+div#genreBox{
+	position: relative;
+	width : 700px;
+    text-align: center;
+    height: 300px;
+}
+div#genreBox .genreBox{
+	position : relative;
+	top : 10px;
+	left : -120px;
+	font-size : 20px;
+}
+div#genreBox div{	
+	position : relative;
+	top : 30px;
+	left : -120px;
+	text-align: center;
+    padding: 10px 15px;
+    display: inline-block;
+}
+div#genreBox input[type="radio"]{
+    display: none;
+}
+
+div#genreBox input[type="radio"] + label{
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    background-color: #c0c0c0;
+    border-radius: 75px;
+    position: relative;
+    font-size: 20px;
+    
+}
+div#genreBox input[type="radio"]:checked +label{
+    background-color: #6302aa; 
+    color: #ffffff;
+}
+div#genreBox h3{
+    position: relative;
+}
+
+
+/********** memberDelete **********/
+div#delete-container {
+	
+	width: 600px;
+	height: 500px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	}
+div#delete-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}	
+div#delete-container p{
+	
+	padding-top : 40px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+div#delete-container input#memberId{
+	position: relative;
+	bottom : 60px;
+	left: 200px;
+	width: 23px;
+}
+div#delete-container label[for="memberId"]{
+	position: relative;
+	bottom : 70px;
+	left: 205px;
+	font-size: 15px;
+	font-weight:bold;
+}
+div#delete-container label[for="password"]{
+	position: relative;
+	top : -150px;
+	left : 60px;
+	font-size : 17px;
+	font-weight:bold;
+}
+div#delete-container input[type=password]{
+	position: relative;
+	top : -150px;
+	left : 60px;
+	width: 365px;
+	height : 25px;
+}
+div#delete-container input[type=submit]{position: relative;
+	top: -120px;
+	left : 170px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
+/********** memberView **********/
+div#memberinfo-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}
+
+div#memberinfo-container {
+	width: 600px;
+	height: 800px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	}
+
+div#memberinfo-container input{ width:450px;height :25px; border : solid 1px; }
+div#memberinfo-container h3{  margin: 19px 0 8px;
+    font-size: 16px;
+    font-weight: 700;}
+div#memberinfo-container div{
+	position : relative;
+	left : 70px;
+	top : 15px;
+	padding : 2px;
+}
+div#memberinfo-container sup{color: red;}
+
+div#memberinfo-container label#gen0 {
+	right: 30px;
+	position: relative;
+	bottom : 10px;
+}
+div#memberinfo-container label[for="gender1"] {
+	
+	right: 30px;
+	position: relative;
+	bottom : 10px;
+}
+div#memberinfo-container input#gender0{
+	position: relative;
+	bottom : 3px;
+	right: -20px;
+	width : 20px;
+}
+
+div#memberinfo-container input#gender1{
+	position: relative;
+	bottom : 3px;
+	right: -20px;
+	width : 20px;
+}
+div#memberinfo-container .button3{position : relative;
+	
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 450px;
+	height: 35px;
+	font-weight:bold;}
+div#memberinfo-container #btn1{
+	left : 80px;
+	top : 50px;
+}
+div#memberinfo-container #btn2{
+	left : 80px;
+	top : 100px;
+}
+div#memberinfo-container #btn3{
+	left : 80px;
+	top : 150px;
+}
+/********** pwUpdate **********/
+div#pwUpdate-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}
+div#pwUpdate-container {
+	width: 500px;
+	height: 600px;
+	background-color: white;
+	position: relative;
+	padding:0; 
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+	}
+div#pwUpdate-container input[type=submit]{position: relative;
+	top : 80px;
+	left : 110px;
+	appearance: none; 
+	border: none; 
+	border-radius: 4px; 
+	background-color:#a00ac0; 
+	color:#ffffff;
+	font-size: 15px;
+	width: 260px;
+	height: 55px;
+	font-weight:bold;}
+div#pwUpdate-container div{
+	position : relative;
+	left : 95px;
+	top : 30px;
+	padding : 2px;
+	
+	
+}
+div#pwUpdate-container input{
+	width : 270px;
+	height : 25px;
+}
+
+/********** memberlist **********/
+div#memberList-container h2{color: #ffffff;}
+
+table#tbl-member {
+  border: 1px #a39485 solid;
+  font-size: .9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+table#tbl-member th {
+  text-align: center;
+}
+  
+table#tbl-member thead {
+  font-weight: bold;
+  color: #fff;
+  background:#a00ac0;
+}
+  
+table#tbl-member td, th {
+  padding: 1em .5em;
+  vertical-align: middle;
+}
+  
+table#tbl-member td {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+}
+
+
+  
+
+/********** 건우 end **********/

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/member.css" />
 <div id=enroll-container class="enroll-container">
 	<header>회원 가입</header>
 	<form name="memberEnrollFrm" class="memberEnrollFrm"action="" method="POST">
@@ -52,17 +53,34 @@
 					<label for="gender1">여</label>
 				</div>
 			
-				<div>
+				<div id="genreBox">
 					<h3 class="join_title">
-                        <label for="genre0">장르</label>
+                        <label class="genreBox"for="genre0">최애 장르 선택하기</label>
                     </h3>
-					<input type="radio" name="genre" id="genre0" value="G3" checked/><label for="genre0">로맨스</label>
-					<input type="radio" name="genre" id="genre1" value="G4" /><label for="genre1">코미디</label>
-					<input type="radio" name="genre" id="genre2" value="G1" /><label for="genre2">액션</label><br />
-					<input type="radio" name="genre" id="genre3" value="G6" /><label for="genre3">호러</label>
-					<input type="radio" name="genre" id="genre4" value="G2" /><label for="genre4">드라마</label><br />
-					<input type="radio" name="genre" id="genre5" value="G8" /><label for="genre5">다큐</label><br />
+                    <div>
+					<input type="radio" name="genre" id="genre0" value="G1" checked/><label for="genre0">액션</label><br />
+					</div>
+					<div>
+					<input type="radio" name="genre" id="genre1" value="G2" /><label for="genre1">드라마</label><br />
+					</div>
+					<div>
+					<input type="radio" name="genre" id="genre2" value="G3" /><label for="genre2">로맨스</label>
+					</div>
+					<div>
+					<input type="radio" name="genre" id="genre3" value="G4" /><label for="genre3">코미디</label>
+					</div>
+					<div>
+					<input type="radio" name="genre" id="genre4" value="G5" /><label for="genre4">스릴러</label><br />
+					</div>
+					<div>
+					<input type="radio" name="genre" id="genre5" value="G6" /><label for="genre5">호러</label>
+					</div>
+					<div>
 					<input type="radio" name="genre" id="genre6" value="G7" /><label for="genre6">판타지</label><br />
+					</div>
+					<div>
+					<input type="radio" name="genre" id="genre7" value="G8" /><label for="genre7">다큐</label><br />
+					</div>
 				</div>
 		
 		<input type="submit" value="회원 가입하기" >
