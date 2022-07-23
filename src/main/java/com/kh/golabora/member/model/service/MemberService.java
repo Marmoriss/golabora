@@ -7,6 +7,7 @@ import static com.kh.golabora.common.JdbcTemplate.rollback;
 
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -134,6 +135,13 @@ public class MemberService {
 		int totalContent = memberDao.getTotalContentLike(conn, param);
 		close(conn);
 		return totalContent;
+	}
+
+	public Map<String, Integer> findRecentMemberCount() {
+		Connection conn = getConnection();
+		Map<String, Integer> param = memberDao.findRecentMemberCount(conn);
+		close(conn);
+		return param;
 	}
 }
 

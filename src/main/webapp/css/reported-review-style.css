@@ -45,8 +45,8 @@ div#reportedReview-Info{
 
 #delete-btn{
 	position: relative;
-    top: 250px;
-    left: 470px;
+    top: 0px;
+    left: 525px;
     width: 50px;
     height: 30px;
     background-color: #6302aa;
@@ -56,9 +56,9 @@ div#reportedReview-Info{
 /********** repo-review-board ***********/
 #table-wrap{
 	position: relative;
-    top: 270px;
-    left: -280px;
-    width: 800px;
+    top: 0px;
+    left: -15px;
+    width: 730px;
 }
 table#repo-review-board{
 	border-collapse:collapse; 
@@ -93,8 +93,10 @@ table#repo-review-board input[type=checkbox]{
 	height: 20px;
 }
 
-
-
+/********** pagebar ***********/
+div#pagebar{margin:10px 0; text-align:center; background-color: transparent; position: relative; top: 0px; left: 0px;}
+div#pagebar span.cPage{color: #ffffff; margin-right: 5px;}
+div#pagebar a{margin-right: 5px;}
 
 
 

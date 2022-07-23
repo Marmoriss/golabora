@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -264,6 +265,26 @@ public int getTotalContentLike(Connection conn, Map<String, Object> param) {
 		close(pstmt);
 	}
 	return totalContent;
+}
+
+// 최근 5일 가입자 수 조회
+public Map<String, Integer> findRecentMemberCount(Connection conn) {
+	PreparedStatement pstmt = null;
+	ResultSet rset = null;
+	Map<String, Integer> param = new HashMap<>();
+	String sql = prop.getProperty("findRecentMemberCount");
+	
+	try {
+		pstmt = conn.prepareStatement(sql);
+		rset = pstmt.executeQuery();
+		while(rset.next()) {
+			param.put(rset.getString("enroll_date"), rset.getInt("count"));
+		}
+	} catch (SQLException e) {
+		throw new MemberException("최근 5일 가입자 수 조회 오류!", e);
+	}
+	
+	return param;
 }
 
 
