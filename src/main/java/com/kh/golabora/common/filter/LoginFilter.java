@@ -26,6 +26,11 @@ import com.kh.golabora.member.model.dto.Member;
 	"/member/memberUpdate", 
 	"/member/memberDelete",
 	"/member/passwordUpdate",
+	"/review/reviewDelete",
+	"/review/reviewUpdate",
+	"/review/reviewReport",
+	"/review/reviewEnroll"
+	
 	})
 public class LoginFilter implements Filter {
 

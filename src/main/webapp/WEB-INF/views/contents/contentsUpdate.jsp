@@ -7,7 +7,9 @@
 
 	<h2 style="color: #ffff">영화 컨텐츠 수정</h2>
 	
-	<form action="" method="POST" class="contentsUpdate">
+	<form action="<%=request.getContextPath()%>/contents/contentsUpdate" 
+	 method="POST" 
+	 class="contentsUpdate">
 	
 		<label for="genreCode">장르 코드 : </label>
 		<input type="text" name="genreCode" id="genreCode" placeholder="장르를 입력하세요" />

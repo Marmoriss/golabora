@@ -8,7 +8,10 @@
 <body>
 	<h2 style="color: #ffff">영화 컨텐츠 등록</h2>
 	
-	<form action="" method="POST" class="contentsInsert">
+	<form 
+	action="<%=request.getContextPath()%>/contents/contentsInsert"  
+	method="POST" 
+	class="contentsInsert">
 	
 		<label for="genreCode">장르 코드 : </label>
 		<input type="text" name="genreCode" id="genreCode" placeholder="장르를 입력하세요" />
