@@ -36,7 +36,7 @@ public class ContentsInsertServlet extends HttpServlet {
 	/**
 	 * POST db insert 요청
 	 * 
-	 * insert into contents values (seq_contents_no.nextval, ?, default, ?, ?, ?, default, ?, ?, ?)
+	 * insert into contents values (seq_contents_no.nextval, ?, ?, ?, ?, ?, default, ?, ?, ?)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -66,7 +66,7 @@ public class ContentsInsertServlet extends HttpServlet {
 			// 4. 응답처리 redirect
 			HttpSession session = request.getSession();
 			session.setAttribute("msg", "영화 콘텐츠 등록이 완료되었습니다.");
-			response.sendRedirect(request.getContextPath() + "/");
+			response.sendRedirect(request.getContextPath() + "/contents/contentsInsert");
 			
 		
 			
