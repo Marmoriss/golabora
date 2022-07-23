@@ -49,7 +49,7 @@ String pagebar = (String) request.getAttribute("pagebar");
 		            <td><%= repoReview.getReportedReviewNo() %></td>
 		            <td><%= repoReview.getReviewNo() %></td>
 		            <td><%= repoReview.getReporterId() %></td>
-		            <td><%= new SimpleDateFormat("yyyy-MM-dd hh:mm").format(repoReview.getReportedDate()) %></td>
+		            <td><%= new SimpleDateFormat("yyyy-MM-dd").format(repoReview.getReportedDate()) %></td>
 		            <td><%= repoReview.getReason() %></td>
 	<!-- 	            삭제 리뷰 테이블과 비교해서 삭제됐으면 삭제, 아니면 처리 중으로 -->
                     <% if( deletedList.contains(repoReview.getReviewNo())) {%>
@@ -66,7 +66,9 @@ String pagebar = (String) request.getAttribute("pagebar");
 		    </table>
 	    </div>
     </form>
-    <div id="pagebar"><%= pagebar %></div>
+<div id='pagebar'>
+        <%= request.getAttribute("pagebar") %>
+</div>
 <script>
 window.addEventListener('load', (e) => {
 	const processing = document.querySelectorAll(".processing");
