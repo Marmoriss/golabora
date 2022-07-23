@@ -18,7 +18,7 @@ import com.kh.golabora.review.model.service.ReviewService;
 /**
  * Servlet implementation class ManageReportedReviewsServlet
  */
-@WebServlet("/admin/reviewList")
+@WebServlet("/admin/reportedReviewList")
 public class ReportedReviewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private ReviewService reviewService = new ReviewService();
@@ -55,7 +55,7 @@ public class ReportedReviewListServlet extends HttpServlet {
 			// 3. view단 처리
 			request.setAttribute("list", list);
 			request.setAttribute("pagebar", pagebar);
-			request.getRequestDispatcher("/WEB-INF/views/")
+			request.getRequestDispatcher("/WEB-INF/views//admin/reportedReviewList.jsp")
 				.forward(request, response);
 		} catch (Exception e) {
 			throw e;

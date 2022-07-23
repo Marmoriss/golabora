@@ -308,7 +308,7 @@ public class ReviewDao {
 
 	private ReportedReview handleReportedReviewResultSet(ResultSet rset) throws SQLException{
 		String reportedReviewNo = rset.getString("reported_review_no");
-		String reviewNo = rset.getString("reviewNo");
+		String reviewNo = rset.getString("review_no");
 		String reporterId = rset.getString("reporter_id");
 		Date reportedDate = rset.getDate("reported_date");
 		String reason = rset.getString("reason");
