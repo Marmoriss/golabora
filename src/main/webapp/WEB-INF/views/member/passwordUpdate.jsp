@@ -1,39 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-
-	<section id=enroll-container>
-		<h2>비밀번호 변경</h2>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/member.css" />
+	<div id=pwUpdate-container>
+		<header>비밀번호 변경</header>
 		<form 
 			name="passwordUpdateFrm" 
 			action="<%=request.getContextPath()%>/member/passwordUpdate" 
 			method="post" >
-			<table>
-				<tr>
-					<th>현재 비밀번호</th>
-					<td><input type="password" name="oldPassword" id="oldPassword" required></td>
-				</tr>
-				<tr>
-					<th>변경할 비밀번호</th>
-					<td>
-						<input type="password" name="newPassword" id="newPassword" required>
-					</td>
-				</tr>
-				<tr>
-					<th>비밀번호 확인</th>
-					<td>	
-						<input type="password" id="newPasswordCheck" required><br>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" style="text-align: center;">
-						<input type="submit"  value="변경" />
-					</td>
-				</tr>
-			</table>
+			<div>
+			<h3 class="pwUpdate_title">
+                <label for="oldPassword">현재 비밀번호</label>
+            </h3>	
+				<input type="password" name="oldPassword" id="oldPassword" required>
+			</div>
+			<div>
+			<h3 class="pwUpdate_title">
+                <label for="newPassword">변경 비밀번호</label>
+            </h3>
+				<input type="password" name="newPassword" id="newPassword" required>
+			</div>
+			<div>
+			<h3 class="pwUpdate_title">
+                <label for="newPasswordCheck">비밀번호 확인</label>
+            </h3>	
+				<input type="password" id="newPasswordCheck" required><br>
+			</div>
+				<input type="submit"  value="변경" />
+				
+				
 			<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
 		</form>
-	</section>
+	</div>
 	<script>
 	/**
 	 * 비밀번호 일치여부 검사

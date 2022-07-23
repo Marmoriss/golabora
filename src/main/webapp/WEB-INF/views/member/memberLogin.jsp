@@ -3,8 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/member.css" />
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 <script>
 window.onload = () => {
@@ -68,21 +67,18 @@ window.onload = () => {
 		</table>
 	</form>
 <% } else { %>		
-	<table id="login">
-			<tr>
-				<td>
-					<%= loginMember.getMemberName() %>님, 안녕하세요.
-				</td>
-			</tr>				
-			<tr>
-				<td>
+	<div id="login">
+			<div>
+			
+					<h3><%= loginMember.getMemberName() %>님, 안녕하세요.</h3>
+			</div>
+			<div>
 					<input type="button" value="내정보보기" 
 						onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
-					<input type="button" value="로그아웃" 
+					<input class="btn2"type="button" value="로그아웃" 
 						onclick="location.href='<%= request.getContextPath() %>/member/logout';"/>
-				</td>
-			</tr>
-		</table>
+			</div>
+		</div>
 	<% } %>	
 	</div>		
 

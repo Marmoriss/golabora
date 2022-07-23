@@ -13,61 +13,61 @@
 	
 	
 %>
-<section id=enroll-container>
-	<h2>회원 정보</h2>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/member.css" />
+<div id=memberinfo-container>
+	<header>회원 정보</header>
 	<form 
 		name="memberUpdateFrm"
 		action="<%=request.getContextPath() %>/member/memberUpdate" 
 		method="post">
-		<table>
-			<tr>
-				<th>아이디<sup>*</sup></th>
-				<td>
-					<input type="text" name="memberId" id="memberId" value="<%= memberId %>" readonly>
-				</td>
-			</tr>
-			<tr>
-				<th>이름<sup>*</sup></th>
-				<td>	
+		 	<div>
+		 	<h3 class="update_title">
+                <label for="memberId">아이디</label>
+            </h3>
+				<input type="text" name="memberId" id="memberId" value="<%= memberId %>" readonly>
+			</div>
+			<div>
+			<h3 class="update_title">
+                <label for="memberName">이름</label>
+            </h3>
 				<input type="text"  name="memberName" id="memberName" value="<%= memberName %>"  required><br>
-				</td>
-			</tr>		
-			<tr>
-				<th>휴대폰<sup>*</sup></th>
-				<td>	
-					<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" value="<%= phone %>" required><br>
-				</td>
-			</tr>
-			<tr>
-				<th>성별 </th>
-				<td>
-			       		 <input type="radio" name="gender" id="gender0" value="M" <%= "M".equals(gender) ? "checked" : "" %>>
-						 <label for="gender0">남</label>
-						 <input type="radio" name="gender" id="gender1" value="F" <%= "F".equals(gender) ? "checked" : "" %>>
-						 <label for="gender1">여</label>
-				</td>
-			</tr>
-			<tr>
-				<th>최애장르 </th>
-				<td>
-					<select id="genreCode" name="genreCode"  >
-						<option value="G1" <%= "G1".equals(genreCode) ? "selected" : "" %>>액션</option>
-						<option value="G2" <%= "G2".equals(genreCode) ? "selected" : "" %>>드라마</option>
-						<option value="G3" <%= "G3".equals(genreCode) ? "selected" : "" %>>로맨스</option>
-						<option value="G4" <%= "G4".equals(genreCode) ? "selected" : "" %>>코미디</option>
-						<option value="G5" <%= "G5".equals(genreCode) ? "selected" : "" %>>스릴러</option>
-						<option value="G6" <%= "G6".equals(genreCode) ? "selected" : "" %>>호러</option>
-						<option value="G7" <%= "G7".equals(genreCode) ? "selected" : "" %>>판타지</option>						
-						<option value="G8" <%= "G8".equals(genreCode) ? "selected" : "" %>>다큐</option>						
-					</select>	
-				</td>
-			</tr>
-		</table>
-        <input type="submit" value="정보수정"/>
-        <input type="button" value="비밀번호변경" onclick="updatePassword();" />
-        <input type="button" onclick="deleteMember();" value="탈퇴"/>
+			</div>
+			<div>
+			<h3 class="update_title">
+                <label for="phone">전화번호</label>
+            </h3>	
+				<input type="tel" placeholder="(-없이)01012345678" name="phone" id="phone" maxlength="11" value="<%= phone %>" required><br>
+			</div>
+			<div>
+			<h3 class="update_title">
+                <label for="gender0">성별</label>
+            </h3>	
+	       		 <input type="radio" name="gender" id="gender0" value="M" <%= "M".equals(gender) ? "checked" : "" %>>
+				 <label id="gen0"for="gender0">남</label>
+				 <input type="radio" name="gender" id="gender1" value="F" <%= "F".equals(gender) ? "checked" : "" %>>
+				 <label for="gender1">여</label>
+			</div>
+			<div>
+			<h3 class="join_title">
+                <label for="genreCode">최애 장르</label>
+            </h3>	
+				<select id="genreCode" name="genreCode"  >
+					<option value="G1" <%= "G1".equals(genreCode) ? "selected" : "" %>>액션</option>
+					<option value="G2" <%= "G2".equals(genreCode) ? "selected" : "" %>>드라마</option>
+					<option value="G3" <%= "G3".equals(genreCode) ? "selected" : "" %>>로맨스</option>
+					<option value="G4" <%= "G4".equals(genreCode) ? "selected" : "" %>>코미디</option>
+					<option value="G5" <%= "G5".equals(genreCode) ? "selected" : "" %>>스릴러</option>
+					<option value="G6" <%= "G6".equals(genreCode) ? "selected" : "" %>>호러</option>
+					<option value="G7" <%= "G7".equals(genreCode) ? "selected" : "" %>>판타지</option>						
+					<option value="G8" <%= "G8".equals(genreCode) ? "selected" : "" %>>다큐</option>						
+				</select>	
+			</div>
+		
+        <input id="btn1"class="button3"type="submit" value="정보수정"/>
+        <input id="btn2"class="button3"type="button" value="비밀번호변경" onclick="updatePassword();" />
+        <input id="btn3"class="button3"type="button" onclick="deleteMember();" value="탈퇴"/>
 	</form>
-</section>
+</div>
 <!-- 회원탈퇴폼 : POST /member/memberDelete 전송을 위해 시각화되지 않는 폼태그 이용 -->
 <form name="memberDelFrm" action="<%= request.getContextPath() %>/member/memberDelete" method="POST">
 	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
@@ -84,7 +84,7 @@ const updatePassword = () => {
  * memberDelFrm 제출
  */
 const deleteMember = () => {
-	location.href = "<%= request.getContextPath() %>/member/memberRemove";
+	location.href = "<%= request.getContextPath() %>/member/memberDelete";
 };
 
 /**
