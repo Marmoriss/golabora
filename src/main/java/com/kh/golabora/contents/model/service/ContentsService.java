@@ -12,6 +12,7 @@ import java.util.Map;
 import com.kh.golabora.contents.model.dao.ContentsDao;
 import com.kh.golabora.contents.model.dto.Contents;
 import com.kh.golabora.contents.model.dto.ContentsInfo;
+import com.kh.golabora.contents.model.exception.ContentsException;
 import com.kh.golabora.review.model.dto.Review;
 
 
@@ -99,6 +100,26 @@ public List<String> findOttNameByContentsTitle(String contentsTitle) {
 			
 			return result;
 		}
+
+	public int deleteContents(String contentsNo) {
+		Connection conn = null;
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			result = contentsDao.deleteContents(conn, contentsNo);
+			if(result == 0)
+				throw new ContentsException("해당 번호의 영화는 존재하지 않습니다.");
+			commit(conn);
+		} catch (Exception e) {
+			rollback(conn);
+			throw e;
+		} finally {
+			close(conn);
+		}
+		
+		return result;
+	}
 		
 	/**
 	 * 은미 코드 끝

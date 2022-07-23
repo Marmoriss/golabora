@@ -265,5 +265,23 @@ public class ContentsDao {
 			close(pstmt);
 		}
 		return result;
+	}
+
+	public int deleteContents(Connection conn, String contentsNo) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteContents");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, contentsNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new ContentsException("영화 컨텐츠 삭제 오류가 발생하였습니다.", e);
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}	
 }
