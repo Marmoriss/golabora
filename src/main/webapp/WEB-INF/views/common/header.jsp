@@ -26,6 +26,14 @@
 <title>GOLABORA</title>
 <script src="https://kit.fontawesome.com/f0183e40db.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css" />
+<script>
+window.onload = () => {
+
+	<% if(msg != null) { %>	
+		alert("<%= msg %>");
+	<% } %>
+};
+</script>
 </head>
 <body>
 	<div id="container">

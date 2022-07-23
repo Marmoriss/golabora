@@ -54,7 +54,7 @@ public class MemberUpdateServlet extends HttpServlet {
 			String msg = "";
 
 			if(result > 0){
-				msg = "회원정보 수정성공!";
+				msg = "회원정보가 변경되었습니다.";
 				// 세션 정보 갱신
 				session.setAttribute("loginMember", memberService.findById(memberId));
 			}

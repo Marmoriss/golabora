@@ -26,6 +26,7 @@ public class MemberLogoutServlet extends HttpServlet {
 			session.invalidate();
 		
 		// 2. 리다이렉트
+		session.setAttribute("msg", "로그아웃되었습니다.");
 		response.sendRedirect(request.getContextPath() + "/");
 	}
 
