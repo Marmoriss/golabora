@@ -64,7 +64,7 @@ public class MemberEnrollServlet extends HttpServlet {
 			
 			// 4. 응답처리 : redirect
 			HttpSession session = request.getSession();
-			session.setAttribute("msg", "회원가입이 정상적으로 처리되었습니다.");
+			session.setAttribute("msg", "회원가입이 되었습니다.");
 			response.sendRedirect(request.getContextPath() + "/");
 		
 		} catch (Exception e) {

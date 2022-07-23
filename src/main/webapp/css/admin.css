@@ -15,3 +15,8 @@ div#memberList-container div#pagebar{margin-top:10px; text-align:center; backgro
 div#memberList-container div#pagebar span.cPage{color: #0066ff; margin-right: 5px;}
 div#memberList-container div#pagebar a{margin-right: 5px; text-decoration: none;}
 div#memberList-container div#pagebar a:hover {text-decoration: underline;}
+
+div#search-container input[type=text]{
+	width : 400px;
+	height : 20px;
+}

@@ -5,7 +5,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
+<%@ include file="/WEB-INF/views/member/myPage.jsp" %>
 <%
 	List<Member> list = (List<Member>) request.getAttribute("list");
 	String type = request.getParameter("searchType");
@@ -48,7 +48,7 @@ window.addEventListener('load', (e) => {
 	<h2>회원관리</h2>
 	
 	<div id="search-container">
-		<label for="searchType">검색타입 :</label> 
+		
         <select id="searchType">
             <option value="member_id" <%= "member_id".equals(type) ? "selected" : "" %>>아이디</option>		
             <option value="member_name" <%= "member_name".equals(type) ? "selected" : "" %>>회원명</option>
