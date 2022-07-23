@@ -11,6 +11,11 @@
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/review-style.css" />
 <section id="review-enroll-container">
+		<div class="back-btn">
+      		<a href="javascript:history.back();">
+      			<i class="fa-solid fa-angle-left"></i>
+      		</a>
+      	</div>
 	<div class="review-editor">
       	<div class="contents-info">
  	<%
@@ -44,8 +49,9 @@
 					  <label for="3-stars" class="star">&#9733;</label>
 					  <input type="radio" id="2-stars" name="star" value="2" />
 					  <label for="2-stars" class="star">&#9733;</label>
-					  <input type="radio" id="1-star" name="star" value= "1" />
+					  <input type="radio" id="1-star" name="star" value= "1" checked/>
 					  <label for="1-star" class="star">&#9733;</label>
+					  <input type="radio" id="0-star" name="star" value= "0" />
 					</div> 
 				<!-- 작성내용 -->
 					<div class="enroll-content">
@@ -63,7 +69,7 @@
 document.reviewEnrollFrm.onsubmit = (e) => {
 	const frm = e.target;
 	//별점만 필수
-	if(!/^.+$/.test(frm.star.value)){
+	if(frm.star.value=="0"){
 		alert("별점을 등록해주세요");
 		frm.star.focus();
 		e.preventDefault();
@@ -72,5 +78,6 @@ document.reviewEnrollFrm.onsubmit = (e) => {
 
 	return true;
 }
+
 </script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

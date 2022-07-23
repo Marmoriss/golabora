@@ -107,7 +107,7 @@ for(ContentsInfo contents : list){
 			action="<%=request.getContextPath()%>/review/reviewEnroll" 
 			method="GET">
 			<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>"/>      
-			<button type="submit">지금 리뷰 작성하러 가기</button>
+			<button>지금 리뷰 작성하러 가기</button>
 		</form>
 		
 	</div>	
@@ -148,19 +148,23 @@ for(ContentsInfo contents : list){
 				<form 
 					action="<%= request.getContextPath()%>/review/reviewDelete"
 					method="POST"
-					name="reviewDelFrm">
+					name="reviewDelFrm"
+					onsubmit="return confirm('리뷰를 삭제하시겠습니까?');">
 					<input type="hidden" name="reviewNo" value="<%= _review.getReviewNo() %>"/>
-					<button class="btn-review-del" onclick="deleteReview()">삭제</button>
+					<input type="submit" value="삭제">
 				</form>
+				
 				<br />
 				<!-- review update form -->
 				<form action="<%= request.getContextPath()%>/review/reviewUpdate"
 					  method="GET"
-					  name="reviewUpdateFrm">
+					  name="reviewUpdateFrm"
+					  onsubmit="return confirm('리뷰를 수정하시겠습니까?');">
 					<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>" />
 					<input type="hidden" name="reviewNo" value="<%=_review.getReviewNo() %>" />
-					<button class="btn-review-edit" onclick="updateReview()">수정</button>
+					<input type="submit" value="수정">
 				</form>
+				
 				
 			<%
 			}
@@ -168,10 +172,30 @@ for(ContentsInfo contents : list){
 				</td>
 			</tr>
 			<tr>
-				<td rowspan="2"></td>
+				<td rowspan="2">
+				<%-- 로그인 상태고, 본인리뷰가 아니거나 관리자일때만 신고가능 --%>
+			<%
+			boolean canReport = loginMember != null
+				&& (!loginMember.getMemberId().equals(_review.getMemberId()) || loginMember.getMemberRole() == MemberRole.A);
+
+			if (canReport) {
+			%>
+				<!-- review report form -->
+				<form action="<%= request.getContextPath()%>/review/reviewReport"
+					  method="GET"
+					  name="reviewRepFrm"
+					  onsubmit="return confirm('이 리뷰를 신고하시겠습니까?');">
+			 		<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>" />
+			 		<input type="hidden" name="reviewNo" value="<%= _review.getReviewNo() %>" />
+					<input type="submit" value="신고 🚨" />
+				</form>
+				<%} %>
+				</td>
 			</tr>
 			<tr>
-				<td><a href="<%= request.getContextPath()%>/review/reviewDelete">신고하기</a>🚨</td>
+				<td>
+				</td>
+			
 			</tr>
 			<%
 				}
@@ -232,22 +256,25 @@ $(".actor-info i").click((e) => {
     }
 });
 
-//리뷰 수정 confirm
-const updateReview = () => {
-	if(confirm("리뷰를 수정하시겠습니까?"))
-		document.reviewUpdateFrm.submit();
-};
 
-//리뷰 삭제 confirm
-const deleteReview = () => {
-	if(confirm("리뷰를 삭제하시겠습니까?"))
-		document.reviewDelFrm.submit();
-};
 
 //로그인 안 한 사용자 폼 제출 막기
 document.addEventListener('submit', (e) => {
 	
 	if(e.target.matches("form[name=reviewEnrollInfoFrm]")){
+		if(<%= loginMember == null %>){
+			loginAlert();
+			e.preventDefault();
+			return; 
+		}
+		
+	}
+	
+});
+
+document.addEventListener('submit', (e) => {
+	
+	if(e.target.matches("form[name=reviewRepFrm]")){
 		if(<%= loginMember == null %>){
 			loginAlert();
 			e.preventDefault();

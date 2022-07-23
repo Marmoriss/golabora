@@ -212,7 +212,7 @@ public class ReviewDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String sql = prop.getProperty("insertReportedReview");
-		//insert into reported_review (reported_review_no, review_no, reporter_id, reason) values('re' || seq_reported_review_no.nextval, ?,?,?)
+		//insert into reported_review values('re' || seq_reported_review_no.nextval, ?,?,default,?)
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

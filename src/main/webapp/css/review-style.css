@@ -31,6 +31,9 @@ div#my-review button{
 	cursor: pointer;
 }
 
+div#my-review button:hover{
+	background-color:  #9e5abc;
+}
 
 
 .btn-review-del{
@@ -62,32 +65,27 @@ div#review-list{
 .tbl-review-list tr, td{
 	padding: 10px;
 }
-.btn-review-del{
-	border: 0;
-	outline: 0;
-	background-color: #439249;
-	width:50px;
-	border-radius: 25px;
+
+.tbl-review-list input[type="submit"]{
+	background-color: #c0c0c0;
+	width:80px;
+	height: 30px;
+	border-radius: 15px;
 	border:1px solid #ffffff; 
 	font-weight: bold;
-	color: #ffffff;
+	color: #363636;
 	cursor: pointer;
 }
-.btn-review-edit{
-	border: 0;
-	outline: 0;
-	background-color: #439249;
-	width:50px;
-	border-radius: 25px;
-	border:1px solid #ffffff;
-	font-weight: bold; 
-	cursor: pointer;
+.tbl-review-list input[type="submit"]:hover{
+	background-color: #9e5abc;
 	color: #ffffff;
 }
+
+
 .review-content{
 	width: 600px;
 }
-div#pagebar{margin-top:10px; text-align:center; background-color:#717171; }
+div#pagebar{margin:10px 0; text-align:center; background-color: transparent; }
 div#pagebar span.cPage{color: #ffffff; margin-right: 5px;}
 div#pagebar a{margin-right: 5px;}
 
@@ -108,6 +106,10 @@ div#pagebar a{margin-right: 5px;}
 	width: 250px;
 }
 /*********리뷰 폼**************/
+.back-btn i{
+	position: relative;
+	font-size: 3em;
+}
 .review-enroll, .review-update{
 	position: relative;
 	left: 350px;
@@ -132,16 +134,11 @@ div#pagebar a{margin-right: 5px;}
 	color: #ffffff;
 	position: relative;
 	top: 70px;
-	right: 90px;
+	right: 50px;
 	cursor: pointer;
 	font-weight: bold;
 }
-#update-cancel-btn{
-	border: 0;
-	outline: 0;
-	background-color: #9e5abc;
-	width: 200px;
-}
+
 .fa-solid fa-xmark-large{
 	color: #ffffff;
 }
@@ -178,3 +175,59 @@ div#pagebar a{margin-right: 5px;}
 .star-rating label:hover ~ label {
   color:#fc0;
 }
+/******신고 리뷰 폼*******/
+
+div.review-reporter{
+	color: #ffffff;
+}
+div.review-reporter h1{
+	font-size: 30px;
+}
+div.review-reporter span{
+	color:#9e5abc;
+	font-weight: bold;
+}
+div.report-review-info{
+	position: relative;
+	background-color: #717171;
+	text-align: center;
+	width: 500px;
+	border-radius: 25px;
+	border: 3px solid #ffffff;
+	left: 150px;
+	top: 50px;
+	color: #ffffff;
+}
+div.report-enroll{
+	position: relative;
+	text-align: center;
+	top: 30px;
+}
+
+div.report-reason input[type="radio"]{
+	width:20px;
+	height:20px;
+	border:1px;
+	color: #ff0000;
+	accent-color: red;
+}
+div.report-reason label{
+	font-size: 20px;
+	margin-right: 20px;
+}
+
+.rep-btn{
+	width: 150px;
+	height: 50px;
+	background-color: #717171;
+	color: #ffffff;
+	font-weight: bold; 
+	font-size: 20px;
+	cursor: pointer;
+	border: 1px solid #ffffff;
+	margin-right: 20px;
+}
+.rep-btn:hover{
+	background-color: red;
+}
+
