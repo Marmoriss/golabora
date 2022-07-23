@@ -15,7 +15,9 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.kh.golabora.contents.model.dto.ContentsInfo;
+import com.kh.golabora.review.model.dto.DeletedReview;
 import com.kh.golabora.review.model.dto.ReportedReview;
+import com.kh.golabora.review.model.dto.ReportedYn;
 import com.kh.golabora.review.model.dto.Review;
 import com.kh.golabora.review.model.exception.ReviewException;
 
@@ -341,5 +343,102 @@ public class ReviewDao {
 		}
 
 		return totalContent;
+	}
+
+	// repoReviewNo로 리뷰 no찾기
+	public String findReviewNoByRepoReviewNo(Connection conn, String repoNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String reviewNo = null;
+		String sql = prop.getProperty("findReviewNoByRepoReviewNo");
+		// select * from reported_review where reported_review_no = ?
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, repoNo);
+			
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				reviewNo = rset.getString("review_no");
+			}
+		} catch (SQLException e) {
+			throw new ReviewException("repoReviewNo로 리뷰 no찾기 오류!", e);
+		}
+		return reviewNo;
+	}
+
+
+	public int updateDeletedReview(Connection conn, String reviewNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("updateDeletedReview");
+		//update deleted_review set reported_yn = 'Y' where review_no = ?
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, reviewNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new ReviewException("삭제 여부 Y로 변경 오류!", e);
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	public List<DeletedReview> findDeleteReveiw(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<DeletedReview> deletedList = new ArrayList<>();
+		String sql = prop.getProperty("findDeleteReveiw");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				String reviewNo = rset.getString("review_no");
+				String memberId = rset.getString("member_id");
+				String contentNo = rset.getString("contents_no");
+				String reviewContent = rset.getString("review_content");
+				int star = rset.getInt("star");
+				Date regDate = rset.getDate("reg_date");
+				ReportedYn reportedYn = ReportedYn.valueOf(rset.getString("reported_yn"));
+				Date deleteDate = rset.getDate("delete_date");
+				
+				DeletedReview deletedReview = new DeletedReview(reviewNo, memberId, contentNo, reviewContent, star, regDate);
+				deletedReview.setReportedYn(reportedYn);
+				deletedReview.setDeleteDate(deleteDate);
+				
+				deletedList.add(deletedReview);
+			}
+		} catch (SQLException e) {
+			throw new ReviewException("삭제 리뷰 테이블 조회 오류!", e);
+		}
+		return deletedList;
+	}
+
+
+	public int getTodayReportedReview(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int todayReportCount = 0;
+		String sql = prop.getProperty("getTodayReportedReview");
+		// select count(*) from reported_review where to_char(reported_date, 'yy/mm/dd') = to_char(sysdate, 'yy/mm/dd')
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				todayReportCount = rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			throw new ReviewException("금일 신고 리뷰 수 조회 오류!", e);
+		}
+		
+		return todayReportCount;
 	}
 }

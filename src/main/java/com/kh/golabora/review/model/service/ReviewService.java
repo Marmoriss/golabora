@@ -10,6 +10,7 @@ import java.util.Map;
 
 import com.kh.golabora.contents.model.dto.ContentsInfo;
 import com.kh.golabora.review.model.dao.ReviewDao;
+import com.kh.golabora.review.model.dto.DeletedReview;
 import com.kh.golabora.review.model.dto.ReportedReview;
 import com.kh.golabora.review.model.dto.Review;
 public class ReviewService {
@@ -140,6 +141,50 @@ public class ReviewService {
 		int totalContent = reviewDao.getTotalReportedReview(conn); 
 		close(conn);
 		return totalContent;
+	}
+
+	// 신고된 리뷰 관리자 권한으로 삭제
+	public int deleteReportedReview(String[] repoReviewNo) {
+		Connection conn = getConnection();
+		int result = 0;
+		String reviewNo = null;
+		Review review = null;
+		try {
+			for(String repoNo : repoReviewNo) {
+				// repoReviewNo로 리뷰 no찾기
+				reviewNo = reviewDao.findReviewNoByRepoReviewNo(conn, repoNo);
+				System.out.println("reviewNo = " + reviewNo);
+				
+				// 신고된 리뷰를 리뷰 테이블에서 삭제하기
+				result = reviewDao.deleteReview(conn, reviewNo);
+				
+				// 삭제 리뷰 테이블 신고 여부  'Y'로 변환
+				result = reviewDao.updateDeletedReview(conn, reviewNo);
+				
+				commit(conn);
+			}
+		} catch(Exception e) {
+			rollback(conn);
+			throw e;
+		} finally {
+			close(conn);
+		}
+		
+		return result;
+	}
+
+	public List<DeletedReview> findDeleteReveiw() {
+		Connection conn = getConnection();
+		List<DeletedReview> deletedList = reviewDao.findDeleteReveiw(conn); 
+		close(conn);
+		return deletedList;
+	}
+
+	public int getTodayReportedReview() {
+		Connection conn = getConnection();
+		int todayReportCount = reviewDao.getTodayReportedReview(conn); 
+		close(conn);
+		return todayReportCount;
 	}
 	
 }

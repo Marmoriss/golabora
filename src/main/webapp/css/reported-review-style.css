@@ -43,6 +43,15 @@ div#reportedReview-Info{
     margin: 0;	
 }
 
+#delete-btn{
+	position: relative;
+    top: 250px;
+    left: 470px;
+    width: 50px;
+    height: 30px;
+    background-color: #6302aa;
+    color: #ffff;
+}
 /********** table ***********/
 /********** repo-review-board ***********/
 #table-wrap{
@@ -50,10 +59,8 @@ div#reportedReview-Info{
     top: 270px;
     left: -280px;
     width: 800px;
-    background-color: red;
 }
 table#repo-review-board{
-	border:2px solid #ffff; 
 	border-collapse:collapse; 
 	clear:both;
 	display: inline-block;
@@ -61,19 +68,30 @@ table#repo-review-board{
 	top: 0px;
 	left: 0px;
 	margin: 10px;
-	width: 800px;
 }
 
 table#repo-review-board th, table#repo-review-board td{
-    border: 2px solid #ffff; 
+    
     padding: 10px; 
     text-align:center;
-    
+    color: #ffff;
+}
+
+table#repo-review-board th{
+	background-color: #6302aa;
+}
+
+table#repo-review-board td{
+    background-color: #ffff;
+    color: black;
+    border: 2px solid #6302aa; 
 }
 
 
-
-
+table#repo-review-board input[type=checkbox]{
+	width: 20px;
+	height: 20px;
+}
 
 
 

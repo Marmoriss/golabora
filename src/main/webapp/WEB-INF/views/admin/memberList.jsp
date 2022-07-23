@@ -13,12 +13,13 @@
 %>
 <!-- 관리자용 admin.css link -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/admin.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/member.css" />
 <style>
 div#search-container {
 	width: 100%;
 	margin: 0 0 10px 0;
 	padding: 3px;
-	background-color: rgba(0,188,212,.3);
+	background-color: none;
 }
 div#search-memberId {
 	display: <%= type == null || "member_id".equals(type) ? "inline-block" : "none" %>;
@@ -43,7 +44,7 @@ window.addEventListener('load', (e) => {
 });
 </script>
 
-<section id="memberList-container">
+<div id="memberList-container">
 	<h2>회원관리</h2>
 	
 	<div id="search-container">
@@ -124,7 +125,7 @@ window.addEventListener('load', (e) => {
 	<div id="pagebar">
 		<%= request.getAttribute("pagebar") %>
 	</div>
-</section>
+</div>
 
 
 
