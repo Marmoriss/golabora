@@ -4,6 +4,7 @@
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/member.css" />
 <div id=enroll-container class="enroll-container">
+	
 	<header>회원 가입</header>
 	<form name="memberEnrollFrm" class="memberEnrollFrm"action="" method="POST">
 		
@@ -11,8 +12,9 @@
 					 <h3 class="join_title">
                         <label for="_memberId">아이디</label>
                     </h3>
-					<input type="text" placeholder="4글자이상" name="memberId" id="_memberId" value="" required>
+					<input type="text" placeholder="4글자이상" name="memberId" id="_memberId" value="" onblur="idchk(this)" onclick="idcheck()" required>
 					<div>
+					<h3 id="required"></h3>
 					<input type="button" value="중복검사" onclick="checkIdDuplicate();" />
 					<input type="hidden" id="idValid" value="0" />
 					<p id="idMsg"></p>
@@ -23,7 +25,8 @@
 					 <h3 class="join_title">
                         <label for="_password">비밀번호</label>
                     </h3>
-					<input type="password" name="password" id="_password"  required>
+					<input type="password" name="password" id="_password" onblur="pwchk(this)" onclick="pwcheck()"required>
+					<h3 id="required2"></h3>
 				</div>
 				<div>
 					 <h3 class="join_title">
@@ -35,7 +38,8 @@
 					<h3 class="join_title">
                         <label for="memberName">이름</label>
                     </h3>
-					<input type="text"  name="memberName" id="memberName"  required><br>
+					<input type="text"  name="memberName" id="memberName" onblur="namechk(this)"  onclick="namecheck()"required><br>
+					<h3 id="required3"></h3>
 				</div>
 				<div>
 					<h3 class="join_title">
@@ -98,11 +102,45 @@
  * 사용자입력한 id 중복여부 검사
  * - 폼을 팝업에서 제출
  */
-
+ function idchk(obj) {
+     if(obj.value == "") {
+       document.getElementById("required").innerHTML = "아이디를 입력해주세요.";
+     } else {
+         document.getElementById("required").innerHTML="";
+     }
+   }
+   
+ function pwchk(obj) {
+     if(obj.value == "") {
+       document.getElementById("required2").innerHTML = "비밀번호를 입력해주세요.";
+     } else {
+       document.getElementById("required2").innerHTML = "";
+     }
+   }
+ function namechk(obj) {
+     if(obj.value == "") {
+       document.getElementById("required3").innerHTML = "이름을 입력해주세요.";
+     } else {
+       document.getElementById("required3").innerHTML = "";
+     }
+   }
+ 
+ 
+ function idcheck() { 
+     document.getElementById("required").innerHTML ="아이디는 영문자/숫자로 최소 4글자이상이어야 합니다.";
+   }
+ 
+ function pwcheck() { 
+     document.getElementById("required2").innerHTML ="비밀번호는 영문자/숫자/특수기호로 최소 4글자이상이어야 합니다.";
+   }
+ function namecheck() { 
+     document.getElementById("required3").innerHTML ="한글 2글자 이상 입력해주세요";
+   }
+ 
 const checkIdDuplicate = () => {
 	const memberId = document.querySelector("#_memberId");
 	if(!/^[a-zA-Z0-9]{4,}$/.test(memberId.value)){
-		alert("유효한 아이디를 입력해주세요.");
+		alert("아이디를 입력해주세요.");
 		memberId.select();
 		return;
 	}
@@ -170,7 +208,7 @@ document.memberEnrollFrm.onsubmit = (e) => {
 	
 	const memberName = document.querySelector("#memberName");
 	if(!/^[가-힣]{2,}$/.test(memberName.value)){
-		alert("한글 2글자이상 입력해주세요");
+		alert("한글 2글자 이상 입력해주세요");
 		memberName.select();
 		return false;
 	}

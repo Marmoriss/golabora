@@ -8,9 +8,12 @@
 <script>
 window.onload = () => {
 
+	
+
 <% if(msg != null) { %>	
 	alert("<%= msg %>");
 <% } %>
+	
 
 <% if(loginMember == null){ %>
 	document.loginFrm.onsubmit = (e) => {
