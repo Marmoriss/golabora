@@ -1,32 +1,28 @@
-package com.kh.golabora.member.controller;
+package com.kh.golabora.contents.controller;
+
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class MemberLogoutServlet
+ * Servlet implementation class MemberDetailSurvlet
  */
-@WebServlet("/member/logout")
-public class MemberLogoutServlet extends HttpServlet {
+@WebServlet("/contents/contentsMainView")
+public class ContentsMainViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1. 업무로직 : 세션객체를 가져와서 무효화처리
-		HttpSession session = request.getSession(false); 
-		if(session != null)
-			session.invalidate();
-		
-		// 2. 리다이렉트
-		response.sendRedirect(request.getContextPath() + "/");
+		RequestDispatcher reqDispatcher = request.getRequestDispatcher("/WEB-INF/views/contents/contentsMainView.jsp");
+		reqDispatcher.forward(request, response);
 	}
 
 }

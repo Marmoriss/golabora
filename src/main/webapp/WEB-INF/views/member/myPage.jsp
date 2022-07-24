@@ -21,7 +21,7 @@
     </div>
     <div class="line"></div>
 	<ul id="mypage-nav">
-		<li class="member-view"><a href="#">나의 정보 보기</a></li>
+		<li class="member-view"><a href="<%= request.getContextPath() %>/member/memberView">나의 정보 보기</a></li>
 		<!-- 이게 메인이어서 바로 보이게 해주시면될거같아여 -->
 		<li class="member-picked"><a href="#">나의 찜 목록 보기</a></li>
 		<li class="member-playlist"><a href="#">나의 플레이리스트 보기</a></li>
@@ -37,7 +37,8 @@
 	<ul id="admin-nav">
 		<li class="admin-statistics"><a href="<%= request.getContextPath() %>/admin/statisticsList">통계 관리</a></li>
 		<li class="admin-contents"><a href="<%= request.getContextPath() %>/contents/contentsInsert">콘텐츠 관리</a></li>
-		<li class="admin-member"><a href="#">회원 관리</a></li>
+		<li class="admin-member"><a href="<%= request.getContextPath() %>/admin/memberList">회원 관리</a></li>
+		<li class="admin-review"><a href="<%= request.getContextPath() %>/admin/review">리뷰 관리</a></li>
 		<li class="admin-reported"><a href="<%= request.getContextPath() %>/admin/reportedReviewList">신고 관리</a></li>
 	</ul>
 	<%} %>

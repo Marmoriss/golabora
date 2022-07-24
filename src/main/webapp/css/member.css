@@ -69,10 +69,11 @@ div#login h3{
 	text-align : center;
 }
 /********** memberEnroll **********/
+
 div#enroll-container header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#a00ac0; height: 20px; padding:20px; text-align: center;}
 div#enroll-container {
 	width: 750px;
-	height: 1100px;
+	height: 1200px;
 	background-color: white;
 	position: relative;
 	padding:0; 
@@ -83,7 +84,7 @@ div#enroll-container {
 	}
 
 div#enroll-container input{ width:450px;height :25px; border : solid 1px; }
-div#enroll-container h3{  margin: 19px 0 8px;
+div#enroll-container h3.join_title{  margin: 19px 0 8px;
     font-size: 16px;
     font-weight: 700;}
 div#enroll-container div{
@@ -91,6 +92,34 @@ div#enroll-container div{
 	left : 150px;
 	top : 15px;
 	padding : 2px;
+}
+
+h3#required{
+	position : relative;
+	font-size : 13px;
+	font-weight : 700;
+	top : -20px;
+	left : -150px;
+	color : #a00ac0;
+	
+}
+h3#required2{
+	position : relative;
+	font-size : 13px;
+	font-weight : 700;
+	top : -5px;
+	left : 5px;
+	color : #a00ac0;
+	
+}
+h3#required3{
+	position : relative;
+	font-size : 13px;
+	font-weight : 700;
+	top : -5px;
+	left : 5px;
+	color : #a00ac0;
+	
 }
 div#enroll-container sup{color: red;}
 div#enroll-container input[type=button]{

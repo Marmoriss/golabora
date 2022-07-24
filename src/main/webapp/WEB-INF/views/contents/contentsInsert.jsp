@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>콘텐츠 관리</title>
+
 
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
 </head>
 <body>
 	<h2 style="color: #ffff">영화 컨텐츠 등록</h2>
 	
-	<form action="" method="POST" class="contentsInsert">
+	<form 
+	action="<%=request.getContextPath()%>/contents/contentsInsert"  
+	method="POST" 
+	class="contentsInsert">
 	
 		<label for="genreCode">장르 코드 : </label>
 		<input type="text" name="genreCode" id="genreCode" placeholder="장르를 입력하세요" />
