@@ -12,23 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.golabora.common.HelloGolaboraUtils;
-import com.kh.golabora.review.model.dto.DeletedReview;
-import com.kh.golabora.review.model.dto.ReportedReview;
+import com.kh.golabora.review.model.dto.Review;
 import com.kh.golabora.review.model.service.ReviewService;
 
 /**
- * Servlet implementation class ManageReportedReviewsServlet
+ * Servlet implementation class AdminReviewList
  */
-@WebServlet("/admin/reportedReviewList")
-public class ReportedReviewListServlet extends HttpServlet {
+@WebServlet("/admin/review")
+public class AdminReviewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private ReviewService reviewService = new ReviewService();
+	private ReviewService reviewService = new ReviewService();  
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 신고 리뷰 목록 출력
 		try {
 			// 1. 사용자 입력값
 			int numPerPage = 5;
@@ -46,27 +41,17 @@ public class ReportedReviewListServlet extends HttpServlet {
 
 			// 2. 업무로직
 			// a. content 영역
-			// 신고리뷰 테이블 조회
-			List<ReportedReview> list = reviewService.findAllReportedReview(param);
-
-			// 삭제 리뷰 테이블 조회
-			List<DeletedReview> deletedList = reviewService.findDeleteReview();
-			
-			// 금일 신고 리뷰 수
-			int todayReportCount = reviewService.getTodayReportedReview();
+			List<Review> list = reviewService.findAllReview(param);
 			
 			// b. pagebar 영역
 			int totalContent = reviewService.getTotalReportedReview();
-			String url = request.getRequestURI(); // /golabora/admin/reviewList
+			String url = request.getRequestURI(); 
 			String pagebar = HelloGolaboraUtils.getPagebar(cPage, numPerPage, totalContent, url);
 
 			// 3. view단 처리
 			request.setAttribute("list", list);
-			request.setAttribute("deletedList", deletedList);
-			request.setAttribute("todayReportCount", todayReportCount);
 			request.setAttribute("pagebar", pagebar);
-			request.getRequestDispatcher("/WEB-INF/views/admin/reportedReviewList.jsp")
-				.forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/admin/reviewList.jsp").forward(request, response);
 		} catch (Exception e) {
 			throw e;
 		}
@@ -76,7 +61,8 @@ public class ReportedReviewListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
