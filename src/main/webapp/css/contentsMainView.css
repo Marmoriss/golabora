@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+div.contents-header{
+	display: flex;
+	background-color: #6302aa;
+	position: relative;
+	padding : 8px;
+	width : 780px;
+	margin-left : 105px;
+}
+
+div.contents-header h3{
+	margin: 0;
+    color: #ffff;
+    font-weight : bold;
+	margin-left : 355px;
+}
+
+#line {
+	color : white;
+	font-size : 15px;
+	font-wieght : bold;
+	padding : 10px;
+	margin : 20px;
+	display : inline-block;
+	width : 150px;
+}
+
+.conCRUD {
+	font-size : 20px;
+	font-weight : bold;
+	list-style : none;
+	width : 150px;
+	margin : 15px;
+}
+
+.conInsert, .conUpdate, .conDelete {
+	margin : 100px;
+	width : 150px;
+	text-align : center;
+	position : relative;
+	top : 0px;
+	left : 250px;
+}
+
+
+
+
