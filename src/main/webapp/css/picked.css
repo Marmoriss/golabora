@@ -1,10 +1,178 @@
 @charset "UTF-8";
+/********** 전체 적용 **********/
+*{
+    margin: 0;
+    padding: 0;
+}
 
-  table {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid black;
+a{
+    cursor: pointer;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+}
+
+img{
+    border-style: none;
+}
+
+div{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/********** picked-list-wrap **********/
+#picked-list-wrap{
+	width: 800px;
+	display: inline-block;
+	position: relative;
+	top: 50px;
+	left: 100px;
+	background-color: red;
+	margin: 5px;
+	padding: 10px;
+}
+
+#picked-contents-title, 
+#picked-actor-title, 
+#picked-producer-title{
+	color: #ffff;
+}
+
+#picked-contents-title h3, 
+#picked-actor-title h3, 
+#picked-producer-title h3{
+    margin: 10px;
     padding: 10px;
-  }
+}
+
+#picked-contents-wrap h3,
+#picked-actor-wrap h3,
+#picked-producer-wrap h3{
+	color: #ffff;
+	margin: 20px;
+	text-align: center;
+}
+
+/***********movieItem************/
+div.movieItem{
+    width: 156px;
+    height: 284px;
+    border-radius: 6px;
+    background: #172036;
+    position: relative;
+    top: 10px;
+    display: inline-block;
+    font-size: 0;
+}
+
+div.movieItem a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.movieItem .poster{
+    display: inline-block;
+    position: relative;
+    width: 156px;
+    height: 222px;
+}
+
+.movieItem .poster{
+    width: 100%;
+    height: 100%;
+}
+
+.movieItem .poster img{
+    width: 156px;
+    min-height: 222px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #101322;
+}
+
+.movieItem .poster img{
+    width: 100%;
+    min-height: 222px;
+}
+
+/***********info************/
+div.info{
+    position: relative;
+    top: -55px;
+    left: 0px;
+    width: 100%;
+}
+
+div.info .title {
+    font-size: 14px;
+    line-height: 16px;
+    vertical-align: top;
+    letter-spacing: -.1px;
+    color: #efefef;
+    text-align: center;
+    margin-top: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 8px;
+}
+
+.movieItem .info .rating {
+    padding: 0 0 0 8px;
+    font-size: 0;
+    height: 36px;
+    position: relative;
+}
+
+.movieItem .info .rating .light-wrap{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#button-action-wish{
+    position: relative;
+    top: 0px;
+    left: 110px;
+    display: inline-block;
+    font-size: 20px;
+}
+
+div#contents-producer{
+    display:inline-block;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    margin: 0px 5px 0px 20px;
+}
+
+div#contents-actor{
+    display:inline-block;
+    height: 100%;
+    line-height: 50px;
+    margin: 0px 5px;
+}
+            
+div#producer-info i, div#contents-actor i{
+    font-size: 90px;
+    margin: 3px 0px;
+    color: rgb(250, 250, 250);
+}
+
+div.actor-info{
+    display: inline-block;
+    text-align: center;
+    margin: 0px 15px;
+}
+
+div#producer-info h4, div#actor-info h4{
+    font-weight: bolder;
+}
+
+
+
+
+
+

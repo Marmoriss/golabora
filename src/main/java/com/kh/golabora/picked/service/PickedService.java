@@ -152,6 +152,29 @@ public class PickedService {
 		close(conn);
 		return list;
 	}
+
+	//memberId로 찜콘텐츠 조회
+	public List<PickedContentsExt> findPickedContentsList(String memberId) {
+		Connection conn = getConnection();
+		List<PickedContentsExt> list = pickedDao.findPickedContentsList(conn, memberId);
+		close(conn);
+		return list;
+	}
+
+	//memberId로 찜배우 조회
+	public List<PickedActorExt> findPickedActorList(String memberId) {
+		Connection conn = getConnection();
+		List<PickedActorExt> list = pickedDao.findPickedActorList(conn, memberId);
+		close(conn);
+		return list;
+	}
+
+	public List<PickedProducerExt> findPickedProducerList(String memberId) {
+		Connection conn = getConnection();
+		List<PickedProducerExt> list = pickedDao.findPickedProducerList(conn, memberId);
+		close(conn);
+		return list;
+	}
 	
 }
 

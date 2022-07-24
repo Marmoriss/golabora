@@ -1,9 +1,7 @@
 package com.kh.golabora.contents.model.dto;
 
-public class PickedActorExt {
+public class PickedActorExt extends PickedActor{
 	
-	private String memberId;
-	private String actorNo;
 	private String actorName;
 	private Gender gender;
 	
@@ -12,24 +10,15 @@ public class PickedActorExt {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public PickedActorExt(String memberId, String actorNo, String actorName, Gender gender) {
+	public PickedActorExt(String memberId, String actorNo) {
+		super(memberId, actorNo);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public PickedActorExt(String actorName, Gender gender) {
 		super();
-		this.memberId = memberId;
-		this.actorNo = actorNo;
 		this.actorName = actorName;
 		this.gender = gender;
-	}
-	public String getMemberId() {
-		return memberId;
-	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
-	}
-	public String getActorNo() {
-		return actorNo;
-	}
-	public void setActorNo(String actorNo) {
-		this.actorNo = actorNo;
 	}
 	public String getActorName() {
 		return actorName;
@@ -43,13 +32,12 @@ public class PickedActorExt {
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
+	
 	@Override
 	public String toString() {
-		return "PickedActor [memberId=" + memberId + ", actorNo=" + actorNo + ", actorName=" + actorName + ", gender="
-				+ gender + "]";
+		return "PickedActorExt [actorName=" + actorName + ", gender=" + gender + "]";
 	}
 	
 	
-
 	
 }
