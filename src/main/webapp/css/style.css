@@ -64,6 +64,21 @@ div#main-ranking-list li {
     }
 
 /********** main-login **********/
+div#main-login h3{
+    text-align : center;
+    position : relative;
+    top: -50px;
+    
+}
+div#main-login .btn1{
+    position : relative;
+    top : -170px;
+    left: -10px;
+    width: 260px;
+    height: 40px;
+    margin-top:10px;  
+}
+
 div#main-login{
     width: 330px;
     height: 280px;
@@ -71,7 +86,7 @@ div#main-login{
     position: relative;
     padding:0; 
     left: 63%;
-    top:-460px;
+    top:-420px;
     }
 div#main-login header{color: #ffffff; font-size: 23px; font-weight:bold; background-color:#b080f9; height: 20px; padding:20px; text-align: center;}
 div#main-login input{

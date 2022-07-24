@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 <script src="<%= request.getContextPath() %>/js/jquery-3.6.0.js"></script>
+<<<<<<< HEAD
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/contents-style.css" />
 <section id="admin-contents-edit">
 <div class="contents-edit-header">
@@ -15,7 +16,3 @@
 </ul>	
 </div>
 </section>
-
-
-
-

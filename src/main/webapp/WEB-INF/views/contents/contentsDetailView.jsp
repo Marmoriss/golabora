@@ -25,7 +25,6 @@ List<String> actors = new ArrayList<>();
 for(ContentsInfo contents : list){
 	actors.add(contents.getActorName());
 }
-
 %>
 
 <div id="btn-back">
@@ -64,7 +63,7 @@ for(ContentsInfo contents : list){
             </label>
         </div>
         <div>
-            <input type="checkbox" name="picked-contents" id="picked-contents" value=""/>
+            <input type="checkbox" name="picked-contents" id="picked-contents" value=""/ onchange="pickedContentsChange();" >
             <label for="picked-contents" id="picked-contents-label">
                 <i class="fa-regular fa-thumbs-up"></i>
                 찜하기
@@ -214,16 +213,78 @@ for(ContentsInfo contents : list){
 			</table>
 			
 
-	</div>	
+	</div>
+	
+
+
 </section>
 <div id='pagebar'>
 		<%= request.getAttribute("pagebar") %>
 </div>
 
 
+<%if(loginMember != null){  %>
+	<form name="addConFrm" action="<%= request.getContextPath() %>/member/pickedContentsAdd" method="POST">
+	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+	<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>" />
+	</form>
+	<form name="delConFrm" action="<%= request.getContextPath() %>/member/pickedContentsDel" method="POST">
+	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+	<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>" />
+	</form>
+<% } %> 
 
+<%if(loginMember != null){  %>
+	<form name="addProFrm" action="<%= request.getContextPath() %>/member/pickedProducerAdd" method="POST">
+	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+	<input type="hidden" name="producerName" value="<%= contentsInfo.getProducerName() %>" />
+	</form>
+	<form name="delProFrm" action="<%= request.getContextPath() %>/member/pickedProducerDel" method="POST">
+	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+	<input type="hidden" name="producerName" value="<%= contentsInfo.getProducerName() %>" />
+	</form>
+<% } %>
+
+<%if(loginMember != null){  %>
+	<form name="addActorFrm" action="<%= request.getContextPath() %>/member/pickedActorAdd" method="POST">
+	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+	<input type="hidden" name="actorName" id="actorName" value="" />
+	<form name="delActorFrm" action="<%= request.getContextPath() %>/member/pickedActorDel" method="POST">
+	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+	<input type="hidden" name="actorName" id="actorName" value="" />
+	</form>
+<% } %>
 
 <script>
+
+const pickedContentsChange = () => {
+	if (document.querySelector('#picked-contents').getAttribute("checked")) {
+		document.addConFrm.submit();	
+	}else {
+		document.delConFrm.submit();
+	}
+};
+
+const pickedProducerChange = () => {
+	if(document.querySelector('#producer-info i').className == 'fa-solid fa-heart'){		
+		document.addProFrm.submit();
+	}
+	else{
+		document.delProFrm.submit();
+	}
+};
+
+
+const pickedActorChange = () => {
+	if(document.querySelector('.actor-info i').className == 'fa-solid fa-heart'){		
+		document.addActorFrm.submit();
+	}
+	else{
+		document.delActorFrm.submit();
+	}
+};
+
+
 // 뒤로가기 버튼
 document.querySelector('#btn-back').addEventListener('click', () => {
 	window.history.back();
@@ -236,6 +297,7 @@ document.querySelector('#producer-info i').addEventListener('click', (e) => {
 		e.target.className = 'fa-solid fa-heart';
 		e.target.style.color = '#cda0fe';
 	    alert('찜 목록에 추가되었습니다.');
+	    pickedProducerChange();
     } else {
     	e.target.className = 'fa-solid fa-circle-user';
         e.target.style.color = '';
@@ -248,7 +310,7 @@ $(".actor-info i").click((e) => {
 	if(e.target.className == 'fa-solid fa-circle-user'){
         e.target.className = 'fa-solid fa-heart';
         e.target.style.color = '#cda0fe';
-        alert('찜 목록에 추가되었습니다.');
+        var b = $("e.target").closest("h4");
     } else {
         e.target.className = 'fa-solid fa-circle-user';
         e.target.style.color = '';
