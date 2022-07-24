@@ -4,7 +4,7 @@ public class PickedContents {
 
 	private String contentsNo;
 	private String memberId;
-	
+
 	public PickedContents() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -36,7 +36,5 @@ public class PickedContents {
 	public String toString() {
 		return "PickedContents [contentsNo=" + contentsNo + ", memberId=" + memberId + "]";
 	}
-	
-	
 	
 }

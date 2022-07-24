@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.kh.golabora.member.model.dto.Member"%>
-<%@ page import="com.kh.golabora.contents.model.dto.PickedContentsExt"%>
+<%@ page import="com.kh.golabora.contents.model.dto.PickedActorExt"%>
 <%@ page import="java.util.List"%>
 
 <%
@@ -8,7 +8,7 @@
 	String memberId = loginMember.getMemberId();
 	String memberName = loginMember.getMemberName();
 	
-	List<PickedContentsExt> list = (List<PickedContentsExt>) request.getAttribute("list");
+	List<PickedActorExt> list = (List<PickedActorExt>) request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -26,12 +26,13 @@
 					<input type="button" value="지금 찜하러 가기" id="btn-add" onclick="location.href='검색창" />
 						
 				<% } else {
-						for (PickedContentsExt a : list) {
+						for (PickedActorExt a : list) {
+							if (memberId.contentEquals(a.getMemberId())) {
 				%>
-								<div class="picked-Contents-info">
-									<span><%=a.getContentsTitle()%></span>
+								<div class="picked-actor-info">
+									<span><%=a.getActorName()%></span> <span><%=a.getGender()%></span>
 								</div>
-				<% }} %>
+				<% }}} %>
 			</div>
 			
 <script>
