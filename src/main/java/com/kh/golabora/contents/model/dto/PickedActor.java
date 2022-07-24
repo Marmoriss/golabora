@@ -36,6 +36,6 @@ public class PickedActor {
 	public String toString() {
 		return "PickedActor [memberId=" + memberId + ", actorNo=" + actorNo + "]";
 	}
-
+	
 	
 }
