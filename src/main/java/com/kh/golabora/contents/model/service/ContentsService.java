@@ -101,13 +101,13 @@ public List<String> findOttNameByContentsTitle(String contentsTitle) {
 			return result;
 		}
 
-	public int deleteContents(String contentsNo) {
+	public int deleteContents(String contentsTitle) {
 		Connection conn = null;
 		int result = 0;
 		
 		try {
 			conn = getConnection();
-			result = contentsDao.deleteContents(conn, contentsNo);
+			result = contentsDao.deleteContents(conn, contentsTitle);
 			if(result == 0)
 				throw new ContentsException("해당 번호의 영화는 존재하지 않습니다.");
 			commit(conn);
@@ -119,6 +119,13 @@ public List<String> findOttNameByContentsTitle(String contentsTitle) {
 		}
 		
 		return result;
+	}
+
+	public ContentsInfo findByContentsTitle(String contentsTitle) {
+		Connection conn = getConnection();
+		ContentsInfo contentsInfo = contentsDao.findByContentsTitle(conn, contentsTitle);
+		close(conn);
+		return contentsInfo;
 	}
 		
 	/**
