@@ -12,11 +12,14 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp"%>
-<div class="searchbar">
-	<a href="<%=request.getContextPath()%>/search/searchContents"> <i
-		class="fa-solid fa-magnifying-glass"></i>
-	</a> <input type="text" placeholder="  작품명, 배우, 감독, 장르를 검색해보세요" />
+<section id="main-search">
+<h3>배우, 감독, OTT, 장르, 제목으로 검색해보세요</h3>
+<div class="main-searchbar">
+	<a href="<%=request.getContextPath()%>/search/searchContents"> 
+		<h2> 🎬 go search!<h2>
+	</a> 
 </div>
+</section>
 <!-- ranking -->
 <div id="main-ranking">
 	<h3>오늘의 순위</h3>
@@ -165,7 +168,7 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
 		</li>
 		<li>
 			<div class="main-playlist-img cropping">
-				<img src="./images/돈룩업.jpg" alt="" />
+				<img src="./images/돈 룩 업.jpg" alt="" />
 			</div>
 			<div class="main-playlist-name">
 				<span>플레이리스트 4</span>

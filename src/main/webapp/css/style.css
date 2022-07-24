@@ -7,7 +7,56 @@ div#container   {background-color:#000000; width:1024px; margin:0 auto; padding:
 /********** header **********/
 header{height:130px; position:relative; padding:10px 0 0 0;}
 header h1{margin-left:40px; color: #ffffff; font-size: 50px;}
+header h1:hover{background: #9436FF;
+background: linear-gradient(to bottom right, #9436FF 0%, #FFFFFF 100%); -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;}
 
+/**********search-bar*************/
+#main-search{
+	color: #ffffff;
+	text-align: center;	
+}
+.main-search h3{
+	position: relative;
+	top: 20px;
+}
+.main-searchbar{
+	margin: 10px 50px 50px 50px;
+	text-align: center;
+	padding: 20px;
+	border-radius: 25px;
+	background-color:#6320aa;
+}
+.main-searchbar h2{
+	color: #ffffff;
+	text-shadow : 0 0 10px #a974e4;
+	font-weight: bold;
+}
+.main-searchbar h2:hover{
+	color: #ff8000;
+	text-shadow : -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000,5px 0 6px #ffffff;
+	
+}
+/******* loding-page**********/
+section#loading-page{
+	height: 1000px;
+	text-align: center;
+}
+section#loading-page span{
+	position: relative;
+    font-size: 1.3rem;
+    color: #d075ee;
+    top: 150px;
+   	font-weight: bold;
+}
+section#loading-page h1{
+	position: relative;
+	top: 150px;
+	font-family: 'Broadway', sans-serif;
+    font-size: 4rem;
+    color: #a95efd;
+
+}
 /********** btn-search **********/
 
 i {
@@ -48,7 +97,7 @@ div#main-ranking{
 }
 div#main-ranking h3 {color: #ffffff;}
 nav#ranking-nav{padding-bottom: 50px;}
-nav#ranking-nav img{width: 50px;}
+nav#ranking-nav img{width: 50px; cursor: pointer;}
 nav#ranking-nav li:last-child img{position: relative; width:33px; top: 8px;}
 nav#ranking-nav ul{color: #ffffff; list-style: none; display: block-inline;}
 nav#ranking-nav li {float: left; margin-right: 20px;}
@@ -77,6 +126,7 @@ div#main-login .btn1{
     width: 260px;
     height: 40px;
     margin-top:10px;  
+    line-height: 10px;
 }
 
 div#main-login{
@@ -102,7 +152,11 @@ div#main-login input{
     left: 38px;
     top: 50px;
     padding: 15px;
+    cursor: pointer;
     }
+div#main-login input:hover{
+	 background-color:#6320aa; 
+}   
 div#main-login p {
     position: relative;
     top: 80px;
@@ -119,6 +173,7 @@ div#main-login span a{
     text-decoration-line: none;
     color: #cda0fe;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /********** main-recommend **********/

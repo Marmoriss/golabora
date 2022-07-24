@@ -50,9 +50,8 @@ div#contents-img{
 	height: 280px;
 	background-color: #172036;
 	position: relative;
-	top:0px;
+	top:15px;
 	left: 100px;
-	display: inline-block;
 	padding: 5px;
 	margin: 10px;
 }
@@ -67,12 +66,10 @@ div#contents-img img{
 /********** contents-info **********/
 div#contents-info{
 	width:600px;
-	height: 270px;
 	background-color: #172036;
-	display: inline-block;
 	position: relative;
-	top: -60px;
-	left: 120px;
+	top: -300px;
+	left: 350px;
 	padding: 5px;
 	margin: 10px;
 	border-radius: 30px;
@@ -152,9 +149,8 @@ div#contents-plot{
 div#buttons{
     width: 600px;
     height: 50px;
-    display:inline-block;
     position: relative;
-    top: -85px;
+    top: -270px;
     left: 355px;
     color: #ffff;    
     padding: 5px;
@@ -190,12 +186,11 @@ div#buttons input[type="checkbox"]:checked +label{
 
 /********** picked-wrap **********/
 div#picked-wrap{
-	width: 850px;
+	width: 900px;
 	height: 200px;
-	display: inline-block;
 	position: relative;
-	top: -60px;
-	left: 100px;
+	top: -200px;
+	left: 60px;
 	background-color: #172036;
 	padding: 5px;
 	margin: 10px;
@@ -223,10 +218,15 @@ div#contents-actor{
     margin: 0px 5px;
 }
 			
-div#producer-info i, div#contents-actor i{
+div#contents-actor i{
 	font-size: 90px;
 	margin: 3px 0px;
 	color: rgb(250, 250, 250);
+}
+div#producer-info i{
+	font-size: 90px;
+	margin: 3px 0px;
+	color: #cb85fe;
 }
 
 div.actor-info{

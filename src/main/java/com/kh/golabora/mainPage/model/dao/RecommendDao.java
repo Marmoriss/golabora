@@ -45,17 +45,22 @@ private Properties prop = new Properties();
 	}
 	
 
-	public List<Contents> recommendContents(Connection conn) {
+	public List<Contents> recommendContents(Connection conn, String genreCode) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<Contents> recommend = new ArrayList<>();
 		String sql = prop.getProperty("recommendContents");
+		//select * from ( select row_number () over (order by DBMS_RANDOM.RANDOM) rnum, c.* from contents c where c.genre_code= ?) c where rnum between 1 and 5
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, genreCode);
+			
 			rset = pstmt.executeQuery();
+			
 			while (rset.next()) {
 				Contents contents = handleRecommendResultSet(rset);
+				System.out.println("contents"+contents);
 				recommend.add(contents);
 			}
 			
