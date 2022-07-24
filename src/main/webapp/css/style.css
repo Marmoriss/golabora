@@ -65,15 +65,15 @@ div#main-ranking-list li {
 
 /********** main-login **********/
 div#main-login h3{
-	text-align : center;
-	position : relative;
-	top: -50px;
-	
+    text-align : center;
+    position : relative;
+    top: -50px;
+    
 }
 div#main-login .btn1{
-	position : relative;
-	top : -170px;
-	left: -10px;
+    position : relative;
+    top : -170px;
+    left: -10px;
     width: 260px;
     height: 40px;
     margin-top:10px;  
