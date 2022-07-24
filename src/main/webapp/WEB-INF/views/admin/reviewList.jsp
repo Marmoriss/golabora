@@ -10,7 +10,7 @@
 	List<Review> list = (List<Review>) request.getAttribute("list");
 	String pagebar = (String) request.getAttribute("pagebar");
 %>
-<section id="review-list-container">
+<section class="review-list-container">
 	<div id="admin-review-list">
 		<h1>전체 리뷰</h1>
 		<%

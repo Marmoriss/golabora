@@ -18,7 +18,7 @@ import com.kh.golabora.review.model.service.ReviewService;
 /**
  * Servlet implementation class MemberReviewServlet
  */
-@WebServlet("/member/memberReviewList")
+@WebServlet("/member/memberReview")
 public class MemberReviewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private ReviewService reviewService = new ReviewService();
@@ -39,7 +39,7 @@ public class MemberReviewListServlet extends HttpServlet {
 			int start = (cPage - 1) * numPerPage + 1;
 			int end = cPage * numPerPage;
 			String memberId = request.getParameter("memberId");
-			
+			System.out.println("memberId"+memberId);
 			Map<String, Object>param = new HashMap<>();
 			param.put("start", start); 
 			param.put("end", end);
@@ -50,12 +50,13 @@ public class MemberReviewListServlet extends HttpServlet {
 			//pagebar 영역
 			int totalContent = reviewService.getTotalReviewByMemberId(memberId); //전체 게시물 수 
 			System.out.println("totalContent = "+ totalContent);
-			String url = request.getRequestURI(); //페이지넘겼을 때의 주소 요청
+			String url = request.getRequestURI()+"?memberId"+memberId; //페이지넘겼을 때의 주소 요청
 			String pagebar = HelloGolaboraUtils.getPagebar(cPage, numPerPage, totalContent, url);
 			
 			//view단 응답처리
 			request.setAttribute("list", list);
 			request.setAttribute("pagebar", pagebar);
+			request.setAttribute("memberId", memberId);
 			request.getRequestDispatcher("/WEB-INF/views/member/memberReviewList.jsp").forward(request, response);
 			
 		} catch(Exception e) {
