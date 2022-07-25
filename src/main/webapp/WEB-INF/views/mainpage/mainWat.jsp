@@ -43,28 +43,20 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
 		</ul>
 	</nav>
 	<div id="main-ranking-list">
-        <% if(rank == null || rank.isEmpty()){ %>
-        <ul>
-            <li colspan="10" align="center"> 검색 결과가 없습니다. </li>
-        </ul>
-        <%
-        } else { %>
-                <ul>
-        <%
-                int i = 1;
-                for(Contents c : rank){
-        %>
-                    <li><%= i %>  <%= c.getContentsTitle() %></li>
-                    
-        <%      i++;
-                if(i == 6) break;
-                    }
-        %>
-                </ul>
-        <%      }
-        %>
-            </div>
-        </div>
+		<% if (rank == null || rank.isEmpty()) { %>
+			<ul><li colspan="10" align="center">검색 결과가 없습니다.</li></ul>
+		<% } else { %>
+			<ul>
+				<% int i = 1; for (Contents c : rank) { %>
+					<a href="<%=request.getContextPath()%>/contents/detailView?no=<%=c.getContentsNo()%>">
+					<li><%=i%> <%=c.getContentsTitle()%></li>
+					<% i++; if (i == 6)
+						break;} %>
+					</a>
+			</ul>
+		<%	}	%>
+	</div>
+</div>
         <!-- 건우 start -->
         <!-- login -->
         <div id="main-login" class = "mainlogin">
