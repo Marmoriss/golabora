@@ -64,7 +64,7 @@ List<PickedProducerExt> pickedProducerList = (List<PickedProducerExt>) request.g
             <h3>내가 찜한 감독이 없습니다.</h3>
         <% } else { 
             for(PickedProducerExt pickedProducer : pickedProducerList){%>
-            <div id="producer-info">
+            <div class="producer-info">
                 <i class="fa-solid fa-circle-user"></i>
                 <h4><%= pickedProducer.getProducerName() %></h4>
             </div>
@@ -72,4 +72,15 @@ List<PickedProducerExt> pickedProducerList = (List<PickedProducerExt>) request.g
         <% } %>
     </div>
 </section>
+<script>
+document.querySelector('#button-action-wish').addEventListener('click', (e) => {
+    if(e.target.style.color == ''){
+        e.target.style.color = '#cda0fe';
+        alert('찜 목록에 추가되었습니다.');
+    } else {
+        e.target.style.color = '';
+        alert('찜 목록에서 제거되었습니다.');
+    }
+})
+</script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

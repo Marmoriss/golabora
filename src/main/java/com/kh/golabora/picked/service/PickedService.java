@@ -43,11 +43,11 @@ public class PickedService {
 		return totalContent;
 	}
 
-	public int insertContents(PickedContents pickedContents) {
+	public int insertContents(String memberId, String contentsNo) {
 		Connection conn = getConnection();
 		int result = 0;
 		try {
-			result = pickedDao.insertContents(conn, pickedContents);
+			result = pickedDao.insertContents(conn, memberId, contentsNo);
 			commit(conn);
 		} catch(Exception e) {
 			rollback(conn);

@@ -127,19 +127,19 @@ public class PickedDao {
 		return totalContent;
 	}
 
-	public int insertContents(Connection conn, PickedContents pickedContents) {
+	public int insertContents(Connection conn, String memberId, String contentsNo) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String sql = prop.getProperty("insertPickedContents");
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, pickedContents.getContentsNo());
-			pstmt.setString(2, pickedContents.getMemberId());
+			pstmt.setString(1, contentsNo);
+			pstmt.setString(2, contentsNo);
 
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
-			throw new PickedException("찜 추가 오류", e);
+			throw new PickedException("찜콘텐츠 추가 오류", e);
 		} finally {
 			close(pstmt);
 		}

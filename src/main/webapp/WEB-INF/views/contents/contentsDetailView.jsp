@@ -15,6 +15,7 @@ List<ContentsInfo> list = (List<ContentsInfo>) request.getAttribute("detailPage"
 String contentsNo = (String) request.getAttribute("contentsNo");
 List<String> ottNames = (List<String>) request.getAttribute("ottNames");
 List<Review> reviewList = (List<Review>) request.getAttribute("reviewList");
+
 %>
 <%
 // 한 영화에 여러 배우가 들어있기때문에 배우만 리스트로 분리해서 사용, 이외의 정보는 모두 동일함(0번지 정보 사용)
@@ -63,7 +64,7 @@ for(ContentsInfo contents : list){
             </label>
         </div>
         <div>
-            <input type="checkbox" name="picked-contents" id="picked-contents" value=""/ onchange="pickedContentsChange();" >
+            <input type="checkbox" name="picked-contents" id="picked-contents" value="" onchange="pickedContentsChange();" >
             <label for="picked-contents" id="picked-contents-label">
                 <i class="fa-regular fa-thumbs-up"></i>
                 찜하기
@@ -95,7 +96,6 @@ for(ContentsInfo contents : list){
 </div>
 
 <hr />
-<!-- 수아님 여기 밑으로 붙여주시면 됩니당~!~! -->
 <section id="review-container">
 	
 	<h1>내 리뷰 작성하기</h1>
@@ -225,33 +225,34 @@ for(ContentsInfo contents : list){
 
 <%if(loginMember != null){  %>
 	<form name="addConFrm" action="<%= request.getContextPath() %>/member/pickedContentsAdd" method="POST">
-	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
-	<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>" />
+		<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+		<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>" />
 	</form>
 	<form name="delConFrm" action="<%= request.getContextPath() %>/member/pickedContentsDel" method="POST">
-	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
-	<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>" />
+		<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+		<input type="hidden" name="contentsNo" value="<%= contentsInfo.getContentsNo() %>" />
 	</form>
 <% } %> 
 
 <%if(loginMember != null){  %>
 	<form name="addProFrm" action="<%= request.getContextPath() %>/member/pickedProducerAdd" method="POST">
-	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
-	<input type="hidden" name="producerName" value="<%= contentsInfo.getProducerName() %>" />
+		<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+		<input type="hidden" name="producerName" value="<%= contentsInfo.getProducerName() %>" />
 	</form>
 	<form name="delProFrm" action="<%= request.getContextPath() %>/member/pickedProducerDel" method="POST">
-	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
-	<input type="hidden" name="producerName" value="<%= contentsInfo.getProducerName() %>" />
+		<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+		<input type="hidden" name="producerName" value="<%= contentsInfo.getProducerName() %>" />
 	</form>
 <% } %>
 
 <%if(loginMember != null){  %>
 	<form name="addActorFrm" action="<%= request.getContextPath() %>/member/pickedActorAdd" method="POST">
-	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
-	<input type="hidden" name="actorName" id="actorName" value="" />
+		<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+		<input type="hidden" name="actorName" id="actorName" value="" />
+	</form>
 	<form name="delActorFrm" action="<%= request.getContextPath() %>/member/pickedActorDel" method="POST">
-	<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
-	<input type="hidden" name="actorName" id="actorName" value="" />
+		<input type="hidden" name="memberId" value="<%= loginMember.getMemberId() %>" />
+		<input type="hidden" name="actorName" id="actorName" value="" />
 	</form>
 <% } %>
 
@@ -273,7 +274,6 @@ const pickedProducerChange = () => {
 		document.delProFrm.submit();
 	}
 };
-
 
 const pickedActorChange = () => {
 	if(document.querySelector('.actor-info i').className == 'fa-solid fa-heart'){		

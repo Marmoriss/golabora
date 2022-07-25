@@ -25,11 +25,11 @@ div{
 /********** picked-list-wrap **********/
 #picked-list-wrap{
 	width: 800px;
+	height: 900px;
 	display: inline-block;
 	position: relative;
 	top: 50px;
 	left: 100px;
-	background-color: red;
 	margin: 5px;
 	padding: 10px;
 }
@@ -63,6 +63,7 @@ div.movieItem{
     background: #172036;
     position: relative;
     top: 10px;
+    left: 10px;
     display: inline-block;
     font-size: 0;
 }
@@ -138,38 +139,30 @@ div.info .title {
     left: 110px;
     display: inline-block;
     font-size: 20px;
+    color: #cda0fe;
 }
 
-div#contents-producer{
+/***********picked-actor-wrap************/
+
+div#picked-actor-wrap, div#picked-producer-wrap{
     display:inline-block;
-    height: 100%;
-    line-height: 50px;
     text-align: center;
-    margin: 0px 5px 0px 20px;
+    margin: 10px;
 }
 
-div#contents-actor{
+.actor-info, .producer-info{
     display:inline-block;
-    height: 100%;
-    line-height: 50px;
-    margin: 0px 5px;
+    text-align: center;
+    margin: 10px;
+    color: #ffff;
 }
             
-div#producer-info i, div#contents-actor i{
+div.producer-info i, div.actor-info i{
     font-size: 90px;
     margin: 3px 0px;
     color: rgb(250, 250, 250);
 }
 
-div.actor-info{
-    display: inline-block;
-    text-align: center;
-    margin: 0px 15px;
-}
-
-div#producer-info h4, div#actor-info h4{
-    font-weight: bolder;
-}
 
 
 
