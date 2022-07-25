@@ -29,8 +29,9 @@ public class MainWavServlet extends HttpServlet {
 		
 		try {
 
+			String genreCode = request.getParameter("genreCode");
 			List<Contents> rank = rankService.rankWav();
-			List<Contents> recommend = recommendService.recommendContents();
+			List<Contents> recommend = recommendService.recommendContents(genreCode);
 
 			request.setAttribute("rank", rank);
 			request.setAttribute("recommend", recommend);

@@ -29,12 +29,13 @@ public class MainNetServlet extends HttpServlet {
 		
 		try {
 
+			String genreCode = request.getParameter("genreCode");
 			List<Contents> rank = rankService.rankNet();
-			List<Contents> recommend = recommendService.recommendContents();
+			List<Contents> recommend = recommendService.recommendContents(genreCode);
 
 			request.setAttribute("rank", rank);
 			request.setAttribute("recommend", recommend);
-			
+			System.out.println("recommend"+recommend);
 			request.getRequestDispatcher("/WEB-INF/views/mainpage/mainNet.jsp")
 				.forward(request, response);
 		}
