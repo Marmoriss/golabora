@@ -172,21 +172,17 @@ public class SearchDao {
 			
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
-				String contentsNo = rset.getString("contents_no");
-				String genreCode = rset.getString("genre_code");
-				int watchableAge = rset.getInt("watchable_age");
-				String contentTitle = rset.getString("contents_title");
-				String releaseDate = rset.getString("release_date");
-				String runningTime = rset.getString("running_time");
-				int watchCount = rset.getInt("watch_count");
-				String contentPlot = rset.getString("contents_plot");
-				String originalFilename = rset.getString("original_filename");
-				String renamedFilename = rset.getString("renamed_filename");
+				ContentsWithProducer contents = new ContentsWithProducer();
 				
-				ContentsWithProducer contents = new ContentsWithProducer(contentsNo, genreCode, 
-						watchableAge, contentsNo, releaseDate, runningTime, watchCount, 
-						contentsNo, originalFilename, renamedFilename);
-				
+				contents.setContentsNo(rset.getString("contents_no"));
+				contents.setGenreCode(rset.getString("genre_code"));
+				contents.setWatchableAge(rset.getInt("watchable_age"));
+				contents.setContentsTitle(rset.getString("contents_title"));
+				contents.setRunningTime(rset.getString("running_time"));
+				contents.setWatchCount(rset.getInt("watch_count"));
+				contents.setContentsPlot(rset.getString("contents_plot"));
+				contents.setOriginalFilename(rset.getString("original_filename"));
+				contents.setRenamedFilename(rset.getString("renamed_filename"));
 				contents.setProducerNo(rset.getString("producer_no"));
 				contents.setProducerName(rset.getString("producer_name"));
 				contents.setGender(Gender.valueOf(rset.getString("gender")));
@@ -218,21 +214,16 @@ public class SearchDao {
 			
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
-				String contentsNo = rset.getString("contents_no");
-				String genreCode = rset.getString("genre_code");
-				int watchableAge = rset.getInt("watchable_age");
-				String contentTitle = rset.getString("contents_title");
-				String releaseDate = rset.getString("release_date");
-				String runningTime = rset.getString("running_time");
-				int watchCount = rset.getInt("watch_count");
-				String contentPlot = rset.getString("contents_plot");
-				String originalFilename = rset.getString("original_filename");
-				String renamedFilename = rset.getString("renamed_filename");
-				
-				ContentsWithActor contents = new ContentsWithActor(contentsNo, genreCode, watchableAge, 
-						contentsNo, releaseDate, runningTime, watchCount, contentsNo, 
-						originalFilename, renamedFilename);
-				
+				ContentsWithActor contents = new ContentsWithActor();
+				contents.setContentsNo(rset.getString("contents_no"));
+				contents.setGenreCode(rset.getString("genre_code"));
+				contents.setWatchableAge(rset.getInt("watchable_age"));
+				contents.setContentsTitle(rset.getString("contents_title"));
+				contents.setRunningTime(rset.getString("running_time"));
+				contents.setWatchCount(rset.getInt("watch_count"));
+				contents.setContentsPlot(rset.getString("contents_plot"));
+				contents.setOriginalFilename(rset.getString("original_filename"));
+				contents.setRenamedFilename(rset.getString("renamed_filename"));
 				contents.setActorNo(rset.getString("actor_no"));
 				contents.setActorName(rset.getString("actor_name"));
 				contents.setGender(Gender.valueOf(rset.getString("gender")));
