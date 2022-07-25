@@ -12,9 +12,9 @@ public class RecommendService {
 	
 	private RecommendDao recommendDao = new RecommendDao();
 
-	public List<Contents> recommendContents() {
+	public List<Contents> recommendContents(String genreCode) {
 		Connection conn = getConnection();
-		List<Contents> recommend = recommendDao.recommendContents(conn);
+		List<Contents> recommend = recommendDao.recommendContents(conn, genreCode);
 		
 		close(conn);
 		

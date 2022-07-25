@@ -172,6 +172,10 @@ public class ReviewDao {
 			pstmt.setString(1, (String)param.get("memberId"));
 			pstmt.setInt(2, (int)param.get("start"));
 			pstmt.setInt(3, (int)param.get("end"));
+			System.out.println("memberId="+(String)param.get("memberId"));
+			
+			rset = pstmt.executeQuery();
+			
 			while(rset.next()) {
 				Review review = handleReviewResultSet(rset);
 				list.add(review);

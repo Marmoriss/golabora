@@ -28,9 +28,9 @@ public class MainWatServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-
+			String genreCode = request.getParameter("genreCode");
 			List<Contents> rank = rankService.rankWat();
-			List<Contents> recommend = recommendService.recommendContents();
+			List<Contents> recommend = recommendService.recommendContents(genreCode);
 
 			request.setAttribute("rank", rank);
 			request.setAttribute("recommend", recommend);

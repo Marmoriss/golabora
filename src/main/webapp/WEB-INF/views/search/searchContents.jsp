@@ -41,7 +41,7 @@ window.addEventListener('load', (e) => {
 });
 </script>
 <div class="title">
-    <h2>작품 검색</h2>
+    <h1>작품 검색</h1>
 </div>
 <div class="searchbar">
 	    <select id="searchType">
@@ -98,7 +98,6 @@ window.addEventListener('load', (e) => {
 		            <input type="checkbox" name="ottNo" value="O3" id="ottCheck3"/>  
 		            <label for="ottCheck3">왓챠</label>
 		        </div>
-		        <br />
 		        <button type="submit">검색</button>
 	        </form>
 	    </div>

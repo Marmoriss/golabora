@@ -232,7 +232,7 @@ div.report-reason label{
 }
 
 /******admin-review-list****/
-section#review-list-container{
+section.review-list-container{
 	position: relative;
 	top: -450px;
 	left: 400px;
@@ -248,10 +248,11 @@ div#reviewChk{
 div#reviewChk:hover{
 	color: #ffffff;
 }
-div#admin-review-list h1{
+div#admin-review-list h1,div#member-total-review-list h1{
 	color: #ffffff;
 }
-.tbl-admin-review-list{
+
+.tbl-admin-review-list,.tbl-member-review-list{
 	position: relative;
 	border:1px solid #ffffff; 
 	width:500px; 
@@ -265,7 +266,7 @@ div#admin-review-list h1{
 	text-align: center;
 	margin: 30px 0;
 }
-div#adminPagebar{
+div#adminPagebar,div#memberPagebar{
 	margin:10px 0; 
 	text-align:center; 
 	background-color: transparent; 
@@ -277,7 +278,11 @@ div#adminPagebar span.cPage{
 	color: #ffffff; 
 	margin-right: 5px;
 	}
-div#adminPagebar a{margin-right: 5px;}
+div#memberPagebar span.cPage{
+	color: #ffffff; 
+	margin-right: 5px;
+}
+div#adminPagebar a,div#memberPagebar a{margin-right: 5px;}
 
 .tbl-admin-review-list input[type="submit"]{
 	background-color: #c0c0c0;
@@ -290,6 +295,20 @@ div#adminPagebar a{margin-right: 5px;}
 	cursor: pointer;
 }
 .tbl-admin-review-list input[type="submit"]:hover{
+	background-color: #9e5abc;
+	color: #ffffff;
+}
+.tbl-member-review-list input[type="submit"]{
+	background-color: #c0c0c0;
+	width:80px;
+	height: 30px;
+	border-radius: 15px;
+	border:1px solid #ffffff; 
+	font-weight: bold;
+	color: #363636;
+	cursor: pointer;
+}
+.tbl-member-review-list input[type="submit"]:hover{
 	background-color: #9e5abc;
 	color: #ffffff;
 }
