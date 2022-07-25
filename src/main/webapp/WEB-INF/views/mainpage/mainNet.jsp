@@ -26,9 +26,20 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
     <!-- ott logo -->
     <nav id="ranking-nav">
         <ul>
-            <li onclick="location.href='<%=request.getContextPath()%>/mainNet';" /><img src="./images/넷플릭스.png" alt="" /></li>
-            <li onclick="location.href='<%=request.getContextPath()%>/mainWat';" /><img src="./images/왓챠.png" alt="" /></li>
-            <li onclick="location.href='<%=request.getContextPath()%>/mainWav';" /><img src="./images/웨이브.png" alt="" /></li>
+            <li
+                onclick="location.href='<%=request.getContextPath()%>/mainNet?genreCode=<%= loginMember != null ? loginMember.getGenreCode() : ""%>';" />
+            <img src="./images/넷플릭스.png" alt="" />
+            </li>
+            <li
+                onclick="location.href='<%=request.getContextPath()%>/mainWat?genreCode=<%= loginMember != null ? loginMember.getGenreCode() : ""%>';" />
+            <img src="./images/왓챠.png" alt="" />
+            </a>
+            </li>
+            <li
+                onclick="location.href='<%=request.getContextPath()%>/mainWav?genreCode=<%= loginMember != null ? loginMember.getGenreCode() : ""%>';" />
+            <img src="./images/웨이브.png" alt="" />
+            </a>
+            </li>
         </ul>
     </nav>
     <div id="main-ranking-list">
@@ -82,7 +93,7 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
                             <input class="btn1" type="button" value="서비스 관리" 
                                 onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
                             <input class="btn1" type="button" value="콘텐츠 관리" 
-                                onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
+                                onclick="location.href='<%= request.getContextPath() %>/contents/contentsInsert';"/>
                             <input class="btn1" type="button" value="로그아웃" 
                                 onclick="location.href='<%= request.getContextPath() %>/member/logout';"/>
                     </div>
@@ -99,15 +110,17 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
         for(Contents c : recommend){
             int j = 1;          
             if(recommend != null || recommend.contains(loginMember.getGenreCode())){
-            // 상세 페이지 주소 링크 미 기입
+           
         %>
-            <li>
+            <li> <a href="<%=request.getContextPath()%>/contents/detailView?no=<%=c.getContentsNo()%>">
                     <div class="main-recommend-img">
                     <img src="<%= request.getContextPath() %>/images/<%= c.getOriginalFilename() %>" alt="<%= c.getContentsTitle() %>" />
+                   
                     </div>
                     <div class="main-recommend-title">
                         <span><%= c.getContentsTitle() %></span>
                     </div>
+                 </a>
         </li>
             
         <% j++;

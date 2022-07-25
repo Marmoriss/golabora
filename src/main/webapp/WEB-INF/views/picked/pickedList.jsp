@@ -13,6 +13,7 @@ List<PickedProducerExt> pickedProducerList = (List<PickedProducerExt>) request.g
 
 %>
 <section id="picked-list-wrap">
+	<h1>나의 찜 목록 보기</h1>
     <div id="picked-contents-title">
         <h3>내가 찜한 콘텐츠❤</h3>
     </div>
@@ -39,7 +40,7 @@ List<PickedProducerExt> pickedProducerList = (List<PickedProducerExt>) request.g
 	        <% }
             } %>
     </div>
-    <hr />
+        <br /><br />
     <div id="picked-actor-title">
         <h3>내가 찜한 배우❤</h3>
     </div>
@@ -55,7 +56,7 @@ List<PickedProducerExt> pickedProducerList = (List<PickedProducerExt>) request.g
             <% } %>
         <% } %>
     </div>
-    <hr />
+    <br /><br />
     <div id="picked-producer-title">
         <h3>내가 찜한 감독❤</h3>
     </div>
