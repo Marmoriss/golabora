@@ -56,8 +56,7 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
             </ul>
         <%  }   %>
     </div>
-    </div>
-    
+</div>
         <!-- 건우 start -->
         <!-- login -->
         <div id="main-login" class = "mainlogin">
@@ -101,34 +100,38 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
         <% } %>
         </div>
         <!-- 건우 end -->
-<!-- recommend -->
-<div id="main-recommend">
-    <%
-    if (loginMember == null) {
-    %>
-    <%
-    } else {
-    %>
-    <h3>나를 위한 콘텐츠 추천</h3>
-    <ul>
-<% for (Contents c : recommend) { int j = 1;
-                if (recommend != null || recommend.contains(loginMember.getGenreCode())) {  %>
-                    <li><a href="<%=request.getContextPath()%>/contents/detailView?no=<%=c.getContentsNo()%>">
-                        <div class="main-recommend-img"> <img src="<%=request.getContextPath()%>/images/<%=c.getOriginalFilename()%>"
-                            alt="<%=c.getContentsTitle()%>" />
-                        </div>
-                        <div class="main-recommend-title">
-                        <span><%=c.getContentsTitle()%></span>
-                        </div>
-                    </a>    
-                    </li>
-        <% j++; if (j == 6)
-            break;
-        } } } %>
-    </ul>
-
-    </ul>
-</div>
+        <!-- recommend -->
+        <div id="main-recommend">
+        <% if(loginMember == null){ %>
+        <% } else{ %>
+            <h3>나를 위한 콘텐츠 추천</h3>
+            <ul>    
+        <%  
+        for(Contents c : recommend){
+            int j = 1;          
+            if(recommend != null || recommend.contains(loginMember.getGenreCode())){
+            // 상세 페이지 주소 링크 미 기입
+        %>
+            <li>
+                    <div class="main-recommend-img">
+                    <img src="<%= request.getContextPath() %>/images/<%= c.getOriginalFilename() %>" alt="<%= c.getContentsTitle() %>" />
+                    </div>
+                    <div class="main-recommend-title">
+                        <span><%= c.getContentsTitle() %></span>
+                    </div>
+        </li>
+            
+        <% j++;
+                if(j == 6) break;
+        
+                }
+            }
+        }
+        %>
+            </ul>
+                
+            </ul>
+        </div>
 
 <!-- playlist -->
 <div id="main-playlist">
