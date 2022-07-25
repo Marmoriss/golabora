@@ -40,19 +40,28 @@ public class SearchDao {
 
 		try {
 			// ott를 여러개 선택했을 때
-			if (ottNo.length > 1) {
+			// 3개 다 선택
+			if (ottNo.length == 3) {
 				String sql = prop.getProperty("findContentsByOttNo");
+				// select * from contents c join contents_by_ott ott on c.contents_no = ott.contents_no where ott.ott_code in (?, ?, ?)
 				String lastCode = ottNo[ottNo.length - 1];
 
 				pstmt = conn.prepareStatement(sql);
-
 				pstmt.setString(1, ottNo[0]);
 				pstmt.setString(2, lastCode);
+				
+				// 2개만 선택
+			} else if(ottNo.length == 2) {
+				String sql = prop.getProperty("findContentsByTwoOttNo");
+				// select * from contents c join contents_by_ott ott on c.contents_no = ott.contents_no where ott.ott_code in (?, ?)
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, ottNo[0]);
+				pstmt.setString(2, ottNo[1]);
 				
 				// ott 1개만 선택했을 때
 			} else {
 				String sql = prop.getProperty("findContentsByOneOttNo");
-
+				// select * from contents c join contents_by_ott ott on c.contents_no = ott.contents_no where ott.ott_code = ?
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, ottNo[0]);
 			}
@@ -98,6 +107,7 @@ public class SearchDao {
 			// 장르를 여러개 선택했을 때
 			if (genreCode.length > 1) {
 				String sql = prop.getProperty("findContentsByGenreCode");
+				// select * from ( select row_number() over(partition by contents_title order by contents_title) as rn, g.* from (select * from contents c join genre g on c.genre_code = g.genre_code where g.genre_code between ? and ?) g ) where rn = 1
 				String lastCode = genreCode[genreCode.length - 1];
 
 				pstmt = conn.prepareStatement(sql);
@@ -108,7 +118,7 @@ public class SearchDao {
 				// 장르 1개만 선택했을 때
 			} else {
 				String sql = prop.getProperty("findContentsByOneGenreCode");
-
+				// select * from ( select row_number() over(partition by contents_title order by contents_title) as rn, g.* from (select * from contents c join genre g on c.genre_code = g.genre_code where g.genre_code = ?) g ) where rn = 1
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, genreCode[0]);
 			}
