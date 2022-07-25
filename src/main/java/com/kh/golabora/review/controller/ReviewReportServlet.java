@@ -36,7 +36,7 @@ public class ReviewReportServlet extends HttpServlet {
 	}
 
 	/**
-	 * POST db review reported 테이블에 insert 요청
+	 * POST db ReportedReview 테이블에 insert 요청
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String contentsNo = request.getParameter("contentsNo");
