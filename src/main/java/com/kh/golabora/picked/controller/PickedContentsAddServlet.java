@@ -32,11 +32,9 @@ public class PickedContentsAddServlet extends HttpServlet {
 			String memberId = request.getParameter("memberId");
 			String contentsNo = request.getParameter("contentsNo");
 			
-			PickedContents pickedContents = new PickedContents(contentsNo, memberId);
+			int result = pickedService.insertContents(memberId, contentsNo);
 			
-			int result = pickedService.insertContents(pickedContents);
-			
-			String referrer = request.getHeader("referer");
+			String referrer = request.getHeader("Referer");
 			response.sendRedirect(referrer);
 			
 		} catch (Exception e) {

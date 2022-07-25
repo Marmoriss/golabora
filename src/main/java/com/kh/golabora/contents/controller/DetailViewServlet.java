@@ -10,10 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.golabora.common.HelloGolaboraUtils;
 import com.kh.golabora.contents.model.dto.ContentsInfo;
 import com.kh.golabora.contents.model.service.ContentsService;
+import com.kh.golabora.member.model.dto.Member;
 import com.kh.golabora.review.model.dto.Review;
 
 /**
@@ -46,6 +48,14 @@ public class DetailViewServlet extends HttpServlet {
 			param.put("start", start); 
 			param.put("end", end); 
 			param.put("contentsNo", contentsNo);
+			
+			HttpSession session = request.getSession();
+			Member loginMember = (Member) session.getAttribute("loginMember");
+			String memberId = null;
+			if(loginMember != null)
+				memberId = loginMember.getMemberId();
+			
+			
 			// 2. 업무로직
 			// 페이지 로딩을 위한 정보 - 뷰테이블 쿼리 사용
 			List<ContentsInfo> detailPage = contentsService.findOneContents(contentsNo);
@@ -67,6 +77,8 @@ public class DetailViewServlet extends HttpServlet {
 			String pagebar = HelloGolaboraUtils.getPagebar(cPage, numPerPage, totalContent, url);
 			System.out.println("pagebar= "+pagebar);
 			System.out.println("url="+url );
+			
+			// 찜목록 받기
 			
 			// 3. view단 처리
 			request.setAttribute("reviewList", reviewList);

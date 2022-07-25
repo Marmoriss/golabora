@@ -44,6 +44,105 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
 	</nav>
 	<div id="main-ranking-list">
 
+<<<<<<< HEAD
+        <% if(rank == null || rank.isEmpty()){ %>
+        <ul>
+            <li colspan="10" align="center"> 검색 결과가 없습니다. </li>
+        </ul>
+        <%
+        } else { %>
+                <ul>
+        <%
+                int i = 1;
+                for(Contents c : rank){
+        %>
+                    <li><%= i %>  <%= c.getContentsTitle() %></li>
+                    
+        <%      i++;
+                if(i == 6) break;
+                    }
+        %>
+                </ul>
+        <%      }
+        %>
+            </div>
+        </div>
+        <!-- 건우 start -->
+        <!-- login -->
+        <div id="main-login" class = "mainlogin">
+            <%if(loginMember == null){ %>
+            <header>GOLABORA</header>
+            <!-- 일단 button 으로 만들어놨어요 -->
+            <input type="button" value="로그인 하러가기" 
+                                onclick="location.href='<%= request.getContextPath() %>/member/login';"/>   
+            <p>아직 GOLABORA 회원이 아니시라면?</p>
+            <span><a href="http://localhost:9090/golabora/member/memberEnroll">지금 회원가입 하기</a></span>
+        
+        <% } else if(loginMember != null && loginMember.getMemberRole() == MemberRole.U) { %>
+        <header>GOLABORA</header>
+        
+                    <div >
+                            <h3><%= loginMember.getMemberName() %>님 환영합니다.</h3>
+                    </div>
+                    <div>
+                            <input class="btn1" type="button" value="마이페이지" 
+                                onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
+                            <input class="btn1" type="button" value="나의 찜목록 보러가기" 
+                                onclick="location.href='<%= request.getContextPath() %>/member/pickedList';"/>
+                            <input class="btn1" type="button" value="로그아웃" 
+                                onclick="location.href='<%= request.getContextPath() %>/member/logout';"/>
+                    </div>
+        
+        <% } else{ %>
+        <header>GOLABORA</header>
+        
+                    <div >
+                            <h3><%= loginMember.getMemberName() %>님 환영합니다.</h3>
+                    </div>
+                    <div>
+                            <input class="btn1" type="button" value="서비스 관리" 
+                                onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
+                            <input class="btn1" type="button" value="콘텐츠 관리" 
+                                onclick="location.href='<%= request.getContextPath() %>/member/memberView';"/>
+                            <input class="btn1" type="button" value="로그아웃" 
+                                onclick="location.href='<%= request.getContextPath() %>/member/logout';"/>
+                    </div>
+        <% } %>
+        </div>
+        <!-- 건우 end -->
+        <!-- recommend -->
+        <div id="main-recommend">
+        <% if(loginMember == null){ %>
+        <% } else{ %>
+            <h3>나를 위한 콘텐츠 추천</h3>
+            <ul>    
+        <%  
+        for(Contents c : recommend){
+            int j = 1;          
+            if(recommend != null || recommend.contains(loginMember.getGenreCode())){
+            // 상세 페이지 주소 링크 미 기입
+        %>
+            <li>
+                    <div class="main-recommend-img">
+                    <img src="<%= request.getContextPath() %>/images/<%= c.getOriginalFilename() %>" alt="<%= c.getContentsTitle() %>" />
+                    </div>
+                    <div class="main-recommend-title">
+                        <span><%= c.getContentsTitle() %></span>
+                    </div>
+        </li>
+            
+        <% j++;
+                if(j == 6) break;
+        
+                }
+            }
+        }
+        %>
+            </ul>
+                
+            </ul>
+        </div>
+=======
 		<% if (rank == null || rank.isEmpty()) { %>
 			<ul><li colspan="10" align="center">검색 결과가 없습니다.</li></ul>
 		<% } else { %>
@@ -72,6 +171,7 @@ List<Contents> recommend = (List<Contents>) request.getAttribute("recommend");
 	<span><a
 		href="http://localhost:9090/golabora/member/memberEnroll">지금 회원가입
 			하기</a></span>
+>>>>>>> branch 'master' of https://github.com/Marmoriss/golabora.git
 
 	<%
 	} else if (loginMember != null && loginMember.getMemberRole() == MemberRole.U) {
