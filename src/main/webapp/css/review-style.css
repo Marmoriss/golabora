@@ -282,7 +282,7 @@ div#memberPagebar span.cPage{
 	color: #ffffff; 
 	margin-right: 5px;
 }
-div#adminPagebar a,div#memberPagebar a{margin-right: 5px;}
+div#adminPagebar a,div#memberPagebar a{margin-right: 5px; color: #6302aa;}
 
 .tbl-admin-review-list input[type="submit"]{
 	background-color: #c0c0c0;
