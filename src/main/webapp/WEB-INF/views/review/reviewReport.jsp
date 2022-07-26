@@ -22,7 +22,7 @@
    		name="reviewReportFrm"
    		action="<%= request.getContextPath()%>/review/reviewReport"
    		method="POST"
-   		onsubmit="return confirm('리뷰를 정말 신고하시겠습니까?(리뷰신고 후에는 취소할 수 없습니다.');">
+   		onsubmit="return confirm('🚨 리뷰를 정말 신고하시겠습니까? 리뷰신고 후에는 취소할 수 없습니다.');">
    		
    			<!-- 신고자 아이디 전송 -->
       		<input type="hidden" name="reporterId" value="<%= loginMember.getMemberId()%>" />
