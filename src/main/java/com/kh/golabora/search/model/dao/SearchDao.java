@@ -43,7 +43,7 @@ public class SearchDao {
 			// 3개 다 선택
 			if (ottNo.length == 3) {
 				String sql = prop.getProperty("findContentsByOttNo");
-				// select * from contents c join contents_by_ott ott on c.contents_no = ott.contents_no where ott.ott_code in (?, ?, ?)
+				// select * from contents c join contents_by_ott ott on c.contents_no = ott.contents_no where ott.ott_code between ? and ?
 				String lastCode = ottNo[ottNo.length - 1];
 
 				pstmt = conn.prepareStatement(sql);
